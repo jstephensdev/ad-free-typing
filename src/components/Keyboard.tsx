@@ -1,21 +1,21 @@
 import { keyboardConfig, key } from '../keyboardConfig';
 
 export const Keyboard = () => {
-    const keyRows: Array<key> = keyboardConfig;
+    const keyRows: Array<Array<key>> = keyboardConfig;
 
     return (
         <>
             <table>
                 <tbody>
-                    <tr>
-                        <code>
-                            {keyRows.map((row: key) => (
-                                <td className={row.class} key={row.id}>
-                                    {row.name}
+                    {keyRows.map((row: Array<key>, index) => (
+                        <tr key={index}>
+                            {row.map((key: key) => (
+                                <td className={key.class} key={key.id}>
+                                    {key.name}
                                 </td>
                             ))}
-                        </code>
-                    </tr>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         </>
