@@ -3,9 +3,28 @@ import './css/App.css';
 
 export const App = () => {
     return (
-        <div className="App">
-            <header className="App-header">
-                <p>Ad Free Typing</p>
+        <div className="app">
+            <header className="app-header">
+                <h1>Ad Free Typing</h1>
+                <section className="stats">
+                    <table>
+                        <tr>
+                            <thead>
+                                <td>WPM</td>
+                                <td>Error Rate</td>
+                                <td>Success Rate</td>
+                            </thead>
+                            <tbody>
+                                <td>TBD</td>
+                                <td>TBD</td>
+                                <td>TBD</td>
+                            </tbody>
+                        </tr>
+                    </table>
+                </section>
+                <section className="what-to-type-section">
+                    <p>What to practice typing</p>
+                </section>
                 <Keyboard />
             </header>
         </div>

@@ -8,7 +8,7 @@ export const Keyboard = () => {
             <table>
                 <tbody>
                     {keyRows.map((row: Array<key>, index) => (
-                        <tr key={index}>
+                        <tr className="keyboard-row" key={index}>
                             {row.map((key: key) => (
                                 <td className={key.class} key={key.id}>
                                     {key.name}
