@@ -6,6 +6,11 @@ export type key = {
 export const keyboardConfig: Array<Array<key>> = [
     [
         {
+            id: 39,
+            name: 'Tab',
+            class: 'keyboard-key-default',
+        },
+        {
             id: 1,
             name: 'q',
             class: 'keyboard-key-default',
@@ -53,6 +58,21 @@ export const keyboardConfig: Array<Array<key>> = [
         {
             id: 10,
             name: 'p',
+            class: 'keyboard-key-default',
+        },
+        {
+            id: 36,
+            name: ['{', '['],
+            class: 'keyboard-key-default',
+        },
+        {
+            id: 37,
+            name: ['}', ']'],
+            class: 'keyboard-key-default',
+        },
+        {
+            id: 38,
+            name: ['|', '\\'],
             class: 'keyboard-key-default',
         },
     ],
