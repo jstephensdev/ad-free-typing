@@ -1,6 +1,6 @@
 export type key = {
     id: number;
-    name: string;
+    name: Array<string> | string;
     class: string;
 };
 export const keyboardConfig: Array<Array<key>> = [
@@ -58,6 +58,11 @@ export const keyboardConfig: Array<Array<key>> = [
     ],
     [
         {
+            id: 35,
+            name: 'CapsLock',
+            class: 'keyboard-key-default',
+        },
+        {
             id: 11,
             name: 'a',
             class: 'keyboard-key-default',
@@ -102,8 +107,28 @@ export const keyboardConfig: Array<Array<key>> = [
             name: 'l',
             class: 'keyboard-key-default',
         },
+        {
+            id: 32,
+            name: [':', ';'].join('\n'),
+            class: 'keyboard-key-default',
+        },
+        {
+            id: 33,
+            name: ['"', "'"].join('\n'),
+            class: 'keyboard-key-default',
+        },
+        {
+            id: 34,
+            name: 'Enter',
+            class: 'keyboard-key-default',
+        },
     ],
     [
+        {
+            id: 31,
+            name: ['Shift'].join('\n'),
+            class: 'keyboard-key-default',
+        },
         {
             id: 20,
             name: 'z',
@@ -137,6 +162,26 @@ export const keyboardConfig: Array<Array<key>> = [
         {
             id: 26,
             name: 'm',
+            class: 'keyboard-key-default',
+        },
+        {
+            id: 27,
+            name: ['<', ','].join('\n'),
+            class: 'keyboard-key-default',
+        },
+        {
+            id: 28,
+            name: ['<', '.'].join('\n'),
+            class: 'keyboard-key-default',
+        },
+        {
+            id: 29,
+            name: ['?', '/'].join('\n'),
+            class: 'keyboard-key-default',
+        },
+        {
+            id: 30,
+            name: ['Shift'].join('\n'),
             class: 'keyboard-key-default',
         },
     ],

@@ -1,31 +1,44 @@
 .app {
-    text-align: center;
-}
-
-.app-header {
-    background-color: #282c34;
-    min-height: 100vh;
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    text-align: center;
     justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
 }
 
-.what-to-type-section {
+.stats-section {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.stats-row {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.typing-text-section {
     padding: 20px;
     border: solid;
 }
 
 .keyboard-key-default {
+    display: flex;
     padding: 20px;
-    border: solid;
+    border: 3px solid black;
+    color: white;
+    background: rgb(0, 0, 0, 0.7);
+    text-shadow: 0 0 10px #ffc600;
     margin-right: 5px;
+}
+
+.key-pressed {
+    transform: scale(1.1);
+    border-color: #ffc600;
+    box-shadow: 0 0 10px #ffc600;
 }
 
 .keyboard-row {
     display: flex;
     justify-content: center;
-    margin-top: 10px;
+    margin: 10px;
 }

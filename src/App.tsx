@@ -6,23 +6,22 @@ export const App = () => {
         <div className="app">
             <header className="app-header">
                 <h1>Ad Free Typing</h1>
-                <section className="stats">
+                <section className="stats-section">
                     <table>
-                        <tr>
-                            <thead>
-                                <td>WPM</td>
-                                <td>Error Rate</td>
-                                <td>Success Rate</td>
-                            </thead>
-                            <tbody>
-                                <td>TBD</td>
-                                <td>TBD</td>
-                                <td>TBD</td>
-                            </tbody>
+                        <tr className="stats-row">
+                            <td>WPM</td>
+                            <td>Error Rate</td>
+                            <td>Success Rate</td>
+                        </tr>
+
+                        <tr className="stats-row">
+                            <td>TBD</td>
+                            <td>TBD</td>
+                            <td>TBD</td>
                         </tr>
                     </table>
                 </section>
-                <section className="what-to-type-section">
+                <section className="typing-text-section">
                     <p>What to practice typing</p>
                 </section>
                 <Keyboard />
