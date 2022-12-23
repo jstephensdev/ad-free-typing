@@ -14,7 +14,7 @@ export const Keyboard = () => {
     const initialText = faker.lorem.paragraph();
 
     const [leftPadding, setLeftPadding] = useState(
-        new Array(40).fill(' ').join('')
+        new Array(30).fill(' ').join('')
     );
     const [outgoingChars, setOutgoingChars] = useState('');
     const [currentChar, setCurrentChar] = useState(initialText.charAt(0));
@@ -101,10 +101,10 @@ export const Keyboard = () => {
                 }%`}</h2>
                 <p className="text-section">
                     <span className="character-out">
-                        {(leftPadding + outgoingChars).slice(-40)}
+                        {(leftPadding + outgoingChars).slice(-30)}
                     </span>
                     <span className="character-current">{currentChar}</span>
-                    <span>{incomingChars.substring(0, 40)}</span>
+                    <span>{incomingChars.substring(0, 30)}</span>
                 </p>
             </section>
             <table>
