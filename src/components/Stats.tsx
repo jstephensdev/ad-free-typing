@@ -1,23 +1,11 @@
 export const Stats = () => {
+    const wpm = 'wpm';
+    const successRate = 'success rate';
+    const errorRate = 'error rate';
     return (
         <>
             <section className="stats-section">
-                <table>
-                    <thead>
-                        <tr className="stats-row">
-                            <td>WPM</td>
-                            <td>Success Rate</td>
-                            <td>Error Rate</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr className="stats-row">
-                            <td>TBD</td>
-                            <td>TBD</td>
-                            <td>TBD</td>
-                        </tr>
-                    </tbody>
-                </table>
+              <p>{`WPM: ${wpm} | Success Rate: ${successRate} | Error Rate: ${errorRate}`}</p>
             </section>
         </>
     );

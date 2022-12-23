@@ -9,17 +9,6 @@
     padding: 20px;
 }
 
-.stats-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 10px;
-}
-
-.stats-row > td {
-    display: flex;
-    margin: 10px;
-}
-
 .typing-text-section {
     padding: 20px;
     border: solid;
