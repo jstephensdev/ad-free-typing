@@ -6,7 +6,6 @@
 
 .stats-section {
     display: flex;
-    /* justify-content: center; */
     padding: 20px;
 }
 
@@ -24,6 +23,7 @@
 .typing-text-section {
     padding: 20px;
     border: solid;
+    margin-bottom: 30px;
 }
 
 .keyboard-key-default {
@@ -34,6 +34,11 @@
     background: rgb(0, 0, 0, 0.7);
     text-shadow: 0 0 10px #ffc600;
     margin-right: 5px;
+}
+
+.keyboard-key-double {
+    display: flex;
+    flex-direction: column;
 }
 
 .key-pressed {

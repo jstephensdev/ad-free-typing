@@ -3,16 +3,20 @@ export const Stats = () => {
         <>
             <section className="stats-section">
                 <table>
-                    <tr className="stats-row">
-                        <td>WPM</td>
-                        <td>Error Rate</td>
-                        <td>Success Rate</td>
-                    </tr>
-                    <tr className="stats-row">
-                        <td>TBD</td>
-                        <td>TBD</td>
-                        <td>TBD</td>
-                    </tr>
+                    <thead>
+                        <tr className="stats-row">
+                            <td>WPM</td>
+                            <td>Success Rate</td>
+                            <td>Error Rate</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr className="stats-row">
+                            <td>TBD</td>
+                            <td>TBD</td>
+                            <td>TBD</td>
+                        </tr>
+                    </tbody>
                 </table>
             </section>
         </>

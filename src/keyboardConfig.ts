@@ -6,6 +6,78 @@ export type key = {
 export const keyboardConfig: Array<Array<key>> = [
     [
         {
+            id: 48,
+            name: ['~', '`'],
+            class: 'keyboard-key-default',
+        },
+        {
+            id: 50,
+            name: ['!', '1'],
+            class: 'keyboard-key-default',
+        },
+        {
+            id: 51,
+            name: ['@', '2'],
+            class: 'keyboard-key-default',
+        },
+        {
+            id: 52,
+            name: ['#', '3'],
+            class: 'keyboard-key-default',
+        },
+        {
+            id: 53,
+            name: ['$', '4'],
+            class: 'keyboard-key-default',
+        },
+        {
+            id: 54,
+            name: ['%', '5'],
+            class: 'keyboard-key-default',
+        },
+        {
+            id: 55,
+            name: ['^', '6'],
+            class: 'keyboard-key-default',
+        },
+        {
+            id: 56,
+            name: ['&', '7'],
+            class: 'keyboard-key-default',
+        },
+        {
+            id: 57,
+            name: ['*', '8'],
+            class: 'keyboard-key-default',
+        },
+        {
+            id: 58,
+            name: ['(', '9'],
+            class: 'keyboard-key-default',
+        },
+        {
+            id: 59,
+            name: [')', '0'],
+            class: 'keyboard-key-default',
+        },
+        {
+            id: 60,
+            name: ['_', '-'],
+            class: 'keyboard-key-default',
+        },
+        {
+            id: 61,
+            name: ['+', '='],
+            class: 'keyboard-key-default',
+        },
+        {
+            id: 62,
+            name: 'Backspace',
+            class: 'keyboard-key-default',
+        },
+    ],
+    [
+        {
             id: 39,
             name: 'Tab',
             class: 'keyboard-key-default',
@@ -129,12 +201,12 @@ export const keyboardConfig: Array<Array<key>> = [
         },
         {
             id: 32,
-            name: [':', ';'].join('\n'),
+            name: [':', ';'],
             class: 'keyboard-key-default',
         },
         {
             id: 33,
-            name: ['"', "'"].join('\n'),
+            name: ['"', "'"],
             class: 'keyboard-key-default',
         },
         {
@@ -146,7 +218,7 @@ export const keyboardConfig: Array<Array<key>> = [
     [
         {
             id: 31,
-            name: ['Shift'].join('\n'),
+            name: 'Shift',
             class: 'keyboard-key-default',
         },
         {
@@ -186,22 +258,64 @@ export const keyboardConfig: Array<Array<key>> = [
         },
         {
             id: 27,
-            name: ['<', ','].join('\n'),
+            name: ['<', ','],
             class: 'keyboard-key-default',
         },
         {
             id: 28,
-            name: ['<', '.'].join('\n'),
+            name: ['<', '.'],
             class: 'keyboard-key-default',
         },
         {
             id: 29,
-            name: ['?', '/'].join('\n'),
+            name: ['?', '/'],
             class: 'keyboard-key-default',
         },
         {
             id: 30,
-            name: ['Shift'].join('\n'),
+            name: 'Shift',
+            class: 'keyboard-key-default',
+        },
+    ],
+    [
+        {
+            id: 40,
+            name: 'Fn',
+            class: 'keyboard-key-default',
+        },
+        {
+            id: 41,
+            name: 'Ctrl',
+            class: 'keyboard-key-default',
+        },
+        {
+            id: 42,
+            name: 'Super',
+            class: 'keyboard-key-default',
+        },
+        {
+            id: 43,
+            name: 'Alt',
+            class: 'keyboard-key-default',
+        },
+        {
+            id: 44,
+            name: 'SPACE',
+            class: 'keyboard-key-default',
+        },
+        {
+            id: 45,
+            name: 'Alt',
+            class: 'keyboard-key-default',
+        },
+        {
+            id: 46,
+            name: 'PrtSc',
+            class: 'keyboard-key-default',
+        },
+        {
+            id: 47,
+            name: 'Ctrl',
             class: 'keyboard-key-default',
         },
     ],
