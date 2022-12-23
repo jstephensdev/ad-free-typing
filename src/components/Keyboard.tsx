@@ -5,6 +5,12 @@ import { faker } from '@faker-js/faker';
 export const Keyboard = () => {
     const keyRows: Array<Array<key>> = keyboardConfig;
 
+    const [startTime, setStartTime] = useState(0);
+    const [wordCount, setWordCount] = useState(0);
+    const [wpm, setWpm] = useState('0.00');
+
+    const currentTime = () => new Date().getTime();
+
     const initialText = faker.lorem.paragraph();
 
     const [leftPadding, setLeftPadding] = useState(
@@ -18,6 +24,9 @@ export const Keyboard = () => {
 
     const [keyPressed, setKeyPressed] = useState('');
 
+    const [accuracy, setAccuracy] = useState('0.00');
+    const [typedChars, setTypedChars] = useState('');
+
     const downHandler = ({ key }: any): void => {
         setKeyPressed(key);
     };
@@ -29,14 +38,19 @@ export const Keyboard = () => {
     useEffect(() => {
         let updatedOutgoingChars = outgoingChars;
         let updatedIncomingChars = incomingChars;
+        const updatedTypedChars = typedChars + keyPressed;
 
         if (keyPressed === currentChar) {
+            if (startTime === 0) {
+                setStartTime(currentTime());
+            }
             if (leftPadding.length > 0) {
                 setLeftPadding(leftPadding.substring(1));
             }
             updatedOutgoingChars += currentChar;
-            setOutgoingChars(updatedOutgoingChars);
 
+            setOutgoingChars(updatedOutgoingChars);
+            setTypedChars(updatedTypedChars);
             setCurrentChar(incomingChars.charAt(0));
 
             updatedIncomingChars = incomingChars.substring(1);
@@ -44,7 +58,30 @@ export const Keyboard = () => {
                 updatedIncomingChars += ' ' + initialText;
             }
             setIncomingChars(updatedIncomingChars);
+            if (incomingChars.charAt(0) === ' ') {
+                setWordCount(wordCount + 1);
+                const durationInMinutes = (currentTime() - startTime) / 60000.0;
+                setWpm(((wordCount + 1) / durationInMinutes).toFixed(2));
+            }
         }
+
+        if (
+            updatedOutgoingChars.length <= updatedTypedChars.length &&
+            updatedOutgoingChars.length > 0 &&
+            keyPressed !== 'Enter' &&
+            keyPressed !== 'Shift' &&
+            keyPressed !== 'Ctrl'
+        ) {
+            setTypedChars(updatedTypedChars);
+            console.log(updatedOutgoingChars.length, updatedTypedChars.length);
+            setAccuracy(
+                (
+                    (updatedOutgoingChars.length * 100) /
+                    updatedTypedChars.length
+                ).toFixed(2)
+            );
+        }
+
         window.addEventListener('keydown', downHandler);
         window.addEventListener('keyup', upHandler);
 
@@ -58,6 +95,11 @@ export const Keyboard = () => {
     return (
         <>
             <section>
+                <h2>{`WPM: ${wpm} | ACC: ${accuracy}% | Error Rate: ${
+                    accuracy === '0.00'
+                        ? '0.00'
+                        : (100 - Number(accuracy)).toFixed(2)
+                }%`}</h2>
                 <p className="text-section">
                     <span className="character-out">
                         {(leftPadding + outgoingChars).slice(-40)}
