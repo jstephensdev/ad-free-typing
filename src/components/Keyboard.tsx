@@ -10,9 +10,13 @@ export const Keyboard = () => {
         setKeyPressed(key);
     };
 
+    const upHandler = () => {
+        setKeyPressed('');
+    };
+
     useEffect(() => {
-        console.log(keyPressed);
         window.addEventListener('keydown', downHandler);
+        window.addEventListener('keyup', upHandler);
     }, [keyPressed]);
 
     return (
@@ -22,9 +26,24 @@ export const Keyboard = () => {
                     {keyRows.map((row: Array<key>, index) => (
                         <tr className="keyboard-row" key={index}>
                             {row.map((key: key) => (
-                                <td className={key.class} key={key.id}>
+                                <td
+                                    className={
+                                        keyPressed === key.name
+                                            ? key.class + ' key-pressed'
+                                            : key.class
+                                    }
+                                    key={`${key.id} + ${key.name}`}
+                                >
                                     {Array.isArray(key.name) ? (
-                                        <span className="keyboard-key-double">
+                                        <span
+                                            className={
+                                                keyPressed === key.name[0] ||
+                                                keyPressed === key.name[1]
+                                                    ? 'keyboard-key-double' +
+                                                      ' key-pressed'
+                                                    : 'keyboard-key-double'
+                                            }
+                                        >
                                             <span>{key.name[0]}</span>
                                             <span>{key.name[1]}</span>
                                         </span>
