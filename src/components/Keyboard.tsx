@@ -73,7 +73,6 @@ export const Keyboard = () => {
             keyPressed !== 'Ctrl'
         ) {
             setTypedChars(updatedTypedChars);
-            console.log(updatedOutgoingChars.length, updatedTypedChars.length);
             setAccuracy(
                 (
                     (updatedOutgoingChars.length * 100) /
