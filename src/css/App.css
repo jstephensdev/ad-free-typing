@@ -1,7 +1,8 @@
 .app {
     display: flex;
     text-align: center;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .stats-section {
@@ -9,10 +10,12 @@
     padding: 20px;
 }
 
-.typing-text-section {
-    padding: 20px;
-    border: solid;
-    margin-bottom: 30px;
+.text-section {
+    padding: 10px;
+    margin-bottom: 10px;
+    color: rgb(0, 0, 0, 0.7);
+    text-shadow: 0 0 10px #ffc600;
+    font-size: 16px;
 }
 
 .keyboard-key-default {

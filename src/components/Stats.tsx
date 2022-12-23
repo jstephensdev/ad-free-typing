@@ -5,7 +5,7 @@ export const Stats = () => {
     return (
         <>
             <section className="stats-section">
-              <p>{`WPM: ${wpm} | Success Rate: ${successRate} | Error Rate: ${errorRate}`}</p>
+                <p>{`WPM: ${wpm} | Acc: ${successRate} | Error Rate: ${errorRate}`}</p>
             </section>
         </>
     );

@@ -1,6 +1,7 @@
 import { Keyboard } from './components/Keyboard';
 import { Stats } from './components/Stats';
 import { Text } from './components/Text';
+
 import './css/App.css';
 
 export const App = () => {
