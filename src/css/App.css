@@ -39,6 +39,7 @@ h1 {
 
 .keyboard-key-default {
     display: flex;
+    flex-direction: column;
     padding: 20px;
     border: 3px solid black;
     color: white;
@@ -58,8 +59,14 @@ h1 {
     box-shadow: 0 0 10px #ffc600;
 }
 
+.keyboard {
+    display: flex wrap;
+    flex-direction: column;
+}
+
 .keyboard-row {
     display: flex;
+    flex-direction: row wrap;
     justify-content: center;
     margin: 10px;
 }
