@@ -121,7 +121,7 @@ export const Keyboard = () => {
                     <span>{incomingChars.substring(0, 30)}</span>
                 </p>
             </section>
-            <div>
+            <div className='keyboard'>
                 {keyRows.map((row: Array<key>, index) => (
                     <div className="keyboard-row" key={index}>
                         {row.map((key: key) => (
