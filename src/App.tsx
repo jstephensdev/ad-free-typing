@@ -7,7 +7,12 @@ export const App = () => {
         <>
             <header className="app-header">
                 <div>
-                    <a href=""><IonIcon name="information-circle-outline" size="large" /></a>
+                    <a href="">
+                        <IonIcon
+                            name="information-circle-outline"
+                            size="large"
+                        />
+                    </a>
                     <a
                         href="https://github.com/jstephensdev/ad-free-typing"
                         target="_blank"
@@ -16,7 +21,9 @@ export const App = () => {
                     </a>
                 </div>
                 <h1>Ad Free Typing</h1>
-                <a href=""><IonIcon name="settings-outline" size="large" /></a>
+                <a href="">
+                    <IonIcon name="settings-outline" size="large" />
+                </a>
             </header>
             <div className="app">
                 <Keyboard />
