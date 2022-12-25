@@ -5,6 +5,17 @@
     align-items: center;
 }
 
+.app-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+h1 {
+    margin: 0px;
+}
+
 .stats {
     margin-top: 10px;
     font-weight: bold;
