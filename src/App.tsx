@@ -6,8 +6,8 @@ export const App = () => {
         <div className="app">
             <header>
                 <h1>Ad Free Typing</h1>
-                <Keyboard />
             </header>
+            <Keyboard />
         </div>
     );
 };

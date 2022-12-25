@@ -47,9 +47,8 @@ export const Keyboard = () => {
             if (leftPadding.length > 0) {
                 setLeftPadding(leftPadding.substring(1));
             }
-            updatedOutgoingChars += currentChar;
 
-            setOutgoingChars(updatedOutgoingChars);
+            setOutgoingChars((updatedOutgoingChars += currentChar));
             setTypedChars(updatedTypedChars);
             setCurrentChar(incomingChars.charAt(0));
 
@@ -94,12 +93,20 @@ export const Keyboard = () => {
     return (
         <>
             <section>
-                <h2>{`WPM: ${wpm} | ACC: ${accuracy}% | Error Rate: ${
+                <h2>{`Duration: ${
+                    startTime === 0
+                        ? '00:00'
+                        : new Date(currentTime() - startTime)
+                              .toLocaleTimeString('en-US')
+                              .slice(2, 7)
+                } | WPM: ${wpm} | ACC: ${accuracy}% | Error Rate: ${
                     accuracy === '0.00'
                         ? '0.00'
                         : (100 - Number(accuracy)).toFixed(2)
                 }%`}</h2>
-                <p className="text-section">
+            </section>
+            <section className="text-section">
+                <p>
                     <span className="character-out">
                         {(leftPadding + outgoingChars).slice(-30)}
                     </span>
