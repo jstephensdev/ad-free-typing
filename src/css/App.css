@@ -5,9 +5,10 @@
     align-items: center;
 }
 
-.stats-section {
-    display: flex;
-    padding: 20px;
+.stats {
+    margin-top: 10px;
+    font-weight: bold;
+    font-size: 24px;
 }
 
 .text-section {
@@ -50,4 +51,20 @@
     display: flex;
     justify-content: center;
     margin: 10px;
+}
+
+.duration {
+    text-shadow: 0 0 20px #6fbbd4;
+}
+
+.wpm {
+    text-shadow: 0 0 20px #ffc600;
+}
+
+.acc {
+    text-shadow: 0 0 20px #00ff00;
+}
+
+.error-rate {
+    text-shadow: 0 0 20px red;
 }

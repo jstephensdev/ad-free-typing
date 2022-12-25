@@ -7,7 +7,7 @@ export const Keyboard = () => {
 
     const [startTime, setStartTime] = useState(0);
     const [wordCount, setWordCount] = useState(0);
-    const [wpm, setWpm] = useState('0.00');
+    const [wpm, setWpm] = useState('00.00');
 
     const currentTime = () => new Date().getTime();
 
@@ -24,7 +24,7 @@ export const Keyboard = () => {
 
     const [keyPressed, setKeyPressed] = useState('');
 
-    const [accuracy, setAccuracy] = useState('0.00');
+    const [accuracy, setAccuracy] = useState('000.00');
     const [typedChars, setTypedChars] = useState('');
 
     const downHandler = ({ key }: any): void => {
@@ -92,18 +92,25 @@ export const Keyboard = () => {
 
     return (
         <>
-            <section>
-                <h2>{`Duration: ${
+            <section className="stats">
+                <span>{`Duration: `}</span>
+                <span className="duration">{`${
                     startTime === 0
                         ? '00:00'
                         : new Date(currentTime() - startTime)
                               .toLocaleTimeString('en-US')
                               .slice(2, 7)
-                } | WPM: ${wpm} | ACC: ${accuracy}% | Error Rate: ${
-                    accuracy === '0.00'
-                        ? '0.00'
+                }`}</span>
+                <span>{` | WPM: `}</span>
+                <span className="wpm">{`${wpm}`}</span>
+                <span>{` | ACC: `}</span>
+                <span className="acc">{`${accuracy}%`}</span>
+                <span>{` | Error Rate: `}</span>
+                <span className="error-rate">{`${
+                    accuracy === '000.00'
+                        ? '000.00'
                         : (100 - Number(accuracy)).toFixed(2)
-                }%`}</h2>
+                }%`}</span>
             </section>
             <section className="text-section">
                 <p>
