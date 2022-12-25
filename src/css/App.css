@@ -9,7 +9,8 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin: 10px;
+    padding: 20px;
+    margin: 10px 10px 50px 10px;
 }
 
 h1 {
@@ -59,14 +60,9 @@ h1 {
     box-shadow: 0 0 10px #ffc600;
 }
 
-.keyboard {
-    display: flex wrap;
-    flex-direction: column;
-}
-
 .keyboard-row {
     display: flex;
-    flex-direction: row wrap;
+    flex-direction: row;
     justify-content: center;
     margin: 10px;
 }

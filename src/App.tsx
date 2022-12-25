@@ -7,7 +7,7 @@ export const App = () => {
         <>
             <header className="app-header">
                 <div>
-                    <IonIcon name="help-circle-outline" size="large" />
+                    <a href=""><IonIcon name="information-circle-outline" size="large" /></a>
                     <a
                         href="https://github.com/jstephensdev/ad-free-typing"
                         target="_blank"
@@ -16,7 +16,7 @@ export const App = () => {
                     </a>
                 </div>
                 <h1>Ad Free Typing</h1>
-                <IonIcon name="settings-outline" size="large" />
+                <a href=""><IonIcon name="settings-outline" size="large" /></a>
             </header>
             <div className="app">
                 <Keyboard />
