@@ -1,6 +1,6 @@
 import { keyboardConfig, key } from '../keyboardConfig';
 import { useEffect, useState } from 'react';
-import { text } from '../services/text';
+import { fakerText } from '../services/faker';
 
 export const Keyboard = () => {
     const keyRows: Array<Array<key>> = keyboardConfig;
@@ -11,7 +11,7 @@ export const Keyboard = () => {
 
     const currentTime = () => new Date().getTime();
 
-    const initialText = text();
+    const initialText = fakerText();
 
     const [leftPadding, setLeftPadding] = useState(
         new Array(30).fill(' ').join('')
