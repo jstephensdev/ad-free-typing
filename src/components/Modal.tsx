@@ -42,7 +42,15 @@ export const Modal = (props: any) => {
                             </label>
                         </section>
                     ) : (
-                        <></>
+                        <section>
+                            <h6>Easy or Hard:</h6>
+                            <p>
+                                Easy is selected by default. Words of 5 or less
+                                characters will appear while words of any
+                                length, capitalization, and periods will appear
+                                when Hard is selected
+                            </p>
+                        </section>
                     )}
                 </section>
             </section>
