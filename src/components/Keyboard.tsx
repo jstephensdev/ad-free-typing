@@ -2,6 +2,7 @@ import { keyboardConfig, key } from '../keyboardConfig';
 import { useKeyDetection } from '../hooks/useKeyDetection';
 import { useState } from 'react';
 import { fakerText } from '../services/faker';
+import { currentTime } from '../services/currentTime';
 
 export const Keyboard = () => {
     const keyRows: Array<Array<key>> = keyboardConfig;
@@ -9,8 +10,6 @@ export const Keyboard = () => {
     const [startTime, setStartTime] = useState(0);
     const [wordCount, setWordCount] = useState(0);
     const [wpm, setWpm] = useState('00.00');
-
-    const currentTime = () => new Date().getTime();
 
     const initialText = fakerText();
 
