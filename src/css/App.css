@@ -108,13 +108,23 @@ h1 {
     margin: auto;
     padding: 20px;
     border: 1px solid #888;
-    width: 50%;
-    height: 25%;
+    width: 25%;
+    height: 15%;
 }
 
-/* The Close Button */
 .close {
     color: #aaaaaa;
     float: right;
     font-weight: bold;
+}
+
+.setting-options {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }

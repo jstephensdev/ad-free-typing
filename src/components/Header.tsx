@@ -4,6 +4,20 @@ import { useState } from 'react';
 
 export const Header = () => {
     const [openModal, setOpenModal] = useState(false);
+    const [title, setTitle] = useState('');
+    const [checkedEasy, setCheckedEasy] = useState(true);
+    const [checkedHard, setCheckedHard] = useState(false);
+
+    const handleCheckChange = () => {
+        setCheckedEasy(!checkedEasy);
+        setCheckedHard(!checkedHard);
+        setOpenModal((openModal) => !openModal);
+    };
+
+    const handleModalOpen = (title: string) => {
+        setTitle(title);
+        setOpenModal((openModal) => !openModal);
+    };
     return (
         <>
             <header className="app-header">
@@ -11,7 +25,7 @@ export const Header = () => {
                     <a
                         href="#"
                         rel="noreferrer"
-                        onClick={() => setOpenModal((openModal) => !openModal)}
+                        onClick={() => handleModalOpen('Info:')}
                     >
                         <IonIcon
                             name="information-circle-outline"
@@ -30,12 +44,22 @@ export const Header = () => {
                 <a
                     href="#"
                     rel="noreferrer"
-                    onClick={() => setOpenModal((openModal) => !openModal)}
+                    onClick={() => handleModalOpen('Settings:')}
                 >
                     <IonIcon name="settings-outline" size="large" />
                 </a>
             </header>
-            {openModal ? <Modal setOpenModal={setOpenModal} /> : <></>}
+            {openModal ? (
+                <Modal
+                    title={title}
+                    setOpenModal={setOpenModal}
+                    handleCheckChange={handleCheckChange}
+                    checkedEasy={checkedEasy}
+                    checkedHard={checkedHard}
+                />
+            ) : (
+                <></>
+            )}
         </>
     );
 };
