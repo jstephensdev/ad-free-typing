@@ -3,6 +3,7 @@ import { useKeyDetection } from '../hooks/useKeyDetection';
 import { useState } from 'react';
 import { fakerText } from '../services/faker';
 import { currentTime } from '../services/currentTime';
+import { useAppSelector } from '../hooks/reduxHooks';
 
 export const Keyboard = () => {
     const keyRows: Array<Array<key>> = KeyboardRows;
@@ -25,10 +26,9 @@ export const Keyboard = () => {
     const [accuracy, setAccuracy] = useState('000.00');
     const [typedChars, setTypedChars] = useState('');
 
-    const [keyPressed, setKeyPressed] = useState('');
+    const keyPressed = useAppSelector((state) => state.keyPressed.value);
 
     useKeyDetection((key) => {
-        setKeyPressed(key);
         let updatedOutgoingChars = outgoingChars;
         let updatedIncomingChars = incomingChars;
         const updatedTypedChars = typedChars + key;
