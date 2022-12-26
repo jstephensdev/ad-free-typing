@@ -4,7 +4,7 @@ export type key = {
     key?: string;
     class: string;
 };
-export const LinuxkeyboardConfig: Array<Array<key>> = [
+export const KeyboardRows: Array<Array<key>> = [
     [
         {
             id: 48,
