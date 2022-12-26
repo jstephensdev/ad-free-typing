@@ -26,9 +26,10 @@ export const Keyboard = () => {
     const [accuracy, setAccuracy] = useState('000.00');
     const [typedChars, setTypedChars] = useState('');
 
-    const [keyPressed] = useState(useKeyDetection((key) => key));
+    const [keyPressed, setKeyPressed] = useState('');
 
     useKeyDetection((key) => {
+        setKeyPressed(key);
         let updatedOutgoingChars = outgoingChars;
         let updatedIncomingChars = incomingChars;
         const updatedTypedChars = typedChars + key;
