@@ -1,4 +1,4 @@
-import { keyboardConfig, key } from '../keyboardConfig';
+import { keyboardConfig, key } from '../LinuxKeyboard';
 import { useKeyDetection } from '../hooks/useKeyDetection';
 import { useState } from 'react';
 import { fakerText } from '../services/faker';
@@ -60,7 +60,7 @@ export const Keyboard = () => {
         if (
             updatedOutgoingChars.length <= updatedTypedChars.length &&
             updatedOutgoingChars.length > 0 &&
-            key.length === 1 
+            key.length === 1
         ) {
             setTypedChars(updatedTypedChars);
             setAccuracy(
@@ -109,25 +109,22 @@ export const Keyboard = () => {
                         {row.map((key: key) => (
                             <div
                                 className={
-                                    keyPressed === key.name
+                                    keyPressed === key.name ||
+                                    keyPressed === key?.key ||
+                                    (Array.isArray(key.name) &&
+                                        keyPressed === key.name[0]) ||
+                                    (Array.isArray(key.name) &&
+                                        keyPressed === key.name[1])
                                         ? key.class + ' key-pressed'
                                         : key.class
                                 }
                                 key={`${key.id} + ${key.name}`}
                             >
                                 {Array.isArray(key.name) ? (
-                                    <span
-                                        className={
-                                            keyPressed === key.name[0] ||
-                                            keyPressed === key.name[1]
-                                                ? 'keyboard-key-double' +
-                                                  ' key-pressed'
-                                                : 'keyboard-key-double'
-                                        }
-                                    >
+                                    <>
                                         <span>{key.name[0]}</span>
                                         <span>{key.name[1]}</span>
-                                    </span>
+                                    </>
                                 ) : (
                                     key.name
                                 )}

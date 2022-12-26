@@ -38,7 +38,7 @@ h1 {
     color: silver;
 }
 
-.keyboard-key-default {
+.key-default {
     display: flex;
     flex-direction: column;
     padding: 20px;
@@ -49,9 +49,17 @@ h1 {
     margin-right: 5px;
 }
 
-.keyboard-key-double {
+.key-double {
     display: flex;
     flex-direction: column;
+}
+
+.space-key {
+    width: 20%;
+}
+
+.medium-key {
+    width: 15%;
 }
 
 .key-pressed {
