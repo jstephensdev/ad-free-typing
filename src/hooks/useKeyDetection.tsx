@@ -21,6 +21,6 @@ export const useKeyDetection = (callback: (arg0: any) => any) => {
             window.removeEventListener('keydown', downHandler);
             window.removeEventListener('keyup', upHandler);
         };
-    }, [keyPress]);
+    });
     return keyPress;
 };
