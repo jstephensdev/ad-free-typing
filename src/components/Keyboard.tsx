@@ -1,5 +1,6 @@
 import { keyboardConfig, key } from '../keyboardConfig';
-import { useEffect, useState } from 'react';
+import { useKeyDetection } from '../hooks/useKeyDetection';
+import { useState } from 'react';
 import { fakerText } from '../services/faker';
 
 export const Keyboard = () => {
@@ -22,25 +23,17 @@ export const Keyboard = () => {
         initialText.substring(1)
     );
 
-    const [keyPressed, setKeyPressed] = useState('');
-
     const [accuracy, setAccuracy] = useState('000.00');
     const [typedChars, setTypedChars] = useState('');
 
-    const downHandler = ({ key }: any): void => {
-        setKeyPressed(key);
-    };
+    const [keyPressed] = useState(useKeyDetection((key) => key));
 
-    const upHandler = () => {
-        setKeyPressed('');
-    };
-
-    useEffect(() => {
+    useKeyDetection((key) => {
         let updatedOutgoingChars = outgoingChars;
         let updatedIncomingChars = incomingChars;
-        const updatedTypedChars = typedChars + keyPressed;
+        const updatedTypedChars = typedChars + key;
 
-        if (keyPressed === currentChar) {
+        if (key === currentChar) {
             if (startTime === 0) {
                 setStartTime(currentTime());
             }
@@ -67,9 +60,9 @@ export const Keyboard = () => {
         if (
             updatedOutgoingChars.length <= updatedTypedChars.length &&
             updatedOutgoingChars.length > 0 &&
-            keyPressed !== 'Enter' &&
-            keyPressed !== 'Shift' &&
-            keyPressed !== 'Ctrl'
+            key !== 'Enter' &&
+            key !== 'Shift' &&
+            key !== 'Ctrl'
         ) {
             setTypedChars(updatedTypedChars);
             setAccuracy(
@@ -79,16 +72,7 @@ export const Keyboard = () => {
                 ).toFixed(2)
             );
         }
-
-        window.addEventListener('keydown', downHandler);
-        window.addEventListener('keyup', upHandler);
-
-        return () => {
-            // cleanup or else performance issue occurs
-            window.removeEventListener('keydown', downHandler);
-            window.removeEventListener('keyup', upHandler);
-        };
-    }, [keyPressed]);
+    });
 
     return (
         <>
