@@ -61,9 +61,7 @@ export const Keyboard = () => {
         if (
             updatedOutgoingChars.length <= updatedTypedChars.length &&
             updatedOutgoingChars.length > 0 &&
-            key !== 'Enter' &&
-            key !== 'Shift' &&
-            key !== 'Ctrl'
+            key.length === 1 
         ) {
             setTypedChars(updatedTypedChars);
             setAccuracy(
