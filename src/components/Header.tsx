@@ -35,7 +35,7 @@ export const Header = () => {
                     <IonIcon name="settings-outline" size="large" />
                 </a>
             </header>
-            {openModal ? <Modal /> : <></>}
+            {openModal ? <Modal setOpenModal={setOpenModal} /> : <></>}
         </>
     );
 };
