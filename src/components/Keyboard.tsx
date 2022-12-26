@@ -1,11 +1,11 @@
-import { keyboardConfig, key } from '../LinuxKeyboard';
+import { LinuxkeyboardConfig, key } from '../LinuxKeyboard';
 import { useKeyDetection } from '../hooks/useKeyDetection';
 import { useState } from 'react';
 import { fakerText } from '../services/faker';
 import { currentTime } from '../services/currentTime';
 
 export const Keyboard = () => {
-    const keyRows: Array<Array<key>> = keyboardConfig;
+    const keyRows: Array<Array<key>> = LinuxkeyboardConfig;
 
     const [startTime, setStartTime] = useState(0);
     const [wordCount, setWordCount] = useState(0);
