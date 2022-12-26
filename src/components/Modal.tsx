@@ -1,7 +1,7 @@
 export const Modal = () => {
     return (
         <>
-            <section>Hello World</section>
+            <section className="app">Hello World</section>
         </>
     );
 };
