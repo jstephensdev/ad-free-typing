@@ -19,7 +19,6 @@ export const Modal = (props: any) => {
                             size="large"
                         ></IonIcon>
                     </a>
-
                     {props.title === 'Settings:' ? (
                         <section className="setting-options">
                             <label>
@@ -45,8 +44,8 @@ export const Modal = (props: any) => {
                                 <li>Easy by default.</li>
                                 <li>Easy: 5 or less characters.</li>
                                 <li>
-                                    Hard: any length, capitalization,
-                                    and periods.
+                                    Hard: any length, capitalization, and
+                                    periods.
                                 </li>
                             </ul>
                         </section>
