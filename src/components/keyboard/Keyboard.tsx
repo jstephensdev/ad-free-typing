@@ -1,5 +1,5 @@
-import { KeyboardRows, key } from '../KeyboardRows';
-import { useAppSelector } from '../hooks/reduxHooks';
+import { KeyboardRows, key } from './KeyboardRows';
+import { useAppSelector } from '../../hooks/reduxHooks';
 
 export const Keyboard = () => {
     const keyRows: Array<Array<key>> = KeyboardRows;
