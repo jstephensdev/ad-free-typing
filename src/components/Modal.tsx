@@ -43,9 +43,9 @@ export const Modal = (props: any) => {
                         <section className="text-section">
                             <ul>
                                 <li>Easy by default.</li>
-                                <li>Easy: words with 5 or less characters.</li>
+                                <li>Easy: 5 or less characters.</li>
                                 <li>
-                                    Hard: words of any length, capitalization,
+                                    Hard: any length, capitalization,
                                     and periods.
                                 </li>
                             </ul>

@@ -21,6 +21,6 @@ export const StartTimeSlice = createSlice({
 
 export const { setStartTime } = StartTimeSlice.actions;
 
-export const selectKeyPressed = (state: RootState) => state.startTime.value;
+export const selectStartTime = (state: RootState) => state.startTime.value;
 
 export default StartTimeSlice.reducer;
