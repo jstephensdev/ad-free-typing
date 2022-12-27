@@ -46,7 +46,7 @@ export const Modal = (props: any) => {
                                 <li>Easy: words with 5 or less characters.</li>
                                 <li>
                                     Hard: words of any length, capitalization,
-                                    and periods
+                                    and periods.
                                 </li>
                             </ul>
                         </section>

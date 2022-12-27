@@ -1,15 +1,17 @@
 import { useKeyDetection } from '../hooks/useKeyDetection';
-import { useState } from 'react';
-import { fakerText } from '../services/faker';
+import { useEffect, useState } from 'react';
+import { fakerWords } from '../services/faker';
 import { currentTime } from '../services/currentTime';
-import { Keyboard } from './Keyboard';
+import { setStartTime } from '../store/startTimeSlice';
+import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
 
 export const Main = () => {
-    const [startTime, setStartTime] = useState(0);
+    const startTime = useAppSelector((state) => state.startTime.value);
+    const dispatch = useAppDispatch();
     const [wordCount, setWordCount] = useState(0);
     const [wpm, setWpm] = useState('00.00');
-
-    const initialText = fakerText();
+    const [duration, setDuration] = useState('00.00');
+    const initialText = fakerWords(5);
 
     const [leftPadding, setLeftPadding] = useState(
         new Array(30).fill(' ').join('')
@@ -30,7 +32,7 @@ export const Main = () => {
 
         if (key === currentChar) {
             if (startTime === 0) {
-                setStartTime(currentTime());
+                dispatch(setStartTime(currentTime()));
             }
             if (leftPadding.length > 0) {
                 setLeftPadding(leftPadding.substring(1));
@@ -67,16 +69,25 @@ export const Main = () => {
         }
     });
 
+    useEffect(() => {
+        let interval: any;
+        if (startTime > 0) {
+            interval = setInterval(() => {
+                const duration = new Date(currentTime() - startTime)
+                    .toLocaleTimeString('en-US')
+                    .slice(2, 7);
+                setDuration(duration);
+            }, 1000);
+        }
+        return () => clearInterval(interval);
+    }, [startTime]);
+
     return (
         <>
             <section className="stats">
                 <span>{`Duration: `}</span>
                 <span className="duration">{`${
-                    startTime === 0
-                        ? '00:00'
-                        : new Date(currentTime() - startTime)
-                              .toLocaleTimeString('en-US')
-                              .slice(2, 7)
+                    startTime === 0 ? '00:00' : duration
                 }`}</span>
                 <span>{` | WPM: `}</span>
                 <span className="wpm">{`${wpm}`}</span>

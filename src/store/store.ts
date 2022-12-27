@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import keyReducer from './keySlice';
+import startTimeReducer from './startTimeSlice';
 
 export const store = configureStore({
     reducer: {
         keyPressed: keyReducer,
+        startTime: startTimeReducer,
     },
 });
 
