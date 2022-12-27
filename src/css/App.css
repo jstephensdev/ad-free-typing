@@ -116,8 +116,7 @@ h1 {
     margin: auto;
     padding: 0px 20px 50px 20px;
     border: 1px solid #888;
-    width: 25%;
-    height: 25%;
+    width: 20%
 }
 
 .close {
@@ -128,7 +127,7 @@ h1 {
 
 .setting-options {
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
 }
 
 .modal-title {
