@@ -43,6 +43,7 @@ h1 {
     flex-direction: column;
     padding: 20px;
     border: 3px solid black;
+    border-radius: 5px;
     color: white;
     background: rgb(0, 0, 0, 0.7);
     text-shadow: 0 0 10px #ffc600;
@@ -71,6 +72,7 @@ h1 {
 .keyboard {
     background: rgb(0, 0, 0, 0.7);
     box-shadow: 0 0 20px gray;
+    border-radius: 5px;
     padding: 20px;
 }
 
