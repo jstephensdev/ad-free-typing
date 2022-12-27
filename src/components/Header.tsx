@@ -25,7 +25,7 @@ export const Header = () => {
                     <a
                         href="#"
                         rel="noreferrer"
-                        onClick={() => handleModalOpen('Info:')}
+                        onClick={() => handleModalOpen('Easy or Hard:')}
                     >
                         <IonIcon
                             name="information-circle-outline"

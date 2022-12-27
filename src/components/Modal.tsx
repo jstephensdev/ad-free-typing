@@ -4,7 +4,7 @@ export const Modal = (props: any) => {
     return (
         <>
             <section className="modal">
-                <section className="modal-content">
+                <section className="text-section modal-content">
                     <div className="modal-title">
                         <h4>{props.title}</h4>
                         <a
@@ -42,14 +42,15 @@ export const Modal = (props: any) => {
                             </label>
                         </section>
                     ) : (
-                        <section>
-                            <h6>Easy or Hard:</h6>
-                            <p>
-                                Easy is selected by default. Words of 5 or less
-                                characters will appear while words of any
-                                length, capitalization, and periods will appear
-                                when Hard is selected
-                            </p>
+                        <section className="text-section">
+                            <ul>
+                                <li>Easy by default.</li>
+                                <li>Easy: words with 5 or less characters.</li>
+                                <li>
+                                    Hard: words of any length, capitalization,
+                                    and periods
+                                </li>
+                            </ul>
                         </section>
                     )}
                 </section>
