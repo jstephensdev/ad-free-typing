@@ -1,16 +1,19 @@
 import { Modal } from './Modal';
 import IonIcon from '@reacticons/ionicons';
 import { useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
+import { setText } from '../store/textSlice';
 
 export const Header = () => {
     const [openModal, setOpenModal] = useState(false);
     const [title, setTitle] = useState('');
-    const [checkedEasy, setCheckedEasy] = useState(true);
-    const [checkedHard, setCheckedHard] = useState(false);
+    const checkedHard = useAppSelector(
+        (state) => state.textSelection.easyOrHard
+    );
+    const dispatch = useAppDispatch();
 
     const handleCheckChange = () => {
-        setCheckedEasy(!checkedEasy);
-        setCheckedHard(!checkedHard);
+        dispatch(setText(!checkedHard));
         setOpenModal((openModal) => !openModal);
     };
 
@@ -54,7 +57,6 @@ export const Header = () => {
                     title={title}
                     setOpenModal={setOpenModal}
                     handleCheckChange={handleCheckChange}
-                    checkedEasy={checkedEasy}
                     checkedHard={checkedHard}
                 />
             ) : (

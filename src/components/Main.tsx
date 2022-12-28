@@ -1,17 +1,17 @@
 import { useKeyDetection } from '../hooks/useKeyDetection';
 import { useEffect, useState } from 'react';
-import { fakerWords } from '../services/faker';
 import { currentTime } from '../services/currentTime';
 import { setStartTime } from '../store/startTimeSlice';
 import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
 
 export const Main = () => {
     const startTime = useAppSelector((state) => state.startTime.value);
+    const easyText = useAppSelector((state) => state.textSelection.easy);
+    const initialText = easyText;
     const dispatch = useAppDispatch();
     const [wordCount, setWordCount] = useState(0);
     const [wpm, setWpm] = useState('00.00');
     const [duration, setDuration] = useState('00.00');
-    const initialText = fakerWords(5);
 
     const [leftPadding, setLeftPadding] = useState(
         new Array(30).fill(' ').join('')
@@ -25,35 +25,45 @@ export const Main = () => {
     const [accuracy, setAccuracy] = useState('000.00');
     const [typedChars, setTypedChars] = useState('');
 
+    const handleText = (
+        updatedIncomingChars: string,
+        updatedOutgoingChars: string,
+        updatedTypedChars: string
+    ): void => {
+        if (leftPadding.length > 0) {
+            setLeftPadding(leftPadding.substring(1));
+        }
+        setOutgoingChars((updatedOutgoingChars += currentChar));
+        setTypedChars(updatedTypedChars);
+        setCurrentChar(incomingChars.charAt(0));
+
+        updatedIncomingChars = incomingChars.substring(1);
+        if (updatedIncomingChars.split(' ').length < 10) {
+            updatedIncomingChars += ' ' + initialText;
+        }
+        setIncomingChars(updatedIncomingChars);
+    };
+
     useKeyDetection((key) => {
         let updatedOutgoingChars = outgoingChars;
         let updatedIncomingChars = incomingChars;
-        const updatedTypedChars = typedChars + key;
+        let updatedTypedChars = typedChars + key;
 
         if (key === currentChar) {
             if (startTime === 0) {
                 dispatch(setStartTime(currentTime()));
             }
-            if (leftPadding.length > 0) {
-                setLeftPadding(leftPadding.substring(1));
-            }
-
-            setOutgoingChars((updatedOutgoingChars += currentChar));
-            setTypedChars(updatedTypedChars);
-            setCurrentChar(incomingChars.charAt(0));
-
-            updatedIncomingChars = incomingChars.substring(1);
-            if (updatedIncomingChars.split(' ').length < 10) {
-                updatedIncomingChars += ' ' + initialText;
-            }
-            setIncomingChars(updatedIncomingChars);
+            handleText(
+                updatedIncomingChars,
+                updatedOutgoingChars,
+                updatedTypedChars
+            );
             if (incomingChars.charAt(0) === ' ') {
                 setWordCount(wordCount + 1);
                 const durationInMinutes = (currentTime() - startTime) / 60000.0;
                 setWpm(((wordCount + 1) / durationInMinutes).toFixed(2));
             }
         }
-
         if (
             updatedOutgoingChars.length <= updatedTypedChars.length &&
             updatedOutgoingChars.length > 0 &&

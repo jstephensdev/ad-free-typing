@@ -24,14 +24,6 @@ export const Modal = (props: any) => {
                             <label>
                                 <input
                                     type="checkbox"
-                                    checked={props.checkedEasy}
-                                    onChange={props.handleCheckChange}
-                                />
-                                Easy
-                            </label>
-                            <label>
-                                <input
-                                    type="checkbox"
                                     checked={props.checkedHard}
                                     onChange={props.handleCheckChange}
                                 />
