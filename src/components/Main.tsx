@@ -36,32 +36,27 @@ export const Main = () => {
     const [duration, setDuration] = useState('00.00');
     const [accuracy, setAccuracy] = useState('000.00');
 
-    const handleText = (
-        incomingChars: string,
-        outgoingChars: string,
-        updatedTypedChars: string
-    ): void => {
-        if (leftPadding.length > 0) {
-            dispatch(setLeftPadding(leftPadding.substring(1)));
-        }
-        dispatch(setOutgoingChars((outgoingChars += currentChar)));
-        dispatch(setTypedChars(updatedTypedChars));
-        dispatch(setCurrentChar(incomingChars.charAt(0)));
-        incomingChars = incomingChars.substring(1);
-        if (incomingChars.split(' ').length < 10) {
-            incomingChars += ' ' + text;
-        }
-        dispatch(setIncomingChars(incomingChars));
-    };
-
     useKeyDetection((key) => {
         let updatedTypedChars = typedChars + key;
+        let updatedOutgoingChars = outgoingChars;
+        let updatedIncomingChars = incomingChars;
 
         if (key === currentChar) {
             if (startTime === 0) {
                 dispatch(setStartTime(currentTime()));
             }
-            handleText(incomingChars, outgoingChars, updatedTypedChars);
+            if (leftPadding.length > 0) {
+                dispatch(setLeftPadding(leftPadding.substring(1)));
+            }
+            dispatch(setTypedChars(updatedTypedChars));
+            dispatch(setOutgoingChars((updatedOutgoingChars += currentChar)));
+            dispatch(setCurrentChar(incomingChars.charAt(0)));
+            updatedIncomingChars = incomingChars.substring(1);
+            if (updatedIncomingChars.split(' ').length < 10) {
+                updatedIncomingChars += ' ' + text;
+            }
+            dispatch(setIncomingChars(updatedIncomingChars));
+
             if (incomingChars.charAt(0) === ' ') {
                 setWordCount(wordCount + 1);
                 const durationInMinutes = (currentTime() - startTime) / 60000.0;
@@ -69,14 +64,14 @@ export const Main = () => {
             }
         }
         if (
-            outgoingChars.length <= updatedTypedChars.length &&
-            outgoingChars.length > 0 &&
+            updatedOutgoingChars.length <= updatedTypedChars.length &&
+            updatedOutgoingChars.length > 0 &&
             key.length === 1
         ) {
             dispatch(setTypedChars(updatedTypedChars));
             setAccuracy(
                 (
-                    (outgoingChars.length * 100) /
+                    (updatedOutgoingChars.length * 100) /
                     updatedTypedChars.length
                 ).toFixed(2)
             );
