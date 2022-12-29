@@ -24,7 +24,7 @@ export const Modal = (props: any) => {
                             <label>
                                 <input
                                     type="checkbox"
-                                    checked={props.checkedHard}
+                                    checked={props.checked}
                                     onChange={props.handleCheckChange}
                                 />
                                 Hard

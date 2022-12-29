@@ -7,6 +7,7 @@ export const useKeyDetection = (callback: (arg0: any) => any) => {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
+        console.log('logging twice and evey seond after starting to type');
         const downHandler = ({ key }: any) => {
             if (keyPress !== key) {
                 dispatch(setKey(key));

@@ -2,26 +2,39 @@ import { useKeyDetection } from '../hooks/useKeyDetection';
 import { useEffect, useState } from 'react';
 import { currentTime } from '../services/currentTime';
 import { setStartTime } from '../store/startTimeSlice';
+import {
+    setIncomingChars,
+    setCurrentChar,
+    setOutgoingChars,
+    setTypedChars,
+    setLeftPadding,
+} from '../store/textSlice';
 import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
 
 export const Main = () => {
     const dispatch = useAppDispatch();
     const startTime = useAppSelector((state) => state.startTime.value);
-    const easyText = useAppSelector((state) => state.textSelection.easy);
-    const initialText = easyText;
+    const text = useAppSelector((state) => state.textSelection.text);
+    const incomingChars = useAppSelector(
+        (state) => state.textSelection.incomingChars
+    );
+    const outgoingChars = useAppSelector(
+        (state) => state.textSelection.outgoingChars
+    );
+    const currentChar = useAppSelector(
+        (state) => state.textSelection.currentChar
+    );
+    const typedChars = useAppSelector(
+        (state) => state.textSelection.typedChars
+    );
+    const leftPadding = useAppSelector(
+        (state) => state.textSelection.leftPadding
+    );
+
     const [wordCount, setWordCount] = useState(0);
     const [wpm, setWpm] = useState('00.00');
     const [duration, setDuration] = useState('00.00');
     const [accuracy, setAccuracy] = useState('000.00');
-    const [typedChars, setTypedChars] = useState('');
-    const [leftPadding, setLeftPadding] = useState(
-        new Array(30).fill(' ').join('')
-    );
-    const [outgoingChars, setOutgoingChars] = useState('');
-    const [currentChar, setCurrentChar] = useState(initialText.charAt(0));
-    const [incomingChars, setIncomingChars] = useState(
-        initialText.substring(1)
-    );
 
     const handleText = (
         incomingChars: string,
@@ -29,16 +42,16 @@ export const Main = () => {
         updatedTypedChars: string
     ): void => {
         if (leftPadding.length > 0) {
-            setLeftPadding(leftPadding.substring(1));
+            dispatch(setLeftPadding(leftPadding.substring(1)));
         }
-        setOutgoingChars((outgoingChars += currentChar));
-        setTypedChars(updatedTypedChars);
-        setCurrentChar(incomingChars.charAt(0));
+        dispatch(setOutgoingChars((outgoingChars += currentChar)));
+        dispatch(setTypedChars(updatedTypedChars));
+        dispatch(setCurrentChar(incomingChars.charAt(0)));
         incomingChars = incomingChars.substring(1);
         if (incomingChars.split(' ').length < 10) {
-            incomingChars += ' ' + initialText;
+            incomingChars += ' ' + text;
         }
-        setIncomingChars(incomingChars);
+        dispatch(setIncomingChars(incomingChars));
     };
 
     useKeyDetection((key) => {
@@ -60,7 +73,7 @@ export const Main = () => {
             outgoingChars.length > 0 &&
             key.length === 1
         ) {
-            setTypedChars(updatedTypedChars);
+            dispatch(setTypedChars(updatedTypedChars));
             setAccuracy(
                 (
                     (outgoingChars.length * 100) /
