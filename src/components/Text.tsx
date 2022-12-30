@@ -9,14 +9,14 @@ export const Text = () => {
     );
     const currentChar = useAppSelector(
         (state) => state.textSelection.currentChar
-    )
+    );
     const leftPadding = useAppSelector(
         (state) => state.textSelection.leftPadding
     );
 
     return (
         <>
-                  <section className="text-section">
+            <section className="text-section">
                 <p>
                     <span className="character-out">
                         {(leftPadding + outgoingChars).slice(-30)}
