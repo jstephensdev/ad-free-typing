@@ -1,11 +1,18 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import type { RootState } from './store';
-import { fakerText, fakerWords } from '../services/faker';
+import {
+    fakerText,
+    fakerWords,
+    fakerAlphaNumeric,
+    fakerNumbers,
+} from '../services/faker';
 
 interface TextState {
     easy: string;
+    numbers: string;
     hard: string;
-    easyOrHard: boolean;
+    alphaNumerics: string;
+    mode: string;
     text: string;
     incomingChars: string;
     outgoingChars: string;
@@ -18,8 +25,10 @@ const initialText = fakerWords(5);
 
 const initialState = {
     easy: fakerWords(5),
+    numbers: fakerNumbers(5),
     hard: fakerText(),
-    easyOrHard: false,
+    alphaNumerics: fakerAlphaNumeric(5),
+    mode: 'easy',
     text: initialText,
     incomingChars: initialText.substring(1),
     outgoingChars: '',
@@ -32,8 +41,8 @@ export const TextSlice = createSlice({
     name: 'textSelection',
     initialState,
     reducers: {
-        setEasyOrHard: (state, action: PayloadAction<boolean>) => {
-            state.easyOrHard = action.payload;
+        setMode: (state, action: PayloadAction<string>) => {
+            state.mode = action.payload;
         },
         setText: (state, action: PayloadAction<string>) => {
             state.text = action.payload;
@@ -62,7 +71,7 @@ export const TextSlice = createSlice({
 });
 
 export const {
-    setEasyOrHard,
+    setMode,
     setText,
     setIncomingChars,
     setCurrentChar,
@@ -73,7 +82,11 @@ export const {
 
 export const selectEasyText = (state: RootState) => state.textSelection.easy;
 export const selectHardText = (state: RootState) => state.textSelection.hard;
-export const easyOrHard = (state: RootState) => state.textSelection.easyOrHard;
+export const selectNumbersText = (state: RootState) =>
+    state.textSelection.numbers;
+export const selectAlphaNumericText = (state: RootState) =>
+    state.textSelection.alphaNumerics;
+export const mode = (state: RootState) => state.textSelection.mode;
 export const text = (state: RootState) => state.textSelection.text;
 export const incomingChars = (state: RootState) =>
     state.textSelection.incomingChars;

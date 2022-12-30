@@ -1,6 +1,31 @@
 import IonIcon from '@reacticons/ionicons';
+import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
+import { setText, setMode } from '../store/textSlice';
 
 export const Modal = (props: any) => {
+    const dispatch = useAppDispatch();
+    const mode = useAppSelector((state) => state.textSelection.mode);
+    const easyText = useAppSelector((state) => state.textSelection.easy);
+    const hardText = useAppSelector((state) => state.textSelection.hard);
+    const numericText = useAppSelector((state) => state.textSelection.numbers);
+    const alphaNumericText = useAppSelector(
+        (state) => state.textSelection.alphaNumerics
+    );
+
+    const handleCheckChange = (textMode: string) => {
+        dispatch(setMode(textMode));
+        if (textMode === 'hard') {
+            dispatch(setText(hardText));
+        } else if (textMode === 'easy') {
+            dispatch(setText(easyText));
+        } else if (textMode === 'numbers') {
+            dispatch(setText(numericText));
+        } else if (textMode === 'alphaNumeric') {
+            dispatch(setText(alphaNumericText));
+        }
+        props.setOpenModal((openModal: boolean) => !openModal);
+    };
+
     return (
         <>
             <section className="modal">
@@ -24,21 +49,62 @@ export const Modal = (props: any) => {
                             <label>
                                 <input
                                     type="checkbox"
-                                    checked={props.checked}
-                                    onChange={props.handleCheckChange}
+                                    checked={mode === 'easy'}
+                                    onChange={() => handleCheckChange('easy')}
+                                />
+                                Easy
+                            </label>
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    checked={mode === 'numbers'}
+                                    onChange={() =>
+                                        handleCheckChange('numbers')
+                                    }
+                                />
+                                Numbers
+                            </label>
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    checked={mode === 'hard'}
+                                    onChange={() => handleCheckChange('hard')}
                                 />
                                 Hard
+                            </label>
+                            <label>
+                                <input
+                                    type="checkbox"
+                                    checked={mode === 'alphaNumeric'}
+                                    onChange={() =>
+                                        handleCheckChange('alphaNumeric')
+                                    }
+                                />
+                                AlphaNumeric
                             </label>
                         </section>
                     ) : (
                         <section className="text-section">
                             <ul>
-                                <li>Easy by default.</li>
-                                <li>Easy: 5 or less characters.</li>
-                                <li>
-                                    Hard: any length, capitalization, and
-                                    periods.
-                                </li>
+                                <li>Easy:</li>
+                                <ul>
+                                    <li>5 character Lorem Ipsum</li>
+                                </ul>
+                                <li>Numbers:</li>
+                                <ul>
+                                    <li>5 character number strings</li>
+                                </ul>
+                                <li>Hard:</li>
+                                <ul>
+                                    <li>
+                                        words any length, capitalization, and
+                                        periods.
+                                    </li>
+                                </ul>
+                                <li>AlphaNumeric:</li>
+                                <ul>
+                                    <li>5 character letter and number mix</li>
+                                </ul>
                             </ul>
                         </section>
                     )}
