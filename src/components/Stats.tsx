@@ -36,7 +36,7 @@ export const Stats = () => {
     const [wpm, setWpm] = useState('00.00');
     const [accuracy, setAccuracy] = useState('000.00');
 
-    useKeyDetection((key) => {
+    useKeyDetection((key: string) => {
         let updatedTypedChars = typedChars + key;
         let updatedOutgoingChars = outgoingChars;
         let updatedIncomingChars = incomingChars;

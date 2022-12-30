@@ -2,10 +2,9 @@ import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from './reduxHooks';
 import { setKey } from '../store/keySlice';
 
-export const useKeyDetection = (callback: (arg0: any) => any) => {
+export const useKeyDetection = (callback: any) => {
     const keyPress = useAppSelector((state) => state.keyPressed.value);
     const dispatch = useAppDispatch();
-    console.log('hello');
 
     useEffect(() => {
         const downHandler = ({ key }: any) => {
