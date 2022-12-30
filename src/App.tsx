@@ -1,16 +1,18 @@
 import './css/App.css';
-import { Main } from './components/Main';
+import { Stats } from './components/Stats';
 import { Header } from './components/Header';
-import { Keyboard } from './components/keyboard/Keyboard';
+import { Keyboard } from './components/Keyboard/Keyboard';
+import { Text } from './components/Text';
 
 export const App = () => {
     return (
         <>
             <Header />
-            <div className="app">
-                <Main />
+            <section className="app">
+                <Stats />
+                <Text />
                 <Keyboard />
-            </div>
+            </section>
         </>
     );
 };

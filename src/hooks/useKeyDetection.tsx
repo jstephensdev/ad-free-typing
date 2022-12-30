@@ -5,9 +5,9 @@ import { setKey } from '../store/keySlice';
 export const useKeyDetection = (callback: (arg0: any) => any) => {
     const keyPress = useAppSelector((state) => state.keyPressed.value);
     const dispatch = useAppDispatch();
+    console.log('hello');
 
     useEffect(() => {
-        console.log('logging twice and evey seond after starting to type');
         const downHandler = ({ key }: any) => {
             if (keyPress !== key) {
                 dispatch(setKey(key));

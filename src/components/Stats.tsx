@@ -1,5 +1,5 @@
 import { useKeyDetection } from '../hooks/useKeyDetection';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { currentTime } from '../services/currentTime';
 import { setStartTime } from '../store/startTimeSlice';
 import {
@@ -10,8 +10,9 @@ import {
     setLeftPadding,
 } from '../store/textSlice';
 import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
+import { Timer } from './Timer';
 
-export const Main = () => {
+export const Stats = () => {
     const dispatch = useAppDispatch();
     const startTime = useAppSelector((state) => state.startTime.value);
     const text = useAppSelector((state) => state.textSelection.text);
@@ -33,7 +34,6 @@ export const Main = () => {
 
     const [wordCount, setWordCount] = useState(0);
     const [wpm, setWpm] = useState('00.00');
-    const [duration, setDuration] = useState('00.00');
     const [accuracy, setAccuracy] = useState('000.00');
 
     useKeyDetection((key) => {
@@ -78,26 +78,11 @@ export const Main = () => {
         }
     });
 
-    useEffect(() => {
-        let interval: any;
-        if (startTime > 0) {
-            interval = setInterval(() => {
-                const duration = new Date(currentTime() - startTime)
-                    .toLocaleTimeString('en-US')
-                    .slice(2, 7);
-                setDuration(duration);
-            }, 1000);
-        }
-        return () => clearInterval(interval);
-    }, [startTime]);
-
     return (
         <>
             <section className="stats">
                 <span>{`Duration: `}</span>
-                <span className="duration">{`${
-                    startTime === 0 ? '00:00' : duration
-                }`}</span>
+                <Timer />
                 <span>{` | WPM: `}</span>
                 <span className="wpm">{`${wpm}`}</span>
                 <span>{` | ACC: `}</span>
@@ -108,15 +93,6 @@ export const Main = () => {
                         ? '000.00'
                         : (100 - Number(accuracy)).toFixed(2)
                 }%`}</span>
-            </section>
-            <section className="text-section">
-                <p>
-                    <span className="character-out">
-                        {(leftPadding + outgoingChars).slice(-30)}
-                    </span>
-                    <span className="character-current">{currentChar}</span>
-                    <span>{incomingChars.substring(0, 30)}</span>
-                </p>
             </section>
         </>
     );
