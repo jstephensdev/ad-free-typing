@@ -8,7 +8,7 @@ export const useKeyDetection = (callback: any) => {
 
     useEffect(() => {
         const downHandler = ({ key }: any) => {
-            if (keyPress !== key) {
+            if (keyPress !== key && key.length === 1) {
                 dispatch(setKey(key));
                 callback && callback(key);
             }
