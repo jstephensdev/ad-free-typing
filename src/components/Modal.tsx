@@ -6,8 +6,8 @@ import { setText, setMode } from '../store/textSlice';
 export const Modal = (props: any) => {
     const dispatch = useAppDispatch();
     const mode = useAppSelector((state) => state.text.mode);
-    const easyText = useAppSelector((state) => state.text.easy);
-    const hardText = useAppSelector((state) => state.text.hard);
+    const easyText = useAppSelector((state) => state.text.words);
+    const hardText = useAppSelector((state) => state.text.sentences);
     const numericText = useAppSelector((state) => state.text.numbers);
     const alphaNumericText = useAppSelector(
         (state) => state.text.alphaNumerics
@@ -16,9 +16,9 @@ export const Modal = (props: any) => {
     const handleCheckChange = (textMode: string) => {
         dispatch(setMode(textMode));
         dispatch(resetStats());
-        if (textMode === 'hard') {
+        if (textMode === 'sentences') {
             dispatch(setText(hardText));
-        } else if (textMode === 'easy') {
+        } else if (textMode === 'words') {
             dispatch(setText(easyText));
         } else if (textMode === 'numbers') {
             dispatch(setText(numericText));
@@ -49,10 +49,10 @@ export const Modal = (props: any) => {
                             <label>
                                 <input
                                     type="checkbox"
-                                    checked={mode === 'easy'}
-                                    onChange={() => handleCheckChange('easy')}
+                                    checked={mode === 'words'}
+                                    onChange={() => handleCheckChange('words')}
                                 />
-                                Easy
+                                Words
                             </label>
                             <label>
                                 <input
@@ -67,10 +67,12 @@ export const Modal = (props: any) => {
                             <label>
                                 <input
                                     type="checkbox"
-                                    checked={mode === 'hard'}
-                                    onChange={() => handleCheckChange('hard')}
+                                    checked={mode === 'sentences'}
+                                    onChange={() =>
+                                        handleCheckChange('sentences')
+                                    }
                                 />
-                                Hard
+                                Sentences
                             </label>
                             <label>
                                 <input
@@ -86,19 +88,19 @@ export const Modal = (props: any) => {
                     ) : (
                         <section className="text-section">
                             <ul>
-                                <li>Easy:</li>
+                                <li>Words:</li>
                                 <ul>
-                                    <li>5 character Lorem Ipsum</li>
+                                    <li>5 character adjectives</li>
                                 </ul>
                                 <li>Numbers:</li>
                                 <ul>
                                     <li>5 character number strings</li>
                                 </ul>
-                                <li>Hard:</li>
+                                <li>Sentences:</li>
                                 <ul>
                                     <li>
-                                        words any length, capitalization, and
-                                        periods.
+                                        Lorem Ipsum words any length,
+                                        capitalization, and periods.
                                     </li>
                                 </ul>
                                 <li>AlphaNumeric:</li>

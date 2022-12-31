@@ -8,9 +8,9 @@ import {
 } from '../services/faker';
 
 interface TextState {
-    easy: string;
+    words: string;
     numbers: string;
-    hard: string;
+    sentences: string;
     alphaNumerics: string;
     mode: string;
     text: string;
@@ -24,9 +24,9 @@ interface TextState {
 const initialText = fakerWords(5);
 
 const initialState = {
-    easy: initialText,
+    words: initialText,
     numbers: fakerNumbers(5),
-    hard: fakerText(),
+    sentences: fakerText(),
     alphaNumerics: fakerAlphaNumeric(5),
     mode: 'easy',
     text: initialText,

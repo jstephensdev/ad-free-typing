@@ -16,8 +16,8 @@ export const Header = () => {
     const [openModal, setOpenModal] = useState(false);
     const [title, setTitle] = useState('');
     const mode = useAppSelector((state) => state.text.mode);
-    const easyText = useAppSelector((state) => state.text.easy);
-    const hardText = useAppSelector((state) => state.text.hard);
+    const easyText = useAppSelector((state) => state.text.words);
+    const hardText = useAppSelector((state) => state.text.sentences);
     const numericText = useAppSelector((state) => state.text.numbers);
     const alphaNumericText = useAppSelector(
         (state) => state.text.alphaNumerics
