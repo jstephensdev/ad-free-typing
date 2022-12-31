@@ -4,6 +4,12 @@ import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
 import { resetStats } from '../store/statsSlice';
 import { setText } from '../store/textSlice';
+import {
+    fakerAlphaNumeric,
+    fakerNumbers,
+    fakerText,
+    fakerWords,
+} from '../services/faker';
 
 export const Header = () => {
     const dispatch = useAppDispatch();
@@ -34,6 +40,20 @@ export const Header = () => {
             dispatch(setText(alphaNumericText));
         }
     };
+
+    const generateNewText = () => {
+        dispatch(resetStats());
+        if (mode === 'hard') {
+            dispatch(setText(fakerText()));
+        } else if (mode === 'easy') {
+            dispatch(setText(fakerWords(5)));
+        } else if (mode === 'numbers') {
+            dispatch(setText(fakerNumbers(5)));
+        } else if (mode === 'alphaNumeric') {
+            dispatch(setText(fakerAlphaNumeric(5)));
+        }
+    };
+
     return (
         <>
             <header className="app-header">
@@ -44,7 +64,6 @@ export const Header = () => {
                         size="large"
                         onClick={() => handleModalOpen('Easy or Hard:')}
                     />
-
                     <a
                         href="https://github.com/jstephensdev/ad-free-typing"
                         target="_blank"
@@ -58,11 +77,16 @@ export const Header = () => {
                 <div>
                     <IonIcon
                         className="ionIcon"
+                        name="refresh-outline"
+                        size="large"
+                        onClick={() => generateNewText()}
+                    />
+                    <IonIcon
+                        className="ionIcon"
                         name="refresh-circle-outline"
                         size="large"
                         onClick={() => handleReset()}
                     />
-
                     <IonIcon
                         className="ionIcon"
                         name="settings-outline"
