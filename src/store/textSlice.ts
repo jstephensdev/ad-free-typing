@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import type { RootState } from './store';
+
 import {
     fakerText,
     fakerWords,
@@ -79,22 +79,5 @@ export const {
     setTypedChars,
     setLeftPadding,
 } = TextSlice.actions;
-
-export const selectEasyText = (state: RootState) => state.text.easy;
-export const selectHardText = (state: RootState) => state.text.hard;
-export const selectNumbersText = (state: RootState) =>
-    state.text.numbers;
-export const selectAlphaNumericText = (state: RootState) =>
-    state.text.alphaNumerics;
-export const mode = (state: RootState) => state.text.mode;
-export const text = (state: RootState) => state.text.text;
-export const incomingChars = (state: RootState) =>
-    state.text.incomingChars;
-export const outgoingChars = (state: RootState) =>
-    state.text.outgoingChars;
-export const currentChar = (state: RootState) =>
-    state.text.currentChar;
-export const leftPadding = (state: RootState) =>
-    state.text.leftPadding;
 
 export default TextSlice.reducer;

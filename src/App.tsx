@@ -20,21 +20,11 @@ export const App = () => {
     const dispatch = useAppDispatch();
     const startTime = useAppSelector((state) => state.stats.startTime);
     const text = useAppSelector((state) => state.text.text);
-    const incomingChars = useAppSelector(
-        (state) => state.text.incomingChars
-    );
-    const outgoingChars = useAppSelector(
-        (state) => state.text.outgoingChars
-    );
-    const currentChar = useAppSelector(
-        (state) => state.text.currentChar
-    );
-    const typedChars = useAppSelector(
-        (state) => state.text.typedChars
-    );
-    const leftPadding = useAppSelector(
-        (state) => state.text.leftPadding
-    );
+    const incomingChars = useAppSelector((state) => state.text.incomingChars);
+    const outgoingChars = useAppSelector((state) => state.text.outgoingChars);
+    const currentChar = useAppSelector((state) => state.text.currentChar);
+    const typedChars = useAppSelector((state) => state.text.typedChars);
+    const leftPadding = useAppSelector((state) => state.text.leftPadding);
 
     const [wordCount, setWordCount] = useState(0);
     const [wpm, setWpm] = useState('00.00');

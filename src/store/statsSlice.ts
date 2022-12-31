@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import type { RootState } from './store';
 
 interface StartTimeState {
     startTime: number;
@@ -12,6 +11,11 @@ interface StartTimeState {
 
 const initialState = {
     startTime: 0,
+    duration: '00.00',
+    wordCount: 0,
+    wpm: '00.00',
+    acc: '000.00',
+    errorRate: '000.00',
 } as StartTimeState;
 
 export const StartTimeSlice = createSlice({
@@ -21,11 +25,24 @@ export const StartTimeSlice = createSlice({
         setStartTime: (state, action: PayloadAction<number>) => {
             state.startTime = action.payload;
         },
+        setDuration: (state, action: PayloadAction<string>) => {
+            state.duration = action.payload;
+        },
+        setWordCount: (state, action: PayloadAction<number>) => {
+            state.wordCount = action.payload;
+        },
+        setWpm: (state, action: PayloadAction<string>) => {
+            state.wpm = action.payload;
+        },
+        setAcc: (state, action: PayloadAction<string>) => {
+            state.acc = action.payload;
+        },
+        setErrorRate: (state, action: PayloadAction<string>) => {
+            state.errorRate = action.payload;
+        },
     },
 });
 
 export const { setStartTime } = StartTimeSlice.actions;
-
-export const selectStartTime = (state: RootState) => state.stats.startTime;
 
 export default StartTimeSlice.reducer;

@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import type { RootState } from './store';
 
 interface KeyState {
     value: string;
@@ -20,7 +19,5 @@ export const keySlice = createSlice({
 });
 
 export const { setKey } = keySlice.actions;
-
-export const selectKeyPressed = (state: RootState) => state.keyPressed.value;
 
 export default keySlice.reducer;
