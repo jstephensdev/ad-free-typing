@@ -18,7 +18,7 @@ export const Timer = () => {
             }, 1000);
         }
         return () => clearInterval(interval);
-    }, [startTime]);
+    }, [startTime, dispatch]);
     return (
         <>
             <span className="duration">{`${
