@@ -29,6 +29,7 @@ export const Header = () => {
                         href="https://github.com/jstephensdev/ad-free-typing"
                         target="_blank"
                         rel="noreferrer"
+                        className="ionIcon"
                     >
                         <IonIcon name="logo-github" size="large" />
                     </a>
