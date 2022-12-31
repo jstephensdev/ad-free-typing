@@ -1,10 +1,21 @@
 import { Modal } from './Modal';
 import IonIcon from '@reacticons/ionicons';
 import { useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
+import { resetStats } from '../store/statsSlice';
+import { setText } from '../store/textSlice';
 
 export const Header = () => {
+    const dispatch = useAppDispatch();
     const [openModal, setOpenModal] = useState(false);
     const [title, setTitle] = useState('');
+    const mode = useAppSelector((state) => state.text.mode);
+    const easyText = useAppSelector((state) => state.text.easy);
+    const hardText = useAppSelector((state) => state.text.hard);
+    const numericText = useAppSelector((state) => state.text.numbers);
+    const alphaNumericText = useAppSelector(
+        (state) => state.text.alphaNumerics
+    );
 
     const handleModalOpen = (title: string) => {
         setTitle(title);
@@ -12,7 +23,16 @@ export const Header = () => {
     };
 
     const handleReset = () => {
-        console.log('todo: reset functionality');
+        dispatch(resetStats());
+        if (mode === 'hard') {
+            dispatch(setText(hardText));
+        } else if (mode === 'easy') {
+            dispatch(setText(easyText));
+        } else if (mode === 'numbers') {
+            dispatch(setText(numericText));
+        } else if (mode === 'alphaNumeric') {
+            dispatch(setText(alphaNumericText));
+        }
     };
     return (
         <>

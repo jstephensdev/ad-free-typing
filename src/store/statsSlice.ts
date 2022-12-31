@@ -37,13 +37,24 @@ export const StartTimeSlice = createSlice({
         setAcc: (state, action: PayloadAction<string>) => {
             state.acc = action.payload;
         },
-        setErrorRate: (state, action: PayloadAction<string>) => {
-            state.errorRate = action.payload;
+        resetStats: (state) => {
+            state.startTime = initialState.startTime;
+            state.duration = initialState.duration;
+            state.wordCount = initialState.wordCount;
+            state.wpm = initialState.wpm;
+            state.acc = initialState.acc;
+            state.errorRate = initialState.errorRate;
         },
     },
 });
 
-export const { setStartTime, setWordCount, setWpm, setAcc } =
-    StartTimeSlice.actions;
+export const {
+    setStartTime,
+    setWordCount,
+    setWpm,
+    setAcc,
+    resetStats,
+    setDuration,
+} = StartTimeSlice.actions;
 
 export default StartTimeSlice.reducer;

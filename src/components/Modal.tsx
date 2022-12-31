@@ -1,5 +1,6 @@
 import IonIcon from '@reacticons/ionicons';
 import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
+import { resetStats } from '../store/statsSlice';
 import { setText, setMode } from '../store/textSlice';
 
 export const Modal = (props: any) => {
@@ -14,6 +15,7 @@ export const Modal = (props: any) => {
 
     const handleCheckChange = (textMode: string) => {
         dispatch(setMode(textMode));
+        dispatch(resetStats());
         if (textMode === 'hard') {
             dispatch(setText(hardText));
         } else if (textMode === 'easy') {
@@ -30,20 +32,18 @@ export const Modal = (props: any) => {
         <>
             <section className="modal">
                 <section className="text-section modal-content">
-                    <a
-                        href="#"
-                        onClick={() =>
-                            props.setOpenModal(
-                                (openModal: boolean) => !openModal
-                            )
-                        }
-                    >
+                    <div>
                         <IonIcon
-                            className="close"
+                            className="close ionIcon"
                             name="close-outline"
                             size="large"
+                            onClick={() =>
+                                props.setOpenModal(
+                                    (openModal: boolean) => !openModal
+                                )
+                            }
                         ></IonIcon>
-                    </a>
+                    </div>
                     {props.title === 'Settings:' ? (
                         <section className="setting-options">
                             <label>

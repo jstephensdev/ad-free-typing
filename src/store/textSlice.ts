@@ -24,7 +24,7 @@ interface TextState {
 const initialText = fakerWords(5);
 
 const initialState = {
-    easy: fakerWords(5),
+    easy: initialText,
     numbers: fakerNumbers(5),
     hard: fakerText(),
     alphaNumerics: fakerAlphaNumeric(5),
