@@ -5,7 +5,7 @@ export const fakerText = () => faker.lorem.paragraph();
 const getWords = (x: number): Array<string> => {
     const words: Array<string> = [];
     for (let i = 0; i < 30; i++) {
-        words.push(faker.lorem.word(x));
+        words.push(faker.word.adjective(x));
     }
     return words;
 };

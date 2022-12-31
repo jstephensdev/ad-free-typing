@@ -2,16 +2,16 @@ import { useAppSelector } from '../hooks/reduxHooks';
 
 export const Text = () => {
     const incomingChars = useAppSelector(
-        (state) => state.textSelection.incomingChars
+        (state) => state.text.incomingChars
     );
     const outgoingChars = useAppSelector(
-        (state) => state.textSelection.outgoingChars
+        (state) => state.text.outgoingChars
     );
     const currentChar = useAppSelector(
-        (state) => state.textSelection.currentChar
+        (state) => state.text.currentChar
     );
     const leftPadding = useAppSelector(
-        (state) => state.textSelection.leftPadding
+        (state) => state.text.leftPadding
     );
 
     return (

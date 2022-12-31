@@ -4,12 +4,12 @@ import { setText, setMode } from '../store/textSlice';
 
 export const Modal = (props: any) => {
     const dispatch = useAppDispatch();
-    const mode = useAppSelector((state) => state.textSelection.mode);
-    const easyText = useAppSelector((state) => state.textSelection.easy);
-    const hardText = useAppSelector((state) => state.textSelection.hard);
-    const numericText = useAppSelector((state) => state.textSelection.numbers);
+    const mode = useAppSelector((state) => state.text.mode);
+    const easyText = useAppSelector((state) => state.text.easy);
+    const hardText = useAppSelector((state) => state.text.hard);
+    const numericText = useAppSelector((state) => state.text.numbers);
     const alphaNumericText = useAppSelector(
-        (state) => state.textSelection.alphaNumerics
+        (state) => state.text.alphaNumerics
     );
 
     const handleCheckChange = (textMode: string) => {

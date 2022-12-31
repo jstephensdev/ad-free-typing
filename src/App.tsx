@@ -2,7 +2,7 @@ import './css/App.css';
 import { useKeyDetection } from './hooks/useKeyDetection';
 import { useState } from 'react';
 import { currentTime } from './services/currentTime';
-import { setStartTime } from './store/startTimeSlice';
+import { setStartTime } from './store/statsSlice';
 import {
     setIncomingChars,
     setCurrentChar,
@@ -18,22 +18,22 @@ import { Text } from './components/Text';
 
 export const App = () => {
     const dispatch = useAppDispatch();
-    const startTime = useAppSelector((state) => state.startTime.value);
-    const text = useAppSelector((state) => state.textSelection.text);
+    const startTime = useAppSelector((state) => state.stats.startTime);
+    const text = useAppSelector((state) => state.text.text);
     const incomingChars = useAppSelector(
-        (state) => state.textSelection.incomingChars
+        (state) => state.text.incomingChars
     );
     const outgoingChars = useAppSelector(
-        (state) => state.textSelection.outgoingChars
+        (state) => state.text.outgoingChars
     );
     const currentChar = useAppSelector(
-        (state) => state.textSelection.currentChar
+        (state) => state.text.currentChar
     );
     const typedChars = useAppSelector(
-        (state) => state.textSelection.typedChars
+        (state) => state.text.typedChars
     );
     const leftPadding = useAppSelector(
-        (state) => state.textSelection.leftPadding
+        (state) => state.text.leftPadding
     );
 
     const [wordCount, setWordCount] = useState(0);

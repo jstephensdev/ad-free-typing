@@ -38,7 +38,7 @@ const initialState = {
 } as TextState;
 
 export const TextSlice = createSlice({
-    name: 'textSelection',
+    name: 'text',
     initialState,
     reducers: {
         setMode: (state, action: PayloadAction<string>) => {
@@ -80,21 +80,21 @@ export const {
     setLeftPadding,
 } = TextSlice.actions;
 
-export const selectEasyText = (state: RootState) => state.textSelection.easy;
-export const selectHardText = (state: RootState) => state.textSelection.hard;
+export const selectEasyText = (state: RootState) => state.text.easy;
+export const selectHardText = (state: RootState) => state.text.hard;
 export const selectNumbersText = (state: RootState) =>
-    state.textSelection.numbers;
+    state.text.numbers;
 export const selectAlphaNumericText = (state: RootState) =>
-    state.textSelection.alphaNumerics;
-export const mode = (state: RootState) => state.textSelection.mode;
-export const text = (state: RootState) => state.textSelection.text;
+    state.text.alphaNumerics;
+export const mode = (state: RootState) => state.text.mode;
+export const text = (state: RootState) => state.text.text;
 export const incomingChars = (state: RootState) =>
-    state.textSelection.incomingChars;
+    state.text.incomingChars;
 export const outgoingChars = (state: RootState) =>
-    state.textSelection.outgoingChars;
+    state.text.outgoingChars;
 export const currentChar = (state: RootState) =>
-    state.textSelection.currentChar;
+    state.text.currentChar;
 export const leftPadding = (state: RootState) =>
-    state.textSelection.leftPadding;
+    state.text.leftPadding;
 
 export default TextSlice.reducer;

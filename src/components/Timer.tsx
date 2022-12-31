@@ -3,7 +3,9 @@ import { useAppSelector } from '../hooks/reduxHooks';
 import { currentTime } from '../services/currentTime';
 
 export const Timer = () => {
-    const startTime = useAppSelector((state) => state.startTime.value);
+    const startTime = useAppSelector(
+        (state) => state.stats.startTime
+    );
     const [duration, setDuration] = useState('00.00');
     useEffect(() => {
         let interval: any;
