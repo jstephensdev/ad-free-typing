@@ -141,3 +141,12 @@ input {
     justify-content: center;
     padding: 10px;
 }
+
+.ionIcon {
+    background: none;
+    border: none;
+    padding: 0;
+    color: #6f2da8;
+    text-decoration: underline;
+    cursor: pointer;
+}

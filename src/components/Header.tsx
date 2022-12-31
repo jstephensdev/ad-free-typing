@@ -10,20 +10,21 @@ export const Header = () => {
         setTitle(title);
         setOpenModal((openModal) => !openModal);
     };
+
+    const handleReset = () => {
+        console.log('todo: reset functionality');
+    };
     return (
         <>
             <header className="app-header">
                 <div>
-                    <a
-                        href="#"
-                        rel="noreferrer"
+                    <IonIcon
+                        className="ionIcon"
+                        name="information-circle-outline"
+                        size="large"
                         onClick={() => handleModalOpen('Easy or Hard:')}
-                    >
-                        <IonIcon
-                            name="information-circle-outline"
-                            size="large"
-                        />
-                    </a>
+                    />
+
                     <a
                         href="https://github.com/jstephensdev/ad-free-typing"
                         target="_blank"
@@ -33,13 +34,21 @@ export const Header = () => {
                     </a>
                 </div>
                 <h1>Ad Free Typing</h1>
-                <a
-                    href="#"
-                    rel="noreferrer"
-                    onClick={() => handleModalOpen('Settings:')}
-                >
-                    <IonIcon name="settings-outline" size="large" />
-                </a>
+                <div>
+                    <IonIcon
+                        className="ionIcon"
+                        name="refresh-circle-outline"
+                        size="large"
+                        onClick={() => handleReset()}
+                    />
+
+                    <IonIcon
+                        className="ionIcon"
+                        name="settings-outline"
+                        size="large"
+                        onClick={() => handleModalOpen('Settings:')}
+                    />
+                </div>
             </header>
             {openModal ? (
                 <Modal title={title} setOpenModal={setOpenModal} />
