@@ -1,8 +1,7 @@
 import './css/App.css';
 import { useKeyDetection } from './hooks/useKeyDetection';
-import { useState } from 'react';
 import { currentTime } from './services/currentTime';
-import { setStartTime } from './store/statsSlice';
+import { setAcc, setStartTime, setWordCount, setWpm } from './store/statsSlice';
 import {
     setIncomingChars,
     setCurrentChar,
@@ -25,10 +24,7 @@ export const App = () => {
     const currentChar = useAppSelector((state) => state.text.currentChar);
     const typedChars = useAppSelector((state) => state.text.typedChars);
     const leftPadding = useAppSelector((state) => state.text.leftPadding);
-
-    const [wordCount, setWordCount] = useState(0);
-    const [wpm, setWpm] = useState('00.00');
-    const [accuracy, setAccuracy] = useState('000.00');
+    const wordCount = useAppSelector((state) => state.stats.wordCount);
 
     useKeyDetection((key: string) => {
         let updatedTypedChars = typedChars + key;
@@ -52,9 +48,11 @@ export const App = () => {
             dispatch(setIncomingChars(updatedIncomingChars));
 
             if (incomingChars.charAt(0) === ' ') {
-                setWordCount(wordCount + 1);
+                dispatch(setWordCount(wordCount + 1));
                 const durationInMinutes = (currentTime() - startTime) / 60000.0;
-                setWpm(((wordCount + 1) / durationInMinutes).toFixed(2));
+                dispatch(
+                    setWpm(((wordCount + 1) / durationInMinutes).toFixed(2))
+                );
             }
         }
         if (
@@ -62,11 +60,13 @@ export const App = () => {
             updatedOutgoingChars.length > 0
         ) {
             dispatch(setTypedChars(updatedTypedChars));
-            setAccuracy(
-                (
-                    (updatedOutgoingChars.length * 100) /
-                    updatedTypedChars.length
-                ).toFixed(2)
+            dispatch(
+                setAcc(
+                    (
+                        (updatedOutgoingChars.length * 100) /
+                        updatedTypedChars.length
+                    ).toFixed(2)
+                )
             );
         }
     });
@@ -74,7 +74,7 @@ export const App = () => {
         <>
             <Header />
             <section className="app">
-                <Stats wpm={wpm} accuracy={accuracy} />
+                <Stats />
                 <Text />
                 <Keyboard />
             </section>

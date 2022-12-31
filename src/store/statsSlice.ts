@@ -43,6 +43,7 @@ export const StartTimeSlice = createSlice({
     },
 });
 
-export const { setStartTime } = StartTimeSlice.actions;
+export const { setStartTime, setWordCount, setWpm, setAcc } =
+    StartTimeSlice.actions;
 
 export default StartTimeSlice.reducer;
