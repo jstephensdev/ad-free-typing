@@ -30,9 +30,9 @@ export const Header = () => {
 
     const handleReset = () => {
         dispatch(resetStats());
-        if (mode === 'hard') {
+        if (mode === 'sentences') {
             dispatch(setText(hardText));
-        } else if (mode === 'easy') {
+        } else if (mode === 'words') {
             dispatch(setText(easyText));
         } else if (mode === 'numbers') {
             dispatch(setText(numericText));
@@ -43,9 +43,9 @@ export const Header = () => {
 
     const generateNewText = () => {
         dispatch(resetStats());
-        if (mode === 'hard') {
+        if (mode === 'sentences') {
             dispatch(setText(fakerText()));
-        } else if (mode === 'easy') {
+        } else if (mode === 'words') {
             dispatch(setText(fakerWords(5)));
         } else if (mode === 'numbers') {
             dispatch(setText(fakerNumbers(5)));
