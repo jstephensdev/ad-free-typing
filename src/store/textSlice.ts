@@ -84,6 +84,25 @@ export const TextSlice = createSlice({
         setLeftPadding: (state, action: PayloadAction<string>) => {
             state.leftPadding = action.payload;
         },
+        generateNewText: (state, action: PayloadAction<string>) => {
+            let textToSet = '';
+            if (action.payload === TextMode.words) {
+                textToSet = fakerWords(5);
+            } else if (action.payload === TextMode.sentences) {
+                textToSet = fakerText();
+            } else if (action.payload === TextMode.numbers) {
+                textToSet = fakerNumbers(5);
+            } else if (action.payload === TextMode.alphaNumeric) {
+                textToSet = fakerAlphaNumeric(5);
+            }
+
+            state.text = textToSet;
+            state.incomingChars = textToSet.substring(1);
+            state.outgoingChars = '';
+            state.typedChars = '';
+            state.currentChar = textToSet.charAt(0);
+            state.leftPadding = new Array(30).fill(' ').join('');
+        },
     },
 });
 
@@ -95,6 +114,7 @@ export const {
     setOutgoingChars,
     setTypedChars,
     setLeftPadding,
+    generateNewText,
 } = TextSlice.actions;
 
 export default TextSlice.reducer;

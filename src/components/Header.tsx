@@ -3,13 +3,13 @@ import IonIcon from '@reacticons/ionicons';
 import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
 import { resetStats } from '../store/statsSlice';
-import { setText } from '../store/textSlice';
+import { setText, generateNewText } from '../store/textSlice';
 
 export const Header = () => {
     const dispatch = useAppDispatch();
     const [openModal, setOpenModal] = useState(false);
     const [title, setTitle] = useState('');
-    const mode = useAppSelector((state) => state.text.mode);
+    const mode: string = useAppSelector((state) => state.text.mode);
 
     const handleModalOpen = (title: string) => {
         setTitle(title);
@@ -21,9 +21,9 @@ export const Header = () => {
         dispatch(setText(mode));
     };
 
-    const generateNewText = () => {
+    const newText = () => {
         dispatch(resetStats());
-        dispatch(setText(mode));
+        dispatch(generateNewText(mode));
     };
 
     return (
@@ -51,7 +51,7 @@ export const Header = () => {
                         className="ionIcon"
                         name="refresh-outline"
                         size="large"
-                        onClick={() => generateNewText()}
+                        onClick={() => newText()}
                     />
                     <IonIcon
                         className="ionIcon"
