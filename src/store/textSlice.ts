@@ -28,7 +28,7 @@ const initialState = {
     numbers: fakerNumbers(5),
     sentences: fakerText(),
     alphaNumerics: fakerAlphaNumeric(5),
-    mode: 'easy',
+    mode: 'words',
     text: initialText,
     incomingChars: initialText.substring(1),
     outgoingChars: '',
