@@ -20,7 +20,8 @@
         "typescript": "^4.9.4"
     },
     "scripts": {
-        "start": "react-scripts start",
+        "start": "npm run prettier && react-scripts start",
+        "prettier": "npx prettier --write .",
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject"
