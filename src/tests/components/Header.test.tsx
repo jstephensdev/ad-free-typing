@@ -10,7 +10,7 @@ beforeEach(() => {
             <Header />
         </Provider>
     );
-  })
+});
 
 test('renders ad free typing heading', () => {
     const heading = screen.getByText(/Ad Free Typing/i);
@@ -22,24 +22,20 @@ test('renders info icon link', () => {
     expect(heading).toBeInTheDocument();
 });
 
-
 test('renders github icon link', () => {
     const heading = screen.getByTestId('github');
     expect(heading).toBeInTheDocument();
 });
-
 
 test('renders get new text refresh outline icon', () => {
     const heading = screen.getByTestId('get-new-text');
     expect(heading).toBeInTheDocument();
 });
 
-
 test('renders reset icon link', () => {
     const heading = screen.getByTestId('reset');
     expect(heading).toBeInTheDocument();
 });
-
 
 test('renders settings icon link', () => {
     const heading = screen.getByTestId('settings');
