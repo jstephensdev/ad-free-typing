@@ -1,7 +1,12 @@
 import './css/App.css';
 import { useKeyDetection } from './hooks/useKeyDetection';
 import { currentTime } from './services/currentTime';
-import { setAcc, setStartTime, setWordCount, setWpm } from './store/slices/statsSlice';
+import {
+    setAcc,
+    setStartTime,
+    setWordCount,
+    setWpm,
+} from './store/slices/statsSlice';
 import {
     setIncomingChars,
     setCurrentChar,
