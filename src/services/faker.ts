@@ -2,32 +2,26 @@ import { faker } from '@faker-js/faker';
 
 export const fakerText = () => faker.lorem.paragraph();
 
-const getWords = (x: number): Array<string> => {
+export const fakerWords = (x: number): string => {
     const words: Array<string> = [];
     for (let i = 0; i < 30; i++) {
         words.push(faker.word.adjective(x));
     }
-    return words;
+    return words.join(' ');
 };
 
-export const fakerWords = (x: number) => getWords(x).join(' ');
-
-const getNumbers = (x: number): Array<string> => {
+export const fakerNumbers = (x: number): string => {
     const numbers: Array<string> = [];
     for (let i = 0; i < 30; i++) {
         numbers.push(faker.random.numeric(x));
     }
-    return numbers;
+    return numbers.join(' ');
 };
 
-export const fakerNumbers = (x: number) => getNumbers(x).join(' ');
-
-const getAlphaNumeric = (x: number): Array<string> => {
+export const fakerAlphaNumeric = (x: number): string => {
     const alphaNumericStrings: Array<string> = [];
     for (let i = 0; i < 30; i++) {
         alphaNumericStrings.push(faker.random.alphaNumeric(x));
     }
-    return alphaNumericStrings;
+    return alphaNumericStrings.join(' ');
 };
-
-export const fakerAlphaNumeric = (x: number) => getAlphaNumeric(x).join(' ');
