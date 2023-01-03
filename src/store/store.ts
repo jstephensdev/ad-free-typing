@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
-import keyReducer from './keySlice';
-import statsReducer from './statsSlice';
-import textReducer from './textSlice';
+import keyReducer from './slices/keySlice';
+import statsReducer from './slices/statsSlice';
+import textReducer from './slices/textSlice';
 
 export const store = configureStore({
     reducer: {

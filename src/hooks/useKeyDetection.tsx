@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from './reduxHooks';
-import { setKey } from '../store/keySlice';
+import { setKey } from '../store/slices/keySlice';
 
 export const useKeyDetection = (callback: any) => {
     const keyPress = useAppSelector((state) => state.keyPressed.value);

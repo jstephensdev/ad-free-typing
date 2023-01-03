@@ -1,14 +1,14 @@
 import './css/App.css';
 import { useKeyDetection } from './hooks/useKeyDetection';
 import { currentTime } from './services/currentTime';
-import { setAcc, setStartTime, setWordCount, setWpm } from './store/statsSlice';
+import { setAcc, setStartTime, setWordCount, setWpm } from './store/slices/statsSlice';
 import {
     setIncomingChars,
     setCurrentChar,
     setOutgoingChars,
     setTypedChars,
     setLeftPadding,
-} from './store/textSlice';
+} from './store/slices/textSlice';
 import { useAppDispatch, useAppSelector } from './hooks/reduxHooks';
 import { Stats } from './components/Stats';
 import { Header } from './components/Header';

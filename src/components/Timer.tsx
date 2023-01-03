@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
 import { currentTime } from '../services/currentTime';
-import { setDuration } from '../store/statsSlice';
+import { setDuration } from '../store/slices/statsSlice';
 
 export const Timer = () => {
     const dispatch = useAppDispatch();

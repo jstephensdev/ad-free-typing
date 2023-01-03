@@ -2,8 +2,8 @@ import { Modal } from './Modal';
 import IonIcon from '@reacticons/ionicons';
 import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
-import { resetStats } from '../store/statsSlice';
-import { setText, generateNewText } from '../store/textSlice';
+import { resetStats } from '../store/slices/statsSlice';
+import { setText, generateNewText } from '../store/slices/textSlice';
 
 export const Header = () => {
     const dispatch = useAppDispatch();

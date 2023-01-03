@@ -5,7 +5,7 @@ import {
     fakerWords,
     fakerAlphaNumeric,
     fakerNumbers,
-} from '../services/faker';
+} from '../../services/faker';
 
 interface TextState {
     words: string;
