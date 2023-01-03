@@ -1,30 +1,16 @@
 import IonIcon from '@reacticons/ionicons';
 import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
 import { resetStats } from '../store/statsSlice';
-import { setText, setMode } from '../store/textSlice';
+import { setText, setMode, TextMode } from '../store/textSlice';
 
 export const Modal = (props: any) => {
     const dispatch = useAppDispatch();
     const mode = useAppSelector((state) => state.text.mode);
-    const easyText = useAppSelector((state) => state.text.words);
-    const hardText = useAppSelector((state) => state.text.sentences);
-    const numericText = useAppSelector((state) => state.text.numbers);
-    const alphaNumericText = useAppSelector(
-        (state) => state.text.alphaNumerics
-    );
 
-    const handleCheckChange = (textMode: string) => {
+    const handleCheckChange = (textMode: TextMode) => {
         dispatch(setMode(textMode));
         dispatch(resetStats());
-        if (textMode === 'sentences') {
-            dispatch(setText(hardText));
-        } else if (textMode === 'words') {
-            dispatch(setText(easyText));
-        } else if (textMode === 'numbers') {
-            dispatch(setText(numericText));
-        } else if (textMode === 'alphaNumeric') {
-            dispatch(setText(alphaNumericText));
-        }
+        dispatch(setText(textMode));
         props.setOpenModal((openModal: boolean) => !openModal);
     };
 
@@ -49,17 +35,19 @@ export const Modal = (props: any) => {
                             <label>
                                 <input
                                     type="checkbox"
-                                    checked={mode === 'words'}
-                                    onChange={() => handleCheckChange('words')}
+                                    checked={mode === TextMode.words}
+                                    onChange={() =>
+                                        handleCheckChange(TextMode.words)
+                                    }
                                 />
                                 Words
                             </label>
                             <label>
                                 <input
                                     type="checkbox"
-                                    checked={mode === 'numbers'}
+                                    checked={mode === TextMode.numbers}
                                     onChange={() =>
-                                        handleCheckChange('numbers')
+                                        handleCheckChange(TextMode.numbers)
                                     }
                                 />
                                 Numbers
@@ -67,9 +55,9 @@ export const Modal = (props: any) => {
                             <label>
                                 <input
                                     type="checkbox"
-                                    checked={mode === 'sentences'}
+                                    checked={mode === TextMode.sentences}
                                     onChange={() =>
-                                        handleCheckChange('sentences')
+                                        handleCheckChange(TextMode.sentences)
                                     }
                                 />
                                 Sentences
@@ -77,9 +65,9 @@ export const Modal = (props: any) => {
                             <label>
                                 <input
                                     type="checkbox"
-                                    checked={mode === 'alphaNumeric'}
+                                    checked={mode === TextMode.alphaNumeric}
                                     onChange={() =>
-                                        handleCheckChange('alphaNumeric')
+                                        handleCheckChange(TextMode.alphaNumeric)
                                     }
                                 />
                                 AlphaNumeric
