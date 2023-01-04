@@ -1,12 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface KeyState {
+export interface KeyState {
     value: string;
 }
 
-const initialState = {
+const initialState: KeyState = {
     value: '',
-} as KeyState;
+};
 
 export const keySlice = createSlice({
     name: 'keyPressed',
