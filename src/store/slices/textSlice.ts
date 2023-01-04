@@ -7,7 +7,7 @@ import {
     fakerNumbers,
 } from '../../services/faker';
 
-interface TextState {
+export interface TextState {
     words: string;
     numbers: string;
     sentences: string;
