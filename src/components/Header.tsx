@@ -34,7 +34,7 @@ export const Header = () => {
                         className="ionIcon"
                         name="information-circle-outline"
                         size="large"
-                        onClick={() => handleModalOpen('Easy or Hard:')}
+                        onClick={() => handleModalOpen('Info:')}
                         data-testid="info"
                     />
                     <a
