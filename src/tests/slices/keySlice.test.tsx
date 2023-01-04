@@ -10,7 +10,7 @@ test('should handle adding key to empty string', () => {
     expect(reducer(initialState, setKey('r'))).toEqual({ value: 'r' });
 });
 
-test('should be unset before adding new key', () => {
+test('should be previous key should be overwritten by new key', () => {
     const initialState: KeyState = { value: 'r' };
 
     expect(reducer(initialState, setKey('s'))).toEqual({ value: 's' });
