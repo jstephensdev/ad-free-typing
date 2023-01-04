@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface StartTimeState {
+export interface StartTimeState {
     startTime: number;
     duration: string;
     wordCount: number;
@@ -9,14 +9,14 @@ interface StartTimeState {
     errorRate: string;
 }
 
-const initialState = {
+const initialState: StartTimeState = {
     startTime: 0,
     duration: '00.00',
     wordCount: 0,
     wpm: '00.00',
     acc: '000.00',
     errorRate: '000.00',
-} as StartTimeState;
+};
 
 export const StartTimeSlice = createSlice({
     name: 'stats',
