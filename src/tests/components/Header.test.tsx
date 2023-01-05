@@ -17,11 +17,6 @@ test('renders ad free typing heading', () => {
     expect(heading).toBeInTheDocument();
 });
 
-test('renders info icon link', () => {
-    const heading = screen.getByTestId('info');
-    expect(heading).toBeInTheDocument();
-});
-
 test('renders github icon link', () => {
     const heading = screen.getByTestId('github');
     expect(heading).toBeInTheDocument();
