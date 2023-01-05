@@ -12,7 +12,7 @@ export interface TextState {
     numbers: string;
     sentences: string;
     alphaNumeric: string;
-    mode: string;
+    mode: TextMode;
     text: string;
     incomingChars: string;
     outgoingChars: string;

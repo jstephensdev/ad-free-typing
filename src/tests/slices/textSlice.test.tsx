@@ -18,7 +18,7 @@ const state = {
     currentChar: 'f',
     incomingChars: 'akerWords',
     leftPadding: '                              ',
-    mode: 'words',
+    mode: TextMode.words,
     numbers: '1234 1234',
     outgoingChars: '',
     sentences: 'fakerText',

@@ -3,13 +3,13 @@ import IonIcon from '@reacticons/ionicons';
 import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
 import { resetStats } from '../store/slices/statsSlice';
-import { setText, generateNewText } from '../store/slices/textSlice';
+import { setText, generateNewText, TextMode } from '../store/slices/textSlice';
 
 export const Header = () => {
     const dispatch = useAppDispatch();
     const [openModal, setOpenModal] = useState(false);
     const [title, setTitle] = useState('');
-    const mode: string = useAppSelector((state) => state.text.mode);
+    const mode: TextMode = useAppSelector((state) => state.text.mode);
 
     const handleModalOpen = (title: string) => {
         setTitle(title);
@@ -30,13 +30,6 @@ export const Header = () => {
         <>
             <header className="app-header">
                 <div>
-                    <IonIcon
-                        className="ionIcon"
-                        name="information-circle-outline"
-                        size="large"
-                        onClick={() => handleModalOpen('Info:')}
-                        data-testid="info"
-                    />
                     <a
                         href="https://github.com/jstephensdev/ad-free-typing"
                         target="_blank"
@@ -46,6 +39,13 @@ export const Header = () => {
                     >
                         <IonIcon name="logo-github" size="large" />
                     </a>
+                    <IonIcon
+                        className="ionIcon"
+                        name="settings-outline"
+                        size="large"
+                        onClick={() => handleModalOpen('Settings:')}
+                        data-testid="settings"
+                    />
                 </div>
                 <h1>Ad Free Typing</h1>
                 <div>
@@ -62,13 +62,6 @@ export const Header = () => {
                         size="large"
                         onClick={() => handleReset()}
                         data-testid="reset"
-                    />
-                    <IonIcon
-                        className="ionIcon"
-                        name="settings-outline"
-                        size="large"
-                        onClick={() => handleModalOpen('Settings:')}
-                        data-testid="settings"
                     />
                 </div>
             </header>
