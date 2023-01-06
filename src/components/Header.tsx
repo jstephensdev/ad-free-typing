@@ -8,11 +8,9 @@ import { setText, generateNewText, TextMode } from '../store/slices/textSlice';
 export const Header = () => {
     const dispatch = useAppDispatch();
     const [openModal, setOpenModal] = useState(false);
-    const [title, setTitle] = useState('');
     const mode: TextMode = useAppSelector((state) => state.text.mode);
 
-    const handleModalOpen = (title: string) => {
-        setTitle(title);
+    const handleModalOpen = () => {
         setOpenModal((openModal) => !openModal);
     };
 
@@ -43,7 +41,7 @@ export const Header = () => {
                         className="ionIcon"
                         name="settings-outline"
                         size="large"
-                        onClick={() => handleModalOpen('Settings:')}
+                        onClick={() => handleModalOpen()}
                         data-testid="settings"
                     />
                 </div>
@@ -65,11 +63,7 @@ export const Header = () => {
                     />
                 </div>
             </header>
-            {openModal ? (
-                <Modal title={title} setOpenModal={setOpenModal} />
-            ) : (
-                <></>
-            )}
+            {openModal ? <Modal setOpenModal={setOpenModal} /> : <></>}
         </>
     );
 };
