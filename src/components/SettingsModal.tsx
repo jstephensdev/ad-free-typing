@@ -1,5 +1,6 @@
 import IonIcon from '@reacticons/ionicons';
 import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
+import { Checkbox } from './CheckBox';
 import { resetStats } from '../store/slices/statsSlice';
 import { setText, setMode, TextMode } from '../store/slices/textSlice';
 
@@ -31,46 +32,34 @@ export const SettingsModal = (props: { setOpenModal: any }) => {
                         ></IonIcon>
                     </div>
                     <section className="setting-options">
-                        <label>
-                            <input
-                                type="checkbox"
-                                checked={mode === TextMode.words}
-                                onChange={() =>
-                                    handleCheckChange(TextMode.words)
-                                }
-                            />
-                            Words
-                        </label>
-                        <label>
-                            <input
-                                type="checkbox"
-                                checked={mode === TextMode.numbers}
-                                onChange={() =>
-                                    handleCheckChange(TextMode.numbers)
-                                }
-                            />
-                            Numbers
-                        </label>
-                        <label>
-                            <input
-                                type="checkbox"
-                                checked={mode === TextMode.sentences}
-                                onChange={() =>
-                                    handleCheckChange(TextMode.sentences)
-                                }
-                            />
-                            Sentences
-                        </label>
-                        <label>
-                            <input
-                                type="checkbox"
-                                checked={mode === TextMode.alphaNumeric}
-                                onChange={() =>
-                                    handleCheckChange(TextMode.alphaNumeric)
-                                }
-                            />
-                            AlphaNumeric
-                        </label>
+                        <Checkbox
+                            label="words"
+                            checked={mode === TextMode.words}
+                            onChange={() =>
+                                handleCheckChange(TextMode.words)
+                            }
+                        />
+                        <Checkbox
+                            label="numbers"
+                            checked={mode === TextMode.numbers}
+                            onChange={() =>
+                                handleCheckChange(TextMode.numbers)
+                            }
+                        />
+                        <Checkbox
+                            label="sentences"
+                            checked={mode === TextMode.sentences}
+                            onChange={() =>
+                                handleCheckChange(TextMode.sentences)
+                            }
+                        />
+                        <Checkbox
+                            label="alphaNumeric"
+                            checked={mode === TextMode.alphaNumeric}
+                            onChange={() =>
+                                handleCheckChange(TextMode.alphaNumeric)
+                            }
+                        />
                     </section>
                 </section>
             </section>
