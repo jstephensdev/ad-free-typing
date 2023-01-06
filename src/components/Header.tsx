@@ -1,4 +1,4 @@
-import { Modal } from './Modal';
+import { SettingsModal } from './SettingsModal';
 import IonIcon from '@reacticons/ionicons';
 import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
@@ -63,7 +63,7 @@ export const Header = () => {
                     />
                 </div>
             </header>
-            {openModal ? <Modal setOpenModal={setOpenModal} /> : <></>}
+            {openModal ? <SettingsModal setOpenModal={setOpenModal} /> : <></>}
         </>
     );
 };

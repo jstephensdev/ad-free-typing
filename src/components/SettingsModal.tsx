@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
 import { resetStats } from '../store/slices/statsSlice';
 import { setText, setMode, TextMode } from '../store/slices/textSlice';
 
-export const Modal = (props: { setOpenModal: any }) => {
+export const SettingsModal = (props: { setOpenModal: any }) => {
     const dispatch = useAppDispatch();
     const mode = useAppSelector((state) => state.text.mode);
 
