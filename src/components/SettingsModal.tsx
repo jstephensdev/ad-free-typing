@@ -35,16 +35,12 @@ export const SettingsModal = (props: { setOpenModal: any }) => {
                         <Checkbox
                             label="words"
                             checked={mode === TextMode.words}
-                            onChange={() =>
-                                handleCheckChange(TextMode.words)
-                            }
+                            onChange={() => handleCheckChange(TextMode.words)}
                         />
                         <Checkbox
                             label="numbers"
                             checked={mode === TextMode.numbers}
-                            onChange={() =>
-                                handleCheckChange(TextMode.numbers)
-                            }
+                            onChange={() => handleCheckChange(TextMode.numbers)}
                         />
                         <Checkbox
                             label="sentences"
