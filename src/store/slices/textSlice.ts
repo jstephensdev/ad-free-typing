@@ -67,7 +67,7 @@ export const TextSlice = createSlice({
             state.outgoingChars = '';
             state.typedChars = '';
             state.currentChar = textToSet.charAt(0);
-            state.leftPadding = new Array(30).fill(' ').join('');
+            state.leftPadding = initialState.leftPadding;
         },
         setIncomingChars: (state, action: PayloadAction<string>) => {
             state.incomingChars = action.payload;
@@ -101,7 +101,7 @@ export const TextSlice = createSlice({
             state.outgoingChars = '';
             state.typedChars = '';
             state.currentChar = textToSet.charAt(0);
-            state.leftPadding = new Array(30).fill(' ').join('');
+            state.leftPadding = initialState.leftPadding;
         },
     },
 });

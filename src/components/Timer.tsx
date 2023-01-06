@@ -7,6 +7,7 @@ export const Timer = () => {
     const dispatch = useAppDispatch();
     const startTime = useAppSelector((state) => state.stats.startTime);
     const duration = useAppSelector((state) => state.stats.duration);
+
     useEffect(() => {
         let interval: any;
         if (startTime > 0) {
@@ -19,6 +20,7 @@ export const Timer = () => {
         }
         return () => clearInterval(interval);
     }, [startTime, dispatch]);
+
     return (
         <>
             <span className="duration">{`${
