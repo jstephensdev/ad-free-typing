@@ -17,8 +17,9 @@ import {
 } from '../../store/slices/textSlice';
 
 export const Keyboard = () => {
-    console.log('keyboard render');
     const dispatch = useAppDispatch();
+    const keyRows: Array<Array<key>> = KeyboardRows;
+    const keyPressed = useAppSelector((state) => state.keyPressed.value);
     const startTime = useAppSelector((state) => state.stats.startTime);
     const text = useAppSelector((state) => state.text.text);
     const incomingChars = useAppSelector((state) => state.text.incomingChars);
@@ -27,8 +28,6 @@ export const Keyboard = () => {
     const typedChars = useAppSelector((state) => state.text.typedChars);
     const leftPadding = useAppSelector((state) => state.text.leftPadding);
     const wordCount = useAppSelector((state) => state.stats.wordCount);
-    const keyRows: Array<Array<key>> = KeyboardRows;
-    const keyPressed = useAppSelector((state) => state.keyPressed.value);
 
     useKeyDetection((key: string) => {
         let updatedTypedChars = typedChars + key;
