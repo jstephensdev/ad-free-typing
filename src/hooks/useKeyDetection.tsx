@@ -1,21 +1,18 @@
-import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from './reduxHooks';
-import { setKey } from '../store/slices/keySlice';
+import { useEffect, useState } from 'react';
 
 export const useKeyDetection = (callback: any) => {
-    const keyPress = useAppSelector((state) => state.keyPressed.value);
-    const dispatch = useAppDispatch();
+    const [keyPress, setKeyPress] = useState('');
 
     useEffect(() => {
         const downHandler = ({ key }: any) => {
             if (keyPress !== key && key.length === 1) {
-                dispatch(setKey(key));
+                setKeyPress(key);
                 callback && callback(key);
             }
         };
 
         const upHandler = () => {
-            dispatch(setKey(''));
+            setKeyPress('');
         };
         window.addEventListener('keydown', downHandler);
         window.addEventListener('keyup', upHandler);

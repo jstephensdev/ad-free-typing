@@ -1,11 +1,9 @@
 import { configureStore } from '@reduxjs/toolkit';
-import keyReducer from './slices/keySlice';
 import statsReducer from './slices/statsSlice';
 import textReducer from './slices/textSlice';
 
 export const store = configureStore({
     reducer: {
-        keyPressed: keyReducer,
         stats: statsReducer,
         text: textReducer,
     },
@@ -13,5 +11,5 @@ export const store = configureStore({
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
-// Inferred types: keyPressed, stats, textSelection
+// Inferred types: stats, text
 export type AppDispatch = typeof store.dispatch;

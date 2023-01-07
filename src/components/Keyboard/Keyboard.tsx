@@ -19,7 +19,6 @@ import {
 export const Keyboard = () => {
     const dispatch = useAppDispatch();
     const keyRows: Array<Array<key>> = KeyboardRows;
-    const keyPressed = useAppSelector((state) => state.keyPressed.value);
     const startTime = useAppSelector((state) => state.stats.startTime);
     const text = useAppSelector((state) => state.text.text);
     const incomingChars = useAppSelector((state) => state.text.incomingChars);
@@ -29,7 +28,7 @@ export const Keyboard = () => {
     const leftPadding = useAppSelector((state) => state.text.leftPadding);
     const wordCount = useAppSelector((state) => state.stats.wordCount);
 
-    useKeyDetection((key: string) => {
+    const keyPressed = useKeyDetection((key: string) => {
         let updatedTypedChars = typedChars + key;
         let updatedOutgoingChars = outgoingChars;
         let updatedIncomingChars = incomingChars;
