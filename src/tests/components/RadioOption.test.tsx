@@ -2,14 +2,16 @@ import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { store } from '../../store/store';
 import React from 'react';
-import { Checkbox } from '../../components/CheckBox';
+import { RadioOption } from '../../components/RadioOption';
+import '@testing-library/jest-dom';
+
 
 const onChange = jest.fn();
 
 beforeEach(() => {
     render(
         <Provider store={store}>
-            <Checkbox label="test" checked={true} onChange={onChange} />
+            <RadioOption label="test" checked={true} onChange={onChange} />
         </Provider>
     );
 });

@@ -13,7 +13,7 @@
     margin: 10px 10px 20px 10px;
 }
 
-h1 {
+.title {
     margin: 0px;
     background: none;
     border: none;
@@ -21,6 +21,8 @@ h1 {
     color: #6f2da8;
     text-decoration: none;
     cursor: pointer;
+    font-size: 30px;
+    font-weight: bold;
 }
 
 .stats {

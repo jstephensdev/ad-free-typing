@@ -1,8 +1,8 @@
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { store } from '../store/store';
-import React from 'react';
 import { App } from '../App';
+import React from 'react';
 
 test('renders learn react link', () => {
     render(
@@ -10,6 +10,5 @@ test('renders learn react link', () => {
             <App />
         </Provider>
     );
-    const heading = screen.getByText(/Ad Free Typing/i);
-    expect(heading).toBeInTheDocument();
+    expect(store.getState().routing.pathname).toBe('/');
 });

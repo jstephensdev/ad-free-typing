@@ -46,7 +46,7 @@ export const Header = () => {
                         className="ionIcon"
                         name="help-circle"
                         size="large"
-                        data-testid="reset"
+                        data-testid="info"
                         onClick={() =>
                             pathname === '/' || pathname === '/recentStats'
                                 ? dispatch(setUrl('/info'))
@@ -66,7 +66,7 @@ export const Header = () => {
                         }
                     />
                 </div>
-                <h1 onClick={() => dispatch(setUrl('/'))}>Ad Free Typing</h1>
+                <span className='title' onClick={() => dispatch(setUrl('/'))}>Ad Free Typing</span>
                 <div>
                     <IonIcon
                         title="New Text & Stats Reset"
@@ -74,7 +74,7 @@ export const Header = () => {
                         name="refresh-outline"
                         size="large"
                         onClick={() => newText()}
-                        data-testid="get-new-text"
+                        data-testid="new-text-reset"
                     />
                     <IonIcon
                         title="Current Text & Stats Reset"
@@ -82,7 +82,7 @@ export const Header = () => {
                         name="refresh-circle-outline"
                         size="large"
                         onClick={() => currentTextReset()}
-                        data-testid="reset"
+                        data-testid="current-text-reset"
                     />
                     <IonIcon
                         title="Options"
@@ -90,7 +90,7 @@ export const Header = () => {
                         name="options-outline"
                         size="large"
                         onClick={() => setOpenModal((openModal) => !openModal)}
-                        data-testid="settings"
+                        data-testid="options"
                     />
                 </div>
             </header>

@@ -17,7 +17,7 @@ const state = {
     alphaNumeric: 'fak3rAlphaNum3ric',
     currentChar: 'f',
     incomingChars: 'akerWords',
-    leftPadding: '                              ',
+    leftPadding: '',
     mode: TextMode.words,
     numbers: '1234 1234',
     outgoingChars: '',
@@ -35,6 +35,6 @@ test('should return the initial state with only the mode changed to numbers', ()
     const initialState: TextState = state;
     expect(reducer(initialState, setMode(TextMode.numbers))).toEqual({
         ...state,
-        mode: 'numbers',
+        mode: 'Numbers',
     });
 });
