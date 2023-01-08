@@ -45,12 +45,11 @@ export const Header = () => {
                         data-testid="reset"
                     />
                     <IonIcon
-                        title="Options"
+                        title="View Recent Stats"
                         className="ionIcon"
-                        name="options-outline"
+                        name="stats-chart"
                         size="large"
-                        onClick={() => setOpenModal((openModal) => !openModal)}
-                        data-testid="settings"
+                        data-testid="reset"
                     />
                 </div>
                 <h1>Ad Free Typing</h1>
@@ -72,11 +71,12 @@ export const Header = () => {
                         data-testid="reset"
                     />
                     <IonIcon
-                        title="View Recent Stats"
+                        title="Options"
                         className="ionIcon"
-                        name="stats-chart"
+                        name="options-outline"
                         size="large"
-                        data-testid="reset"
+                        onClick={() => setOpenModal((openModal) => !openModal)}
+                        data-testid="settings"
                     />
                 </div>
             </header>
