@@ -10,7 +10,7 @@ export const Header = () => {
     const [openModal, setOpenModal] = useState(false);
     const mode: TextMode = useAppSelector((state) => state.text.mode);
 
-    const handleReset = () => {
+    const currentTextReset = () => {
         dispatch(resetStats());
         dispatch(setText(mode));
     };
@@ -67,7 +67,7 @@ export const Header = () => {
                         className="ionIcon"
                         name="refresh-circle-outline"
                         size="large"
-                        onClick={() => handleReset()}
+                        onClick={() => currentTextReset()}
                         data-testid="reset"
                     />
                     <IonIcon
