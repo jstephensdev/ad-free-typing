@@ -41,7 +41,7 @@ const initialState: TextState = {
     outgoingChars: '',
     typedChars: '',
     currentChar: initialText.charAt(0),
-    leftPadding: new Array(30).fill(' ').join(''),
+    leftPadding: '',
 };
 
 export const TextSlice = createSlice({

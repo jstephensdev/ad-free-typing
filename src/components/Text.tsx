@@ -11,10 +11,10 @@ export const Text = () => {
             <section className="text-section">
                 <p>
                     <span className="character-out">
-                        {(leftPadding + outgoingChars).slice(-30)}
+                        {(leftPadding + outgoingChars).slice(-20)}
                     </span>
                     <span className="character-current">{currentChar}</span>
-                    <span>{incomingChars.substring(0, 30)}</span>
+                    <span>{incomingChars.substring(0, 20)}</span>
                 </p>
             </section>
         </>

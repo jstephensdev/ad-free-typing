@@ -4,11 +4,11 @@ import { Checkbox } from './CheckBox';
 import { resetStats } from '../store/slices/statsSlice';
 import { setText, setMode, TextMode } from '../store/slices/textSlice';
 
-export const SettingsModal = (props: { setOpenModal: any }) => {
+export const OptionsModal = (props: { setOpenModal: any }) => {
     const dispatch = useAppDispatch();
     const mode = useAppSelector((state) => state.text.mode);
 
-    const handleCheckChange = (textMode: TextMode) => {
+    const handleCheckChange = (textMode: TextMode): void => {
         dispatch(setMode(textMode));
         dispatch(resetStats());
         dispatch(setText(textMode));

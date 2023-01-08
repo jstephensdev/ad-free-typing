@@ -1,7 +1,7 @@
 export const Checkbox = (props: {
     label: string;
     checked: boolean;
-    onChange: any;
+    onChange: () => void;
 }) => {
     return (
         <label>
