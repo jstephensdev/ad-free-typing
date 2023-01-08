@@ -15,11 +15,13 @@ export const Header = () => {
     const currentTextReset = () => {
         dispatch(resetStats());
         dispatch(setText(mode));
+        dispatch(setUrl('/'));
     };
 
     const newText = () => {
         dispatch(resetStats());
         dispatch(generateNewText(mode));
+        dispatch(setUrl('/'));
     };
 
     return (

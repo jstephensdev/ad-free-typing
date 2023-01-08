@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
 import { RadioOption } from './RadioOption';
 import { resetStats } from '../store/slices/statsSlice';
 import { setText, setMode, TextMode, modes } from '../store/slices/textSlice';
+import { setUrl } from '../store/slices/routingSlice';
 
 export const OptionsModal = (props: { setOpenModal: any }) => {
     const dispatch = useAppDispatch();
@@ -13,6 +14,7 @@ export const OptionsModal = (props: { setOpenModal: any }) => {
         dispatch(resetStats());
         dispatch(setText(textMode));
         props.setOpenModal((openModal: boolean) => !openModal);
+        dispatch(setUrl('/'));
     };
 
     const renderRadioOption = (modeOption: TextMode) => {
