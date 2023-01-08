@@ -3,8 +3,6 @@ import { Provider } from 'react-redux';
 import { store } from '../../store/store';
 import React from 'react';
 import { RadioOption } from '../../components/RadioOption';
-import '@testing-library/jest-dom';
-
 
 const onChange = jest.fn();
 

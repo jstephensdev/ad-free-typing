@@ -2,9 +2,7 @@ import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { store } from '../../store/store';
 import { Header } from '../../components/Header';
-import '@testing-library/jest-dom';
 import React from 'react';
-
 
 beforeEach(() => {
     render(
