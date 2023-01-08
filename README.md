@@ -2,7 +2,7 @@
 
 my favorite practice typing site https://www.keybr.com/, requires viewing of ads. I prefer not to view ads so I created this ad free version to pratice with. It is a work inprogress with a list of features I am working on below
 
-## link:
+## link: https://wonderful-crostata-77f500.netlify.app/
 
 ## Local Startup Guide
 
