@@ -1,4 +1,4 @@
-import { SettingsModal } from './SettingsModal';
+import { OptionsModal } from './OptionsModal';
 import IonIcon from '@reacticons/ionicons';
 import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
@@ -10,11 +10,7 @@ export const Header = () => {
     const [openModal, setOpenModal] = useState(false);
     const mode: TextMode = useAppSelector((state) => state.text.mode);
 
-    const handleModalOpen = () => {
-        setOpenModal((openModal) => !openModal);
-    };
-
-    const handleReset = () => {
+    const currentTextReset = () => {
         dispatch(resetStats());
         dispatch(setText(mode));
     };
@@ -35,19 +31,31 @@ export const Header = () => {
                         className="ionIcon"
                         data-testid="github"
                     >
-                        <IonIcon name="logo-github" size="large" />
+                        <IonIcon
+                            title="Github Repo Link"
+                            name="logo-github"
+                            size="large"
+                        />
                     </a>
                     <IonIcon
+                        title="More Information"
                         className="ionIcon"
-                        name="settings-outline"
+                        name="help-circle"
                         size="large"
-                        onClick={() => handleModalOpen()}
-                        data-testid="settings"
+                        data-testid="reset"
+                    />
+                    <IonIcon
+                        title="View Recent Stats"
+                        className="ionIcon"
+                        name="stats-chart"
+                        size="large"
+                        data-testid="reset"
                     />
                 </div>
                 <h1>Ad Free Typing</h1>
                 <div>
                     <IonIcon
+                        title="New Text Reset"
                         className="ionIcon"
                         name="refresh-outline"
                         size="large"
@@ -55,15 +63,24 @@ export const Header = () => {
                         data-testid="get-new-text"
                     />
                     <IonIcon
+                        title="Current Text Reset"
                         className="ionIcon"
                         name="refresh-circle-outline"
                         size="large"
-                        onClick={() => handleReset()}
+                        onClick={() => currentTextReset()}
                         data-testid="reset"
+                    />
+                    <IonIcon
+                        title="Options"
+                        className="ionIcon"
+                        name="options-outline"
+                        size="large"
+                        onClick={() => setOpenModal((openModal) => !openModal)}
+                        data-testid="settings"
                     />
                 </div>
             </header>
-            {openModal ? <SettingsModal setOpenModal={setOpenModal} /> : <></>}
+            {openModal ? <OptionsModal setOpenModal={setOpenModal} /> : <></>}
         </>
     );
 };

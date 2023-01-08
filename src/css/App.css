@@ -20,14 +20,14 @@ h1 {
 .stats {
     margin-top: 10px;
     font-weight: bold;
-    font-size: 24px;
+    font-size: 30px;
 }
 
 .text-section {
     padding: 10px;
     margin-bottom: 10px;
     color: rgb(0, 0, 0, 0.7);
-    font-size: 30px;
+    font-size: 40px;
 }
 
 .character-current {
@@ -48,6 +48,7 @@ h1 {
     background: rgb(0, 0, 0, 0.7);
     text-shadow: 0 0 10px #ffc600;
     margin-right: 5px;
+    font-size: 25px;
 }
 
 .key-double {

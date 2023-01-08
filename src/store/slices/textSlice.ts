@@ -28,6 +28,13 @@ export enum TextMode {
     alphaNumeric = 'alphaNumeric',
 }
 
+export const modes: Array<TextMode> = [
+    TextMode.words,
+    TextMode.numbers,
+    TextMode.sentences,
+    TextMode.alphaNumeric,
+];
+
 const initialText = fakerWords(5);
 
 const initialState: TextState = {
@@ -41,7 +48,7 @@ const initialState: TextState = {
     outgoingChars: '',
     typedChars: '',
     currentChar: initialText.charAt(0),
-    leftPadding: new Array(30).fill(' ').join(''),
+    leftPadding: '',
 };
 
 export const TextSlice = createSlice({
@@ -67,7 +74,7 @@ export const TextSlice = createSlice({
             state.outgoingChars = '';
             state.typedChars = '';
             state.currentChar = textToSet.charAt(0);
-            state.leftPadding = new Array(30).fill(' ').join('');
+            state.leftPadding = initialState.leftPadding;
         },
         setIncomingChars: (state, action: PayloadAction<string>) => {
             state.incomingChars = action.payload;
@@ -101,7 +108,7 @@ export const TextSlice = createSlice({
             state.outgoingChars = '';
             state.typedChars = '';
             state.currentChar = textToSet.charAt(0);
-            state.leftPadding = new Array(30).fill(' ').join('');
+            state.leftPadding = initialState.leftPadding;
         },
     },
 });
