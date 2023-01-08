@@ -1,8 +1,17 @@
 # Ad Free Typing
 
-my favorite practice typing site https://www.keybr.com/, requires viewing of ads. I prefer not to view ads so I created this ad free version to pratice with. It is a work inprogress with a list of features I am working on below
+my favorite practice typing site https://www.keybr.com/, requires viewing of ads. I prefer not to view ads so I created this ad free version. It is a work inprogress with a list of features I am working on below
 
 ## link: https://wonderful-crostata-77f500.netlify.app/
+
+## Technology Used
+
+TypeScript
+React
+Redux
+Redux-ToolKit
+Faker for text generation
+IonIcons for icons in header
 
 ## Local Startup Guide
 
@@ -10,9 +19,22 @@ my favorite practice typing site https://www.keybr.com/, requires viewing of ads
 
 ### steps
 
+npm start
+
 ## Complete Features
 
+keys light up when key pressed matchs keyboard key
+keyboard display
+stats calculated and displaying
+stats back to starting state
+text back to initial mode state
+text generation
+text modes
+
 ## Incomplete Features
+
+recent stats history
+more information section
 
 ## Helpful Resources
 
