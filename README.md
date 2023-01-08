@@ -31,3 +31,6 @@ https://redux.js.org/tutorials/essentials/part-1-overview-concepts
 https://redux.js.org/tutorials/essentials/part-2-app-structure
 tests: https://redux.js.org/usage/writing-tests
 tool behind the scenes that allows for writing mutating logic https://immerjs.github.io/immer/
+routing:
+https://read.reduxbook.com/markdown/part2/09-routing.html
+https://codesandbox.io/s/4ryppz540

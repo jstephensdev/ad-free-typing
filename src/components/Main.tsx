@@ -5,11 +5,9 @@ import { Text } from './Text';
 export const Main = () => {
     return (
         <>
-            <section className="app">
-                <Stats />
-                <Text />
-                <Keyboard />
-            </section>
+            <Stats />
+            <Text />
+            <Keyboard />
         </>
     );
 };

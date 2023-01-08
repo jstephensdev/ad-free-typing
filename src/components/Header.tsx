@@ -4,11 +4,13 @@ import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
 import { resetStats } from '../store/slices/statsSlice';
 import { setText, generateNewText, TextMode } from '../store/slices/textSlice';
+import { setUrl } from '../store/slices/routingSlice';
 
 export const Header = () => {
     const dispatch = useAppDispatch();
     const [openModal, setOpenModal] = useState(false);
     const mode: TextMode = useAppSelector((state) => state.text.mode);
+    const pathname = useAppSelector((state) => state.routing.pathname);
 
     const currentTextReset = () => {
         dispatch(resetStats());
@@ -50,6 +52,11 @@ export const Header = () => {
                         name="stats-chart"
                         size="large"
                         data-testid="reset"
+                        onClick={() =>
+                            pathname === '/'
+                                ? dispatch(setUrl('/recentStats'))
+                                : dispatch(setUrl('/'))
+                        }
                     />
                 </div>
                 <h1>Ad Free Typing</h1>
