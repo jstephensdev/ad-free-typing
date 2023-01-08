@@ -1,4 +1,4 @@
-export const Checkbox = (props: {
+export const RadioOption = (props: {
     label: string;
     checked: boolean;
     onChange: () => void;
@@ -6,7 +6,7 @@ export const Checkbox = (props: {
     return (
         <label>
             <input
-                type="checkbox"
+                type="radio"
                 checked={props.checked}
                 onChange={props.onChange}
             />

@@ -22,10 +22,10 @@ export interface TextState {
 }
 
 export enum TextMode {
-    words = 'words',
-    numbers = 'numbers',
-    sentences = 'sentences',
-    alphaNumeric = 'alphaNumeric',
+    words = 'Words',
+    numbers = 'Numbers',
+    sentences = 'Lorem Ipsum Sentences',
+    alphaNumeric = 'AlphaNumeric',
 }
 
 export const modes: Array<TextMode> = [

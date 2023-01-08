@@ -1,6 +1,6 @@
 import IonIcon from '@reacticons/ionicons';
 import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
-import { Checkbox } from './CheckBox';
+import { RadioOption } from './RadioOption';
 import { resetStats } from '../store/slices/statsSlice';
 import { setText, setMode, TextMode, modes } from '../store/slices/textSlice';
 
@@ -8,20 +8,20 @@ export const OptionsModal = (props: { setOpenModal: any }) => {
     const dispatch = useAppDispatch();
     const mode = useAppSelector((state) => state.text.mode);
 
-    const handleCheckChange = (textMode: TextMode): void => {
+    const radioOptionChange = (textMode: TextMode): void => {
         dispatch(setMode(textMode));
         dispatch(resetStats());
         dispatch(setText(textMode));
         props.setOpenModal((openModal: boolean) => !openModal);
     };
 
-    const renderCheckboxes = (modeOption: TextMode) => {
+    const renderRadioOption = (modeOption: TextMode) => {
         return (
-            <Checkbox
+            <RadioOption
                 key={modeOption}
                 label={modeOption}
                 checked={mode === modeOption}
-                onChange={() => handleCheckChange(modeOption)}
+                onChange={() => radioOptionChange(modeOption)}
             />
         );
     };
@@ -44,7 +44,7 @@ export const OptionsModal = (props: { setOpenModal: any }) => {
                     </div>
                     <section className="setting-options">
                         {modes.map((modeOption: TextMode) =>
-                            renderCheckboxes(modeOption)
+                            renderRadioOption(modeOption)
                         )}
                     </section>
                 </section>

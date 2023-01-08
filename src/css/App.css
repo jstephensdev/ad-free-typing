@@ -123,6 +123,8 @@ h1 {
     padding: 30px 30px 100px 30px;
     border: 1px solid #888;
     width: 30%;
+    box-shadow: 0 0 20px gray;
+    border-radius: 5px;
 }
 /* checkbox size */
 input {

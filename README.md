@@ -29,10 +29,11 @@ stats calculated and displaying
 stats back to starting state
 text back to initial mode state
 text generation
-text modes
+4 differet text modes
 
 ## Incomplete Features
 
+timer pause and start, and timer auto pause after 3 seconds and auto start when typing starts again
 recent stats history
 more information section
 
