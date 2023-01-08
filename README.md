@@ -1,4 +1,5 @@
-# Ad Free Typing 
+# Ad Free Typing
+
 my favorite practice typing site https://www.keybr.com/, requires viewing of ads. I prefer not to view ads so I created this ad free version to pratice with. It is a work inprogress with a list of features I am working on below
 
 ## link:
@@ -9,12 +10,13 @@ my favorite practice typing site https://www.keybr.com/, requires viewing of ads
 
 ### steps
 
-## Complete Features 
+## Complete Features
 
 ## Incomplete Features
 
 ## Helpful Resources
-this project is based off of https://betterprogramming.pub/create-a-typing-game-with-react-hooks-usekeypress-and-faker-28bbc7919820 and inspired by my favorite typing site. 
+
+this project is based off of https://betterprogramming.pub/create-a-typing-game-with-react-hooks-usekeypress-and-faker-28bbc7919820 and inspired by my favorite typing site.
 other resources:
 timer:
 https://upmostly.com/tutorials/setinterval-in-react-components-using-hooks

@@ -15,13 +15,15 @@ export const OptionsModal = (props: { setOpenModal: any }) => {
         props.setOpenModal((openModal: boolean) => !openModal);
     };
 
-    const renderCheckboxes = (modeOption: TextMode ) => {
-        return <Checkbox
-            key={modeOption}
-            label={modeOption}
-            checked={mode === modeOption}
-            onChange={() => handleCheckChange(modeOption)}
-        />;
+    const renderCheckboxes = (modeOption: TextMode) => {
+        return (
+            <Checkbox
+                key={modeOption}
+                label={modeOption}
+                checked={mode === modeOption}
+                onChange={() => handleCheckChange(modeOption)}
+            />
+        );
     };
 
     return (
