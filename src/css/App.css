@@ -10,7 +10,7 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 20px;
-    margin: 10px 10px 40px 10px;
+    margin: 10px 10px 30px 10px;
 }
 
 h1 {
@@ -75,7 +75,7 @@ h1 {
     box-shadow: 0 0 20px gray;
     border-radius: 5px;
     padding: 20px;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .keyboard-row {
