@@ -4,20 +4,24 @@ import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
 import { resetStats } from '../store/slices/statsSlice';
 import { setText, generateNewText, TextMode } from '../store/slices/textSlice';
+import { setUrl } from '../store/slices/routingSlice';
 
 export const Header = () => {
     const dispatch = useAppDispatch();
     const [openModal, setOpenModal] = useState(false);
     const mode: TextMode = useAppSelector((state) => state.text.mode);
+    const pathname = useAppSelector((state) => state.routing.pathname);
 
     const currentTextReset = () => {
         dispatch(resetStats());
         dispatch(setText(mode));
+        dispatch(setUrl('/'));
     };
 
     const newText = () => {
         dispatch(resetStats());
         dispatch(generateNewText(mode));
+        dispatch(setUrl('/'));
     };
 
     return (
@@ -43,6 +47,11 @@ export const Header = () => {
                         name="help-circle"
                         size="large"
                         data-testid="reset"
+                        onClick={() =>
+                            pathname === '/' || pathname === '/recentStats'
+                                ? dispatch(setUrl('/info'))
+                                : dispatch(setUrl('/'))
+                        }
                     />
                     <IonIcon
                         title="View Recent Stats"
@@ -50,12 +59,17 @@ export const Header = () => {
                         name="stats-chart"
                         size="large"
                         data-testid="reset"
+                        onClick={() =>
+                            pathname === '/' || pathname === '/info'
+                                ? dispatch(setUrl('/recentStats'))
+                                : dispatch(setUrl('/'))
+                        }
                     />
                 </div>
-                <h1>Ad Free Typing</h1>
+                <h1 onClick={() => dispatch(setUrl('/'))}>Ad Free Typing</h1>
                 <div>
                     <IonIcon
-                        title="New Text Reset"
+                        title="New Text & Stats Reset"
                         className="ionIcon"
                         name="refresh-outline"
                         size="large"
@@ -63,7 +77,7 @@ export const Header = () => {
                         data-testid="get-new-text"
                     />
                     <IonIcon
-                        title="Current Text Reset"
+                        title="Current Text & Stats Reset"
                         className="ionIcon"
                         name="refresh-circle-outline"
                         size="large"
