@@ -45,6 +45,11 @@ export const Header = () => {
                         name="help-circle"
                         size="large"
                         data-testid="reset"
+                        onClick={() =>
+                            pathname === '/' || pathname === '/recentStats'
+                                ? dispatch(setUrl('/info'))
+                                : dispatch(setUrl('/'))
+                        }
                     />
                     <IonIcon
                         title="View Recent Stats"
@@ -53,7 +58,7 @@ export const Header = () => {
                         size="large"
                         data-testid="reset"
                         onClick={() =>
-                            pathname === '/'
+                            pathname === '/' || pathname === '/info'
                                 ? dispatch(setUrl('/recentStats'))
                                 : dispatch(setUrl('/'))
                         }
