@@ -64,7 +64,7 @@ export const Header = () => {
                         }
                     />
                 </div>
-                <h1>Ad Free Typing</h1>
+                <h1 onClick={() => dispatch(setUrl('/'))}>Ad Free Typing</h1>
                 <div>
                     <IonIcon
                         title="New Text & Stats Reset"
