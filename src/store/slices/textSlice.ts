@@ -28,6 +28,13 @@ export enum TextMode {
     alphaNumeric = 'alphaNumeric',
 }
 
+export const modes: Array<TextMode> = [
+    TextMode.words,
+    TextMode.numbers,
+    TextMode.sentences,
+    TextMode.alphaNumeric,
+];
+
 const initialText = fakerWords(5);
 
 const initialState: TextState = {
