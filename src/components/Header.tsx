@@ -67,7 +67,7 @@ export const Header = () => {
                 <h1>Ad Free Typing</h1>
                 <div>
                     <IonIcon
-                        title="New Text Reset"
+                        title="New Text & Stats Reset"
                         className="ionIcon"
                         name="refresh-outline"
                         size="large"
@@ -75,7 +75,7 @@ export const Header = () => {
                         data-testid="get-new-text"
                     />
                     <IonIcon
-                        title="Current Text Reset"
+                        title="Current Text & Stats Reset"
                         className="ionIcon"
                         name="refresh-circle-outline"
                         size="large"
