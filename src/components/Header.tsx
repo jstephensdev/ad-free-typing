@@ -73,7 +73,7 @@ export const Header = () => {
                     <IonIcon
                         title="New Text & Stats Reset"
                         className="ionIcon"
-                        name="refresh-outline"
+                        name="add-circle-outline"
                         size="large"
                         onClick={() => newText()}
                         data-testid="new-text-reset"
