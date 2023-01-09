@@ -27,42 +27,42 @@ test('should return the initial state', () => {
     expect(reducer(undefined, { type: undefined })).toEqual(initialState);
 });
 
-test('should only set the startTime', () => {
+test('setStartTime should only set the startTime', () => {
     expect(reducer(initialState, setStartTime(1))).toEqual({
         ...state,
         startTime: 1,
     });
 });
 
-test('should only set the duration', () => {
+test('setDuration should only set the duration', () => {
     expect(reducer(initialState, setDuration('00.01'))).toEqual({
         ...state,
         duration: '00.01',
     });
 });
 
-test('should only set the word count', () => {
+test('setWordCount should only set the word count', () => {
     expect(reducer(initialState, setWordCount(1))).toEqual({
         ...state,
         wordCount: 1,
     });
 });
 
-test('should only set the wpm', () => {
+test('set Wpm should only set the wpm', () => {
     expect(reducer(initialState, setWpm('25.00'))).toEqual({
         ...state,
         wpm: '25.00',
     });
 });
 
-test('should only set the acc', () => {
+test('setAcc should only set the acc', () => {
     expect(reducer(initialState, setAcc('100.00'))).toEqual({
         ...state,
         acc: '100.00',
     });
 });
 
-test('should reset stats to initialState', () => {
+test('resetStats should reset stats to initialState', () => {
     const updatedState: StartTimeState = {
         startTime: 23,
         duration: '20.00',

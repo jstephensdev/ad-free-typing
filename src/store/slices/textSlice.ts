@@ -18,7 +18,6 @@ export interface TextState {
     outgoingChars: string;
     currentChar: string;
     typedChars: string;
-    leftPadding: string;
 }
 
 export enum TextMode {
@@ -48,7 +47,6 @@ const initialState: TextState = {
     outgoingChars: '',
     typedChars: '',
     currentChar: initialText.charAt(0),
-    leftPadding: '',
 };
 
 export const TextSlice = createSlice({
@@ -72,7 +70,6 @@ export const TextSlice = createSlice({
             state.outgoingChars = '';
             state.typedChars = '';
             state.currentChar = textToSet.charAt(0);
-            state.leftPadding = initialState.leftPadding;
         },
         setIncomingChars: (state, action: PayloadAction<string>) => {
             state.incomingChars = action.payload;
@@ -85,9 +82,6 @@ export const TextSlice = createSlice({
         },
         setTypedChars: (state, action: PayloadAction<string>) => {
             state.typedChars = action.payload;
-        },
-        setLeftPadding: (state, action: PayloadAction<string>) => {
-            state.leftPadding = action.payload;
         },
         generateNewText: (state, action: PayloadAction<TextMode>) => {
             let textToSet = '';
@@ -106,7 +100,6 @@ export const TextSlice = createSlice({
             state.outgoingChars = '';
             state.typedChars = '';
             state.currentChar = textToSet.charAt(0);
-            state.leftPadding = initialState.leftPadding;
         },
     },
 });
@@ -117,7 +110,6 @@ export const {
     setCurrentChar,
     setOutgoingChars,
     setTypedChars,
-    setLeftPadding,
     generateNewText,
 } = TextSlice.actions;
 

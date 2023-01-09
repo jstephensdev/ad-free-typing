@@ -2,6 +2,11 @@ import reducer, {
     TextState,
     TextMode,
     setText,
+    // generateNewText,
+    setIncomingChars,
+    setCurrentChar,
+    setOutgoingChars,
+    setTypedChars,
 } from '../../store/slices/textSlice';
 
 jest.mock('../../services/faker', () => {
@@ -14,13 +19,13 @@ jest.mock('../../services/faker', () => {
 });
 
 let state: TextState;
+let initialState: TextState;
 
 beforeEach(() => {
     state = {
         alphaNumeric: 'fak3rAlphaNum3ric',
         currentChar: 'f',
         incomingChars: 'akerWords',
-        leftPadding: '',
         mode: TextMode.words,
         numbers: '1234 1234',
         outgoingChars: '',
@@ -29,14 +34,14 @@ beforeEach(() => {
         typedChars: '',
         words: 'fakerWords',
     };
+    initialState = state;
 });
 
 test('should return the initial state', () => {
-    expect(reducer(undefined, { type: undefined })).toEqual(state);
+    expect(reducer(undefined, { type: undefined })).toEqual(initialState);
 });
 
-test('should return the initial state with only the mode changed to numbers', () => {
-    const initialState: TextState = state;
+test('setText should return the initial state with mode, currentChar, incomingChars, ant text', () => {
     expect(reducer(initialState, setText(TextMode.numbers))).toEqual({
         ...state,
         mode: 'Numbers',
@@ -45,3 +50,41 @@ test('should return the initial state with only the mode changed to numbers', ()
         text: '1234 1234',
     });
 });
+
+test('setIncomingChars should return the initial state with mode, currentChar, incomingChars, ant text', () => {
+    expect(reducer(initialState, setIncomingChars('test'))).toEqual({
+        ...state,
+        incomingChars: 'test',
+    });
+});
+
+test('setCurrentChar should return the initial state with mode, currentChar, incomingChars, ant text', () => {
+    expect(reducer(initialState, setCurrentChar('t'))).toEqual({
+        ...state,
+        currentChar: 't',
+    });
+});
+
+test('setOutgoingChars should return the initial state with mode, currentChar, incomingChars, ant text', () => {
+    expect(reducer(initialState, setOutgoingChars('e'))).toEqual({
+        ...state,
+        outgoingChars: 'e',
+    });
+});
+
+test('setTypedChars should return the initial state with mode, currentChar, incomingChars, ant text', () => {
+    expect(reducer(initialState, setTypedChars('s'))).toEqual({
+        ...state,
+        typedChars: 's',
+    });
+});
+
+// test('generateNewText should return the initial state with mode, currentChar, incomingChars, ant text', () => {
+//     expect(reducer(initialState, generateNewText(TextMode.words))).toEqual({
+//         ...state,
+//         mode: 'Numbers',
+//         currentChar: '1',
+//         incomingChars: '234 1234',
+//         text: '1234 1234',
+//     });
+// });

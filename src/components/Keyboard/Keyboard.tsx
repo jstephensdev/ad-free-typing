@@ -13,7 +13,6 @@ import {
     setCurrentChar,
     setOutgoingChars,
     setTypedChars,
-    setLeftPadding,
 } from '../../store/slices/textSlice';
 
 export const Keyboard = () => {
@@ -25,7 +24,6 @@ export const Keyboard = () => {
     const outgoingChars = useAppSelector((state) => state.text.outgoingChars);
     const currentChar = useAppSelector((state) => state.text.currentChar);
     const typedChars = useAppSelector((state) => state.text.typedChars);
-    const leftPadding = useAppSelector((state) => state.text.leftPadding);
     const wordCount = useAppSelector((state) => state.stats.wordCount);
 
     const keyPressed = useKeyDetection((key: string) => {
@@ -36,9 +34,6 @@ export const Keyboard = () => {
         if (key === currentChar) {
             if (startTime === 0) {
                 dispatch(setStartTime(currentTime()));
-            }
-            if (leftPadding.length > 0) {
-                dispatch(setLeftPadding(leftPadding.substring(1)));
             }
             dispatch(setTypedChars(updatedTypedChars));
             dispatch(setOutgoingChars((updatedOutgoingChars += currentChar)));
