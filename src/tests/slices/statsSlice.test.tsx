@@ -9,6 +9,7 @@ import reducer, {
 } from '../../store/slices/statsSlice';
 
 let state: StartTimeState;
+let initialState: StartTimeState;
 
 beforeEach(() => {
     state = {
@@ -19,15 +20,14 @@ beforeEach(() => {
         acc: '000.00',
         errorRate: '000.00',
     };
+    initialState = state;
 });
 
 test('should return the initial state', () => {
-    expect(reducer(undefined, { type: undefined })).toEqual(state);
+    expect(reducer(undefined, { type: undefined })).toEqual(initialState);
 });
 
 test('should only set the startTime', () => {
-    const initialState: StartTimeState = state;
-
     expect(reducer(initialState, setStartTime(1))).toEqual({
         ...state,
         startTime: 1,
@@ -35,8 +35,6 @@ test('should only set the startTime', () => {
 });
 
 test('should only set the duration', () => {
-    const initialState: StartTimeState = state;
-
     expect(reducer(initialState, setDuration('00.01'))).toEqual({
         ...state,
         duration: '00.01',
@@ -44,8 +42,6 @@ test('should only set the duration', () => {
 });
 
 test('should only set the word count', () => {
-    const initialState: StartTimeState = state;
-
     expect(reducer(initialState, setWordCount(1))).toEqual({
         ...state,
         wordCount: 1,
@@ -53,8 +49,6 @@ test('should only set the word count', () => {
 });
 
 test('should only set the wpm', () => {
-    const initialState: StartTimeState = state;
-
     expect(reducer(initialState, setWpm('25.00'))).toEqual({
         ...state,
         wpm: '25.00',
@@ -62,8 +56,6 @@ test('should only set the wpm', () => {
 });
 
 test('should only set the acc', () => {
-    const initialState: StartTimeState = state;
-
     expect(reducer(initialState, setAcc('100.00'))).toEqual({
         ...state,
         acc: '100.00',
@@ -71,8 +63,6 @@ test('should only set the acc', () => {
 });
 
 test('should reset stats to initialState', () => {
-    const initialState: StartTimeState = state;
-
     const updatedState: StartTimeState = {
         startTime: 23,
         duration: '20.00',

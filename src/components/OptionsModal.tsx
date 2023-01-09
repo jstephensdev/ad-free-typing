@@ -1,7 +1,7 @@
 import IonIcon from '@reacticons/ionicons';
 import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
 import { resetStats } from '../store/slices/statsSlice';
-import { setText, setMode, TextMode, modes } from '../store/slices/textSlice';
+import { setText, TextMode, modes } from '../store/slices/textSlice';
 import { setUrl } from '../store/slices/routingSlice';
 
 export const OptionsModal = (props: { setOpenModal: any }) => {
@@ -9,7 +9,6 @@ export const OptionsModal = (props: { setOpenModal: any }) => {
     const mode = useAppSelector((state) => state.text.mode);
 
     const radioOptionChange = (textMode: TextMode): void => {
-        dispatch(setMode(textMode));
         dispatch(resetStats());
         dispatch(setText(textMode));
         props.setOpenModal((openModal: boolean) => !openModal);
