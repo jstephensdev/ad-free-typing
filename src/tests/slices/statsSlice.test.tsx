@@ -11,14 +11,14 @@ import reducer, {
 let state: StartTimeState;
 
 beforeEach(() => {
-     state = {
+    state = {
         startTime: 0,
         duration: '00.00',
         wordCount: 0,
         wpm: '00.00',
         acc: '000.00',
         errorRate: '000.00',
-    };  
+    };
 });
 
 test('should return the initial state', () => {
@@ -39,7 +39,7 @@ test('should only set the duration', () => {
 
     expect(reducer(initialState, setDuration('00.01'))).toEqual({
         ...state,
-        duration: "00.01",
+        duration: '00.01',
     });
 });
 
@@ -61,7 +61,6 @@ test('should only set the wpm', () => {
     });
 });
 
-
 test('should only set the acc', () => {
     const initialState: StartTimeState = state;
 
@@ -81,7 +80,7 @@ test('should reset stats to initialState', () => {
         wpm: '20.00',
         acc: '99.00',
         errorRate: '01.00',
-    }
+    };
 
     expect(reducer(updatedState, resetStats())).toEqual(initialState);
 });

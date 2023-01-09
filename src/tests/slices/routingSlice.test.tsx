@@ -1,7 +1,4 @@
-import reducer, {
-    RoutingState,
-   setUrl
-} from '../../store/slices/routingSlice';
+import reducer, { RoutingState, setUrl } from '../../store/slices/routingSlice';
 
 const state = {
     pathname: '/',
