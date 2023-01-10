@@ -21,6 +21,9 @@ export const Header = () => {
     return (
         <>
             <header className="app-header">
+                <span className="title" onClick={() => dispatch(setUrl('/'))}>
+                    Ad Free Typing
+                </span>
                 <div>
                     <a
                         href="https://github.com/jstephensdev/ad-free-typing"
@@ -59,11 +62,6 @@ export const Header = () => {
                                 : dispatch(setUrl('/'))
                         }
                     />
-                </div>
-                <span className="title" onClick={() => dispatch(setUrl('/'))}>
-                    Ad Free Typing
-                </span>
-                <div>
                     <IonIcon
                         title="New Text & Stats Reset"
                         className="ionIcon"

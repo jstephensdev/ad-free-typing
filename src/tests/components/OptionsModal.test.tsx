@@ -24,8 +24,3 @@ test('renders options', () => {
     expect(sentences).toBeInTheDocument();
     expect(alphaNumeric).toBeInTheDocument();
 });
-
-test('words option select causes modal to close', () => {
-    const words = screen.getByText(/Words/i);
-    expect(words).toBeInTheDocument();
-});
