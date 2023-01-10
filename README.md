@@ -81,3 +81,7 @@ https://redux.js.org/usage/writing-tests
 
 https://read.reduxbook.com/markdown/part2/09-routing.html
 https://codesandbox.io/s/4ryppz540
+
+### accessibility:
+
+https://reactjs.org/docs/accessibility.html

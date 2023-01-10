@@ -17,10 +17,11 @@ export const OptionsModal = (props: { setOpenModal: any }) => {
 
     const renderRadioOption = (modeOption: TextMode) => {
         return (
-            <label key={modeOption}>
+            <label htmlFor={modeOption} key={modeOption}>
                 <input
                     key={modeOption}
                     data-testid={modeOption}
+                    aria-label={modeOption}
                     type="radio"
                     checked={mode === modeOption}
                     onChange={() => radioOptionChange(modeOption)}
