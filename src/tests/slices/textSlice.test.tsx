@@ -2,7 +2,6 @@ import reducer, {
     TextState,
     TextMode,
     setText,
-    // generateNewText,
     setIncomingChars,
     setCurrentChar,
     setOutgoingChars,
@@ -41,8 +40,13 @@ test('should return the initial state', () => {
     expect(reducer(undefined, { type: undefined })).toEqual(initialState);
 });
 
-test('setText should return the initial state with mode, currentChar, incomingChars, ant text', () => {
-    expect(reducer(initialState, setText(TextMode.numbers))).toEqual({
+test('setText should return the initial state per requested mode, currentChar, incomingChars, ant text', () => {
+    expect(
+        reducer(
+            initialState,
+            setText({ mode: TextMode.numbers, update: 'initialModeText' })
+        )
+    ).toEqual({
         ...state,
         mode: 'Numbers',
         currentChar: '1',
@@ -50,6 +54,16 @@ test('setText should return the initial state with mode, currentChar, incomingCh
         text: '1234 1234',
     });
 });
+
+// test('setText should return new text per requested mode, currentChar, incomingChars, ant text', () => {
+//     expect(reducer(initialState, setText({mode: TextMode.words, update: 'newText'}))).toEqual({
+//         ...state,
+//         mode: 'Numbers',
+//         currentChar: '1',
+//         incomingChars: '234 1234',
+//         text: '1234 1234',
+//     });
+// });
 
 test('setIncomingChars should return the initial state with mode, currentChar, incomingChars, ant text', () => {
     expect(reducer(initialState, setIncomingChars('test'))).toEqual({
@@ -78,13 +92,3 @@ test('setTypedChars should return the initial state with mode, currentChar, inco
         typedChars: 's',
     });
 });
-
-// test('generateNewText should return the initial state with mode, currentChar, incomingChars, ant text', () => {
-//     expect(reducer(initialState, generateNewText(TextMode.words))).toEqual({
-//         ...state,
-//         mode: 'Numbers',
-//         currentChar: '1',
-//         incomingChars: '234 1234',
-//         text: '1234 1234',
-//     });
-// });

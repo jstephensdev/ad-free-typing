@@ -10,7 +10,7 @@ export const OptionsModal = (props: { setOpenModal: any }) => {
 
     const radioOptionChange = (textMode: TextMode): void => {
         dispatch(resetStats());
-        dispatch(setText(textMode));
+        dispatch(setText({ mode: textMode, update: 'initialModeText' }));
         props.setOpenModal((openModal: boolean) => !openModal);
         dispatch(setUrl('/'));
     };
