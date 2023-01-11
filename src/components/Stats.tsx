@@ -8,16 +8,25 @@ export const Stats = () => {
     return (
         <>
             <section className="stats">
-                <span>{`Duration: `}</span>
-                <Timer />
-                <span>{` | WPM: `}</span>
-                <span className="wpm">{`${wpm}`}</span>
-                <span>{` | ACC: `}</span>
-                <span className="acc">{`${acc}%`}</span>
-                <span>{` | Error Rate: `}</span>
-                <span className="error-rate">{`${
-                    acc === '000.00' ? '000.00' : (100 - Number(acc)).toFixed(2)
-                }%`}</span>
+                <span>
+                    {`Duration: `} &nbsp; <Timer />
+                </span>
+
+                <span>
+                    {` | WPM:`} &nbsp; <span className="wpm">{`${wpm}`}</span>
+                </span>
+
+                <span>
+                    {` | ACC: `} &nbsp; <span className="acc">{`${acc}%`}</span>
+                </span>
+                <span>
+                    {` | Error Rate: `} &nbsp;
+                    <span className="error-rate">{`${
+                        acc === '000.00'
+                            ? '000.00'
+                            : (100 - Number(acc)).toFixed(2)
+                    }%`}</span>
+                </span>
             </section>
         </>
     );

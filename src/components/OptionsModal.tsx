@@ -4,19 +4,23 @@ import { resetStats } from '../store/slices/statsSlice';
 import { setText, TextMode, modes } from '../store/slices/textSlice';
 import { setUrl } from '../store/slices/routingSlice';
 
-export const OptionsModal = (props: { setOpenModal: any }) => {
+interface Props {
+    setOpenModal: any;
+}
+
+export const OptionsModal = ({ setOpenModal }: Props): JSX.Element => {
     const dispatch = useAppDispatch();
     const mode = useAppSelector((state) => state.text.mode);
 
     const radioOptionChange = (textMode: TextMode): void => {
         dispatch(resetStats());
         dispatch(setText({ mode: textMode, update: 'initialModeText' }));
-        props.setOpenModal((openModal: boolean) => !openModal);
+        setOpenModal((openModal: boolean) => !openModal);
         dispatch(setUrl('/'));
     };
 
-    const renderRadioOption = (modeOption: TextMode) => {
-        return (
+    const renderRadioOption = (modes: TextMode[]): JSX.Element[] => {
+        return modes.map((modeOption: TextMode) => (
             <label htmlFor={modeOption} key={modeOption}>
                 <input
                     key={modeOption}
@@ -28,7 +32,7 @@ export const OptionsModal = (props: { setOpenModal: any }) => {
                 />
                 {modeOption}
             </label>
-        );
+        ));
     };
 
     return (
@@ -41,16 +45,12 @@ export const OptionsModal = (props: { setOpenModal: any }) => {
                             name="close-outline"
                             size="large"
                             onClick={() =>
-                                props.setOpenModal(
-                                    (openModal: boolean) => !openModal
-                                )
+                                setOpenModal((openModal: boolean) => !openModal)
                             }
                         ></IonIcon>
                     </div>
                     <section className="options">
-                        {modes.map((modeOption: TextMode) =>
-                            renderRadioOption(modeOption)
-                        )}
+                        {renderRadioOption(modes)}
                     </section>
                 </section>
             </section>
