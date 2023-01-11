@@ -18,7 +18,6 @@ export interface TextState {
     outgoingChars: string;
     currentChar: string;
     typedChars: string;
-    leftPadding: string;
 }
 
 export enum TextMode {
@@ -48,33 +47,41 @@ const initialState: TextState = {
     outgoingChars: '',
     typedChars: '',
     currentChar: initialText.charAt(0),
-    leftPadding: '',
 };
 
 export const TextSlice = createSlice({
     name: 'text',
     initialState,
     reducers: {
-        setMode: (state, action: PayloadAction<TextMode>) => {
-            state.mode = action.payload;
-        },
-        setText: (state, action: PayloadAction<string>) => {
+        setText: (state, action: PayloadAction<any>) => {
             let textToSet = '';
-            if (action.payload === TextMode.words) {
-                textToSet = state.words;
-            } else if (action.payload === TextMode.sentences) {
-                textToSet = state.sentences;
-            } else if (action.payload === TextMode.numbers) {
-                textToSet = state.numbers;
-            } else if (action.payload === TextMode.alphaNumeric) {
-                textToSet = state.alphaNumeric;
+            if (action.payload.mode === TextMode.words) {
+                textToSet =
+                    action.payload.update === 'initialModeText'
+                        ? state.words
+                        : fakerWords(5);
+            } else if (action.payload.mode === TextMode.sentences) {
+                textToSet =
+                    action.payload.update === 'initialModeText'
+                        ? state.sentences
+                        : fakerText();
+            } else if (action.payload.mode === TextMode.numbers) {
+                textToSet =
+                    action.payload.update === 'initialModeText'
+                        ? state.numbers
+                        : fakerNumbers(5);
+            } else if (action.payload.mode === TextMode.alphaNumeric) {
+                textToSet =
+                    action.payload.update === 'initialModeText'
+                        ? state.alphaNumeric
+                        : fakerAlphaNumeric(5);
             }
+            state.mode = action.payload.mode;
             state.text = textToSet;
             state.incomingChars = textToSet.substring(1);
             state.outgoingChars = '';
             state.typedChars = '';
             state.currentChar = textToSet.charAt(0);
-            state.leftPadding = initialState.leftPadding;
         },
         setIncomingChars: (state, action: PayloadAction<string>) => {
             state.incomingChars = action.payload;
@@ -88,40 +95,15 @@ export const TextSlice = createSlice({
         setTypedChars: (state, action: PayloadAction<string>) => {
             state.typedChars = action.payload;
         },
-        setLeftPadding: (state, action: PayloadAction<string>) => {
-            state.leftPadding = action.payload;
-        },
-        generateNewText: (state, action: PayloadAction<string>) => {
-            let textToSet = '';
-            if (action.payload === TextMode.words) {
-                textToSet = fakerWords(5);
-            } else if (action.payload === TextMode.sentences) {
-                textToSet = fakerText();
-            } else if (action.payload === TextMode.numbers) {
-                textToSet = fakerNumbers(5);
-            } else if (action.payload === TextMode.alphaNumeric) {
-                textToSet = fakerAlphaNumeric(5);
-            }
-
-            state.text = textToSet;
-            state.incomingChars = textToSet.substring(1);
-            state.outgoingChars = '';
-            state.typedChars = '';
-            state.currentChar = textToSet.charAt(0);
-            state.leftPadding = initialState.leftPadding;
-        },
     },
 });
 
 export const {
-    setMode,
     setText,
     setIncomingChars,
     setCurrentChar,
     setOutgoingChars,
     setTypedChars,
-    setLeftPadding,
-    generateNewText,
 } = TextSlice.actions;
 
 export default TextSlice.reducer;

@@ -1,31 +1,38 @@
 import IonIcon from '@reacticons/ionicons';
 import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
-import { RadioOption } from './RadioOption';
 import { resetStats } from '../store/slices/statsSlice';
-import { setText, setMode, TextMode, modes } from '../store/slices/textSlice';
+import { setText, TextMode, modes } from '../store/slices/textSlice';
 import { setUrl } from '../store/slices/routingSlice';
 
-export const OptionsModal = (props: { setOpenModal: any }) => {
+interface Props {
+    setOpenModal: any;
+}
+
+export const OptionsModal = ({ setOpenModal }: Props): JSX.Element => {
     const dispatch = useAppDispatch();
     const mode = useAppSelector((state) => state.text.mode);
 
     const radioOptionChange = (textMode: TextMode): void => {
-        dispatch(setMode(textMode));
         dispatch(resetStats());
-        dispatch(setText(textMode));
-        props.setOpenModal((openModal: boolean) => !openModal);
+        dispatch(setText({ mode: textMode, update: 'initialModeText' }));
+        setOpenModal((openModal: boolean) => !openModal);
         dispatch(setUrl('/'));
     };
 
-    const renderRadioOption = (modeOption: TextMode) => {
-        return (
-            <RadioOption
-                key={modeOption}
-                label={modeOption}
-                checked={mode === modeOption}
-                onChange={() => radioOptionChange(modeOption)}
-            />
-        );
+    const renderRadioOption = (modes: TextMode[]): JSX.Element[] => {
+        return modes.map((modeOption: TextMode) => (
+            <label htmlFor={modeOption} key={modeOption}>
+                <input
+                    key={modeOption}
+                    data-testid={modeOption}
+                    aria-label={modeOption}
+                    type="radio"
+                    checked={mode === modeOption}
+                    onChange={() => radioOptionChange(modeOption)}
+                />
+                {modeOption}
+            </label>
+        ));
     };
 
     return (
@@ -38,16 +45,12 @@ export const OptionsModal = (props: { setOpenModal: any }) => {
                             name="close-outline"
                             size="large"
                             onClick={() =>
-                                props.setOpenModal(
-                                    (openModal: boolean) => !openModal
-                                )
+                                setOpenModal((openModal: boolean) => !openModal)
                             }
                         ></IonIcon>
                     </div>
-                    <section className="setting-options">
-                        {modes.map((modeOption: TextMode) =>
-                            renderRadioOption(modeOption)
-                        )}
+                    <section className="options">
+                        {renderRadioOption(modes)}
                     </section>
                 </section>
             </section>

@@ -12,10 +12,12 @@ export const Timer = () => {
         let interval: any;
         if (startTime > 0) {
             interval = setInterval(() => {
-                const duration = new Date(currentTime() - startTime)
-                    .toLocaleTimeString('en-US')
-                    .slice(2, 7);
-                dispatch(setDuration(duration));
+                const duration = new Date(currentTime() - startTime);
+                dispatch(
+                    setDuration(
+                        duration.toLocaleTimeString('en-US').slice(2, 7)
+                    )
+                );
             }, 1000);
         }
         return () => clearInterval(interval);

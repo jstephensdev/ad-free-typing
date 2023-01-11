@@ -9,11 +9,18 @@ export const Text = () => {
         <>
             <section className="text-section">
                 <p>
-                    <span className="character-out">
+                    <span aria-label={outgoingChars} className="character-out">
                         {outgoingChars.slice(-24)}
                     </span>
-                    <span className="character-current">{currentChar}</span>
-                    <span>{incomingChars.substring(0, 24)}</span>
+                    <span
+                        aria-label={currentChar}
+                        className="character-current"
+                    >
+                        {currentChar}
+                    </span>
+                    <span aria-label={incomingChars}>
+                        {incomingChars.substring(0, 24)}
+                    </span>
                 </p>
             </section>
         </>

@@ -3,7 +3,7 @@ import IonIcon from '@reacticons/ionicons';
 import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
 import { resetStats } from '../store/slices/statsSlice';
-import { setText, generateNewText, TextMode } from '../store/slices/textSlice';
+import { setText, TextMode } from '../store/slices/textSlice';
 import { setUrl } from '../store/slices/routingSlice';
 
 export const Header = () => {
@@ -12,21 +12,18 @@ export const Header = () => {
     const mode: TextMode = useAppSelector((state) => state.text.mode);
     const pathname = useAppSelector((state) => state.routing.pathname);
 
-    const currentTextReset = () => {
+    const updateText = (update: string) => {
         dispatch(resetStats());
-        dispatch(setText(mode));
-        dispatch(setUrl('/'));
-    };
-
-    const newText = () => {
-        dispatch(resetStats());
-        dispatch(generateNewText(mode));
+        dispatch(setText({ mode: mode, update: update }));
         dispatch(setUrl('/'));
     };
 
     return (
         <>
             <header className="app-header">
+                <span className="title" onClick={() => dispatch(setUrl('/'))}>
+                    Ad Free Typing
+                </span>
                 <div>
                     <a
                         href="https://github.com/jstephensdev/ad-free-typing"
@@ -65,17 +62,12 @@ export const Header = () => {
                                 : dispatch(setUrl('/'))
                         }
                     />
-                </div>
-                <span className="title" onClick={() => dispatch(setUrl('/'))}>
-                    Ad Free Typing
-                </span>
-                <div>
                     <IonIcon
                         title="New Text & Stats Reset"
                         className="ionIcon"
-                        name="refresh-outline"
+                        name="add-circle-outline"
                         size="large"
-                        onClick={() => newText()}
+                        onClick={() => updateText('newText')}
                         data-testid="new-text-reset"
                     />
                     <IonIcon
@@ -83,7 +75,7 @@ export const Header = () => {
                         className="ionIcon"
                         name="refresh-circle-outline"
                         size="large"
-                        onClick={() => currentTextReset()}
+                        onClick={() => updateText('initialModeText')}
                         data-testid="current-text-reset"
                     />
                     <IonIcon
