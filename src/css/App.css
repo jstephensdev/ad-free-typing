@@ -169,3 +169,8 @@ input {
 .title:hover {
     color: black;
 }
+
+.recentStats {
+    display: flex;
+    flex-direction: row;
+}

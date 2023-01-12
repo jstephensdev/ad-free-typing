@@ -19,6 +19,7 @@ beforeEach(() => {
         wpm: '00.00',
         acc: '000.00',
         errorRate: '000.00',
+        recentStats: [],
     };
     initialState = state;
 });
@@ -70,6 +71,7 @@ test('resetStats should reset stats to initialState', () => {
         wpm: '20.00',
         acc: '99.00',
         errorRate: '01.00',
+        recentStats: [],
     };
 
     expect(reducer(updatedState, resetStats())).toEqual(initialState);

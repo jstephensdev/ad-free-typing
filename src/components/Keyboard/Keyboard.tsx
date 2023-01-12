@@ -3,7 +3,9 @@ import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
 import { useKeyDetection } from '../../hooks/useKeyDetection';
 import { currentTime } from '../../services/currentTime';
 import {
+    resetStats,
     setAcc,
+    setRecentStat,
     setStartTime,
     setWordCount,
     setWpm,
@@ -13,6 +15,8 @@ import {
     setCurrentChar,
     setOutgoingChars,
     setTypedChars,
+    TextMode,
+    setText,
 } from '../../store/slices/textSlice';
 
 export const Keyboard = () => {
@@ -25,6 +29,7 @@ export const Keyboard = () => {
     const currentChar = useAppSelector((state) => state.text.currentChar);
     const typedChars = useAppSelector((state) => state.text.typedChars);
     const wordCount = useAppSelector((state) => state.stats.wordCount);
+    const mode: TextMode = useAppSelector((state) => state.text.mode);
 
     const keyPressed = useKeyDetection((key: string) => {
         let updatedTypedChars = typedChars + key;
@@ -65,6 +70,11 @@ export const Keyboard = () => {
                     ).toFixed(2)
                 )
             );
+        }
+        if (text.length === outgoingChars.length) {
+            dispatch(setRecentStat());
+            dispatch(resetStats());
+            dispatch(setText({ mode: mode, update: 'roundReset' }));
         }
     });
 

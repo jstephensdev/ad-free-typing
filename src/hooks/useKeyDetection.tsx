@@ -15,7 +15,11 @@ export const useKeyDetection = (callback: any) => {
 
     useEffect(() => {
         const downHandler = ({ key }: any) => {
-            if (key.length === 1 || keysToRegister.includes(key)) {
+            if (
+                keyPress !== key ||
+                key.length === 1 ||
+                keysToRegister.includes(key)
+            ) {
                 setKeyPress(key);
                 callback && callback(key);
             }

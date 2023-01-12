@@ -5,14 +5,20 @@ import { useAppSelector } from './hooks/reduxHooks';
 
 export const App = () => {
     const pathname = useAppSelector((state) => state.routing.pathname);
+
+    const recentStats = useAppSelector((state) => state.stats.recentStats);
     let component;
 
     if (pathname === '/') {
         component = <Main />;
     } else if (pathname === '/recentStats') {
-        component = <RecentStats />;
+        component = <RecentStats recentStats={recentStats} />;
     } else if (pathname === '/info') {
-        component = <RecentStats />;
+        component = (
+            <>
+                <p>Coming Soon!</p>
+            </>
+        );
     } else {
         component = <div>404</div>;
     }

@@ -25,19 +25,6 @@ export const Header = () => {
                     Ad Free Typing
                 </span>
                 <div>
-                    <a
-                        href="https://github.com/jstephensdev/ad-free-typing"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="ionIcon"
-                        data-testid="github"
-                    >
-                        <IonIcon
-                            title="Github Repo Link"
-                            name="logo-github"
-                            size="large"
-                        />
-                    </a>
                     <IonIcon
                         title="More Information"
                         className="ionIcon"
@@ -63,6 +50,14 @@ export const Header = () => {
                         }
                     />
                     <IonIcon
+                        title="Options"
+                        className="ionIcon"
+                        name="options-outline"
+                        size="large"
+                        onClick={() => setOpenModal((openModal) => !openModal)}
+                        data-testid="options"
+                    />
+                    <IonIcon
                         title="New Text & Stats Reset"
                         className="ionIcon"
                         name="add-circle-outline"
@@ -78,14 +73,19 @@ export const Header = () => {
                         onClick={() => updateText('initialModeText')}
                         data-testid="current-text-reset"
                     />
-                    <IonIcon
-                        title="Options"
+                    <a
+                        href="https://github.com/jstephensdev/ad-free-typing"
+                        target="_blank"
+                        rel="noreferrer"
                         className="ionIcon"
-                        name="options-outline"
-                        size="large"
-                        onClick={() => setOpenModal((openModal) => !openModal)}
-                        data-testid="options"
-                    />
+                        data-testid="github"
+                    >
+                        <IonIcon
+                            title="Github Repo Link"
+                            name="logo-github"
+                            size="large"
+                        />
+                    </a>
                 </div>
             </header>
             {openModal ? <OptionsModal setOpenModal={setOpenModal} /> : <></>}
