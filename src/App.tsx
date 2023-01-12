@@ -14,12 +14,6 @@ export const App = () => {
         component = <Main />;
     } else if (pathname === '/recentStats') {
         component = <RecentStats recentStats={recentStats} />;
-    } else if (pathname === '/info') {
-        component = (
-            <>
-                <p>Coming Soon!</p>
-            </>
-        );
     } else if (pathname === '/options') {
         component = <Options />;
     } else {

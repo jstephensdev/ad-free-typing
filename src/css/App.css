@@ -10,7 +10,7 @@
     flex-direction: row;
     justify-content: space-around;
     padding: 20px;
-    margin: 10px 10px 20px 10px;
+    margin: 10px 10px 10px 10px;
 }
 
 .title {
@@ -118,7 +118,6 @@ input {
 .options {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     padding: 10px;
 }
 
@@ -128,6 +127,7 @@ input {
     padding: 0;
     color: gray;
     cursor: pointer;
+    margin: 5px;
 }
 
 .ionIcon:hover {
@@ -141,4 +141,8 @@ input {
 .recentStats {
     display: flex;
     flex-direction: row;
+}
+
+.mode {
+    text-shadow: 0 0 20px gray;
 }

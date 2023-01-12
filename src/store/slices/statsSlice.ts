@@ -1,6 +1,8 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { TextMode } from './textSlice';
 
 export interface RecentStat {
+    mode: TextMode;
     duration: string;
     wpm: string;
     acc: string;
@@ -54,8 +56,9 @@ export const StartTimeSlice = createSlice({
             state.acc = initialState.acc;
             state.errorRate = initialState.errorRate;
         },
-        setRecentStat: (state) => {
+        setRecentStat: (state, action: PayloadAction<TextMode>) => {
             state.recentStats.push({
+                mode: action.payload,
                 duration: state.duration,
                 wpm: state.wpm,
                 acc: state.acc,

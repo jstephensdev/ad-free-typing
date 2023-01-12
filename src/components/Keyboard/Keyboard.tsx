@@ -59,7 +59,8 @@ export const Keyboard = () => {
         }
         if (
             updatedOutgoingChars.length <= updatedTypedChars.length &&
-            updatedOutgoingChars.length > 0
+            updatedOutgoingChars.length > 0 &&
+            key.length === 1
         ) {
             dispatch(setTypedChars(updatedTypedChars));
             dispatch(
@@ -72,7 +73,7 @@ export const Keyboard = () => {
             );
         }
         if (text.length === outgoingChars.length) {
-            dispatch(setRecentStat());
+            dispatch(setRecentStat(mode));
             dispatch(resetStats());
             dispatch(setText({ mode: mode, update: 'roundReset' }));
         }

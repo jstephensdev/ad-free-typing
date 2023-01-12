@@ -23,18 +23,6 @@ export const Header = () => {
                 </span>
                 <div>
                     <IonIcon
-                        title="More Information"
-                        className="ionIcon"
-                        name="help-circle"
-                        size="large"
-                        data-testid="info"
-                        onClick={() =>
-                            pathname === '/info'
-                                ? dispatch(setUrl('/'))
-                                : dispatch(setUrl('/info'))
-                        }
-                    />
-                    <IonIcon
                         title="View Recent Stats"
                         className="ionIcon"
                         name="stats-chart"
