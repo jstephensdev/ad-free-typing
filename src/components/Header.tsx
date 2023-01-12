@@ -29,9 +29,9 @@ export const Header = () => {
                         size="large"
                         data-testid="info"
                         onClick={() =>
-                            pathname === '/' || pathname === '/recentStats'
-                                ? dispatch(setUrl('/info'))
-                                : dispatch(setUrl('/'))
+                            pathname === '/info'
+                                ? dispatch(setUrl('/'))
+                                : dispatch(setUrl('/info'))
                         }
                     />
                     <IonIcon
@@ -41,9 +41,9 @@ export const Header = () => {
                         size="large"
                         data-testid="reset"
                         onClick={() =>
-                            pathname === '/' || pathname === '/info'
-                                ? dispatch(setUrl('/recentStats'))
-                                : dispatch(setUrl('/'))
+                            pathname === '/recentStats'
+                                ? dispatch(setUrl('/'))
+                                : dispatch(setUrl('/recentStats'))
                         }
                     />
                     <IonIcon

@@ -12,7 +12,6 @@ export const Stats = () => {
         <>
             <section className="stats">
                 <ProgressBar
-                    animated
                     variant="success"
                     now={(outgoingChars.length / text.length) * 100}
                 />
