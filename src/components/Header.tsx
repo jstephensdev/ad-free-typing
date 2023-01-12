@@ -1,6 +1,4 @@
-import { OptionsModal } from './OptionsModal';
 import IonIcon from '@reacticons/ionicons';
-import { useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
 import { resetStats } from '../store/slices/statsSlice';
 import { setText, TextMode } from '../store/slices/textSlice';
@@ -8,7 +6,6 @@ import { setUrl } from '../store/slices/routingSlice';
 
 export const Header = () => {
     const dispatch = useAppDispatch();
-    const [openModal, setOpenModal] = useState(false);
     const mode: TextMode = useAppSelector((state) => state.text.mode);
     const pathname = useAppSelector((state) => state.routing.pathname);
 
@@ -54,7 +51,11 @@ export const Header = () => {
                         className="ionIcon"
                         name="options-outline"
                         size="large"
-                        onClick={() => setOpenModal((openModal) => !openModal)}
+                        onClick={() =>
+                            pathname === '/options'
+                                ? dispatch(setUrl('/'))
+                                : dispatch(setUrl('/options'))
+                        }
                         data-testid="options"
                     />
                     <IonIcon
@@ -88,7 +89,6 @@ export const Header = () => {
                     </a>
                 </div>
             </header>
-            {openModal ? <OptionsModal setOpenModal={setOpenModal} /> : <></>}
         </>
     );
 };

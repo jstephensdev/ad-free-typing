@@ -8,10 +8,10 @@ my favorite practice typing site https://www.keybr.com/, requires viewing of ads
 
 TypeScript
 React
-Redux
-Redux-ToolKit
+Redux with Redux-ToolKit
 Faker for text generation
 IonIcons for icons in header
+React Bootstrap
 
 ## Local Startup Guide
 
@@ -85,3 +85,7 @@ https://codesandbox.io/s/4ryppz540
 ### accessibility:
 
 https://reactjs.org/docs/accessibility.html
+
+### bootstrap
+
+https://react-bootstrap.github.io/getting-started/introduction/

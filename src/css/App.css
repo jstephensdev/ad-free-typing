@@ -109,38 +109,6 @@
     margin: 10px;
 }
 
-/* https://www.w3schools.com/howto/howto_css_modals.asp */
-
-.modal {
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    top: 0; /* without the header appears strangly */
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0); /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-}
-
-.modal-content {
-    display: flex;
-    flex-direction: column;
-    background-color: #fefefe;
-    margin: auto;
-    padding: 30px 30px 100px 30px;
-    border: 1px solid #888;
-    width: 30%;
-    box-shadow: 0 0 20px gray;
-    border-radius: 5px;
-}
-
-.close {
-    color: #aaaaaa;
-    float: right;
-    font-weight: bold;
-    margin: 0px 0px 30px 0px;
-}
 /* radio option size */
 input {
     width: 25px;

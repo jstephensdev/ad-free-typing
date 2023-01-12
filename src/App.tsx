@@ -1,5 +1,6 @@
 import { Header } from './components/Header';
 import { Main } from './components/Main';
+import { Options } from './components/Options';
 import { RecentStats } from './components/RecentStats';
 import { useAppSelector } from './hooks/reduxHooks';
 
@@ -19,6 +20,8 @@ export const App = () => {
                 <p>Coming Soon!</p>
             </>
         );
+    } else if (pathname === '/options') {
+        component = <Options />;
     } else {
         component = <div>404</div>;
     }

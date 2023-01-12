@@ -1,21 +1,15 @@
-import IonIcon from '@reacticons/ionicons';
 import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
 import { resetStats } from '../store/slices/statsSlice';
 import { setText, TextMode, modes } from '../store/slices/textSlice';
 import { setUrl } from '../store/slices/routingSlice';
 
-interface Props {
-    setOpenModal: any;
-}
-
-export const OptionsModal = ({ setOpenModal }: Props): JSX.Element => {
+export const Options = (): JSX.Element => {
     const dispatch = useAppDispatch();
     const mode = useAppSelector((state) => state.text.mode);
 
     const radioOptionChange = (textMode: TextMode): void => {
         dispatch(resetStats());
         dispatch(setText({ mode: textMode, update: 'initialModeText' }));
-        setOpenModal((openModal: boolean) => !openModal);
         dispatch(setUrl('/'));
     };
 
@@ -37,18 +31,8 @@ export const OptionsModal = ({ setOpenModal }: Props): JSX.Element => {
 
     return (
         <>
-            <section className="modal">
-                <section className="text-section modal-content">
-                    <div>
-                        <IonIcon
-                            className="close ionIcon"
-                            name="close-outline"
-                            size="large"
-                            onClick={() =>
-                                setOpenModal((openModal: boolean) => !openModal)
-                            }
-                        ></IonIcon>
-                    </div>
+            <section>
+                <section className="text-section">
                     <section className="options">
                         {renderRadioOption(modes)}
                     </section>

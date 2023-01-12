@@ -2,14 +2,12 @@ import { render, screen } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { store } from '../../store/store';
 import React from 'react';
-import { OptionsModal } from '../../components/OptionsModal';
-
-const mockSetModalOpen = jest.fn();
+import { Options } from '../../components/Options';
 
 beforeEach(() => {
     render(
         <Provider store={store}>
-            <OptionsModal setOpenModal={mockSetModalOpen} />
+            <Options />
         </Provider>
     );
 });
