@@ -49,32 +49,50 @@ const initialState: TextState = {
     currentChar: initialText.charAt(0),
 };
 
+export const newTextByMode = (mode: TextMode): string => {
+    let text = '';
+    if (mode === TextMode.words) {
+        text = fakerWords(5);
+    } else if (mode === TextMode.numbers) {
+        text = fakerNumbers(5);
+    } else if (mode === TextMode.sentences) {
+        text = fakerText();
+    } else if (mode === TextMode.alphaNumeric) {
+        text = fakerAlphaNumeric(5);
+    }
+    return text;
+};
+
 export const TextSlice = createSlice({
     name: 'text',
     initialState,
     reducers: {
         setText: (state, action: PayloadAction<any>) => {
             let textToSet = '';
-            if (action.payload.mode === TextMode.words) {
-                textToSet =
-                    action.payload.update === 'initialModeText'
-                        ? state.words
-                        : fakerWords(5);
-            } else if (action.payload.mode === TextMode.sentences) {
-                textToSet =
-                    action.payload.update === 'initialModeText'
-                        ? state.sentences
-                        : fakerText();
-            } else if (action.payload.mode === TextMode.numbers) {
-                textToSet =
-                    action.payload.update === 'initialModeText'
-                        ? state.numbers
-                        : fakerNumbers(5);
-            } else if (action.payload.mode === TextMode.alphaNumeric) {
-                textToSet =
-                    action.payload.update === 'initialModeText'
-                        ? state.alphaNumeric
-                        : fakerAlphaNumeric(5);
+            if (action.payload.update !== 'roundReset') {
+                if (action.payload.mode === TextMode.words) {
+                    textToSet =
+                        action.payload.update === 'initialModeText'
+                            ? state.words
+                            : fakerWords(5);
+                } else if (action.payload.mode === TextMode.sentences) {
+                    textToSet =
+                        action.payload.update === 'initialModeText'
+                            ? state.sentences
+                            : fakerText();
+                } else if (action.payload.mode === TextMode.numbers) {
+                    textToSet =
+                        action.payload.update === 'initialModeText'
+                            ? state.numbers
+                            : fakerNumbers(5);
+                } else if (action.payload.mode === TextMode.alphaNumeric) {
+                    textToSet =
+                        action.payload.update === 'initialModeText'
+                            ? state.alphaNumeric
+                            : fakerAlphaNumeric(5);
+                }
+            } else if (action.payload.update === 'roundReset') {
+                textToSet = newTextByMode(action.payload.mode);
             }
             state.mode = action.payload.mode;
             state.text = textToSet;

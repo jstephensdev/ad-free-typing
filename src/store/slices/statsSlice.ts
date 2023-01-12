@@ -1,5 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
+export interface RecentStat {
+    duration: string;
+    wpm: string;
+    acc: string;
+    errorRate: string;
+}
+
 export interface StartTimeState {
     startTime: number;
     duration: string;
@@ -7,6 +14,7 @@ export interface StartTimeState {
     wpm: string;
     acc: string;
     errorRate: string;
+    recentStats: Array<RecentStat>;
 }
 
 const initialState: StartTimeState = {
@@ -16,6 +24,7 @@ const initialState: StartTimeState = {
     wpm: '00.00',
     acc: '000.00',
     errorRate: '000.00',
+    recentStats: [],
 };
 
 export const StartTimeSlice = createSlice({
@@ -45,6 +54,17 @@ export const StartTimeSlice = createSlice({
             state.acc = initialState.acc;
             state.errorRate = initialState.errorRate;
         },
+        setRecentStat: (state) => {
+            state.recentStats.push({
+                duration: state.duration,
+                wpm: state.wpm,
+                acc: state.acc,
+                errorRate:
+                    state.acc === '000.00'
+                        ? '000.00'
+                        : (100 - Number(state.acc)).toFixed(2),
+            });
+        },
     },
 });
 
@@ -55,6 +75,7 @@ export const {
     setAcc,
     resetStats,
     setDuration,
+    setRecentStat,
 } = StartTimeSlice.actions;
 
 export default StartTimeSlice.reducer;

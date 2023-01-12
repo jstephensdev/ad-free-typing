@@ -4,7 +4,6 @@ export const Text = () => {
     const incomingChars = useAppSelector((state) => state.text.incomingChars);
     const outgoingChars = useAppSelector((state) => state.text.outgoingChars);
     const currentChar = useAppSelector((state) => state.text.currentChar);
-
     return (
         <>
             <section className="text-section">
