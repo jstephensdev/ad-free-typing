@@ -1,6 +1,6 @@
 # Ad Free Typing
 
-my favorite practice typing site https://www.keybr.com/, requires viewing of ads. To avoid viewing ads, I created this ad free version. It is a work inprogress with a list of features complete and that I am working on below.
+To avoid viewing ads at my favorite practice typing site https://www.keybr.com/, I created this ad free version. It is a work inprogress with a list of features complete, and features I am working on or plan to add below.
 
 ## link: https://wonderful-crostata-77f500.netlify.app/
 
@@ -16,9 +16,9 @@ localstorage
 
 ## Local Startup Guide
 
-### dependencies
+clone project
 
-### steps
+npm i
 
 npm start
 
@@ -42,17 +42,16 @@ npm start
 
 ### docker file plus start guide
 
-### timer pause and start, and timer auto pause after 3 seconds and auto start when typing starts again
+### idvidually delete stat round rows
 
-### recent stats history
+### options display improvements
 
-### more information section
+### more options, like non lorem ipsum sentences
 
 ## Helpful Resources
 
-### this project is based off of https://betterprogramming.pub/create-a-typing-game-with-react-hooks-usekeypress-and-faker-28bbc7919820 and inspired by my favorite typing site.
-
-### other resources:
+### key press detection hook
+https://betterprogramming.pub/create-a-typing-game-with-react-hooks-usekeypress-and-faker-28bbc7919820 
 
 ### timer:
 
