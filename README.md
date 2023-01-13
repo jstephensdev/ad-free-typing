@@ -12,6 +12,7 @@ Redux with Redux-ToolKit
 Faker for text generation
 IonIcons for icons in header
 React Bootstrap
+localstorage
 
 ## Local Startup Guide
 
