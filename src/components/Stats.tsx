@@ -11,11 +11,7 @@ export const Stats = () => {
     return (
         <>
             <section className="stats">
-                <ProgressBar
-                    variant="success"
-                    now={(outgoingChars.length / text.length) * 100}
-                />
-                <div style={{ marginTop: '10px'}}>
+                <div style={{ marginBottom: '10px' }}>
                     <span>
                         {`Duration: `} &nbsp; <Timer />
                     </span>
@@ -38,6 +34,10 @@ export const Stats = () => {
                         }%`}</span>
                     </span>
                 </div>
+                <ProgressBar
+                    variant="success"
+                    now={(outgoingChars.length / text.length) * 100}
+                />
             </section>
         </>
     );
