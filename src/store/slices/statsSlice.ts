@@ -63,7 +63,7 @@ export const StartTimeSlice = createSlice({
             state.errorRate = initialState.errorRate;
         },
         setRecentStat: (state, action: PayloadAction<TextMode>) => {
-            const currentStatsArr = state.recentStats.slice(0, 12);
+            const currentStatsArr = state.recentStats;
             currentStatsArr.push({
                 mode: action.payload,
                 duration: state.duration,
@@ -74,7 +74,7 @@ export const StartTimeSlice = createSlice({
                         ? '000.00'
                         : (100 - Number(state.acc)).toFixed(2),
             });
-            state.recentStats = currentStatsArr;
+            state.recentStats = currentStatsArr.reverse().slice(0, 12);
             localStorage.setItem(
                 'recentStats',
                 JSON.stringify(state.recentStats)
