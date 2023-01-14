@@ -64,7 +64,7 @@ To avoid viewing ads at my favorite practice typing site https://www.keybr.com/,
 
 4. icons:
 
-https://www.npmjs.com/package/@reacticons/ionicons
+    1. https://www.npmjs.com/package/@reacticons/ionicons
 
 5. state managment:
 
