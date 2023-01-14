@@ -1,6 +1,6 @@
 # Ad Free Typing
 
-To avoid viewing ads at my favorite practice typing site https://www.keybr.com/, and to better understand and learn the tech used, I created this ad free typing pratice app. It is a work inprogress with a list of features complete, and features I am working on or plan to add below. Also, a know bugs list
+To avoid viewing ads at my favorite practice typing site https://www.keybr.com/, I created this ad free typing pratice app. It is a work inprogress with a list of features complete, and features I am working on or plan to add below. Also, a know bugs list
 
 ## link: https://wonderful-crostata-77f500.netlify.app/
 
@@ -81,6 +81,7 @@ https://redux.js.org/usage/writing-tests
 
 https://read.reduxbook.com/markdown/part2/09-routing.html
 https://codesandbox.io/s/4ryppz540
+https://jamesknelson.com/even-need-routing-library/
 
 8. accessibility:
 
