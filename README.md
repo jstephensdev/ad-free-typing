@@ -1,6 +1,6 @@
 # Ad Free Typing
 
-To avoid viewing ads at my favorite practice typing site https://www.keybr.com/, I created this ad free practice typing site https://wonderful-crostata-77f500.netlify.app/. It is a work inprogress with a list of features complete, and features I am working on or plan to add below. Also, a known bugs list
+To avoid viewing ads at my favorite practice typing site https://www.keybr.com/, I created this ad free practice typing site https://wonderful-crostata-77f500.netlify.app/. It is a work in progress with a list of features completed, and features I am working on or plan to add below. Also, a known bugs list
 
 ## Technology Used
 
@@ -20,7 +20,7 @@ To avoid viewing ads at my favorite practice typing site https://www.keybr.com/,
 
 3. npm start
 
-## Complete Features
+## Completed Features
 
 1. keys light up when key pressed matchs keyboard key
 2. keyboard display
@@ -43,7 +43,7 @@ To avoid viewing ads at my favorite practice typing site https://www.keybr.com/,
 ## Bugs: add tests for and fix
 
 1. recent stats not ordering correctly
-2. sometimes a character following the `f` is highlight along with the it, it also displays as moving over as an outgoing char
+2. sometimes a character following the `f` is highlighted along with the `f`, it also displays as moving over as an outgoing char
 
 ## Helpful Resources
 
