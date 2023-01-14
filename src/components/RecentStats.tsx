@@ -15,7 +15,7 @@ export const RecentStats = ({ recentStats }: Props) => {
                 <div>
                     <h6>Rounds ( 12 Most Recent )</h6>
                     <IonIcon
-                        title="clear all stat rounds"
+                        title="clear all rounds"
                         className="ionIcon"
                         name="close-circle-outline"
                         size="large"
