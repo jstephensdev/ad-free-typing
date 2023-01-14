@@ -1,6 +1,7 @@
 import reducer, { RoutingState, setUrl } from '../../store/slices/routingSlice';
 
 const state = {
+    href: 'http://localhost/',
     pathname: '/',
 };
 
@@ -12,6 +13,7 @@ test('setUrl should return updated url', () => {
     const initialState: RoutingState = state;
     expect(reducer(initialState, setUrl('/test'))).toEqual({
         ...state,
+        href: 'http://localhost/',
         pathname: '/test',
     });
 });

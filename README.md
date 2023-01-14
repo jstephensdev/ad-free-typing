@@ -51,7 +51,8 @@ npm start
 ## Helpful Resources
 
 ### key press detection hook
-https://betterprogramming.pub/create-a-typing-game-with-react-hooks-usekeypress-and-faker-28bbc7919820 
+
+https://betterprogramming.pub/create-a-typing-game-with-react-hooks-usekeypress-and-faker-28bbc7919820
 
 ### timer:
 

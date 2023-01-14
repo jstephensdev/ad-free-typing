@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import statsReducer from './slices/statsSlice';
 import textReducer from './slices/textSlice';
-import routingRouter, { setUrl } from './slices/routingSlice';
+import routingRouter, { setWindowLocation } from './slices/routingSlice';
 
 export const store = configureStore({
     reducer: {
@@ -16,8 +16,14 @@ export const store = configureStore({
 // We can simply subscribe to Redux and update it if it's different.
 store.subscribe(() => {
     const { pathname } = store.getState().routing;
-    if (window.location.pathname !== pathname) {
+    const { href } = store.getState().routing;
+    if (
+        window.location.pathname !== pathname &&
+        window.location.href !== href
+    ) {
+        console.log(window.location);
         window.history.pushState(null, '', pathname);
+        window.history.pushState(null, '', href);
         // Force scroll to top this is what browsers normally do when
         // navigating by clicking a link.
         // Without this, scroll stays wherever it was which can be quite odd.
@@ -36,5 +42,5 @@ export type AppDispatch = typeof store.dispatch;
 window.addEventListener('popstate', () => {
     // here `doUpdateUrl` is an action creator that
     // takes the new url and stores it in Redux.
-    store.dispatch(setUrl(window.location.pathname));
+    store.dispatch(setWindowLocation(window.location));
 });

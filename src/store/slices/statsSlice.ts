@@ -81,7 +81,6 @@ export const StartTimeSlice = createSlice({
             );
         },
         removeAllStats: (state) => {
-            localStorage.removeItem('recentStats');
             localStorage.setItem('recentStats', JSON.stringify([]));
             state.recentStats = initialState.recentStats;
         },
