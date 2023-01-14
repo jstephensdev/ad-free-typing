@@ -51,16 +51,16 @@ To avoid viewing ads at my favorite practice typing site https://www.keybr.com/,
 
 1. key press detection hook
 
-https://betterprogramming.pub/create-a-typing-game-with-react-hooks-usekeypress-and-faker-28bbc7919820
+    1. https://betterprogramming.pub/create-a-typing-game-with-react-hooks-usekeypress-and-faker-28bbc7919820
 
 2. timer:
 
-https://upmostly.com/tutorials/setinterval-in-react-components-using-hooks
+    1. https://upmostly.com/tutorials/setinterval-in-react-components-using-hooks
 
 3. text generation:
 
-   1. https://github.com/faker-js/faker
-   2. https://fakerjs.dev/api/
+    1. https://github.com/faker-js/faker
+    2. https://fakerjs.dev/api/
 
 4. icons:
 
@@ -68,24 +68,24 @@ https://www.npmjs.com/package/@reacticons/ionicons
 
 5. state managment:
 
-   1. https://redux-toolkit.js.org/
-   2. https://redux.js.org/tutorials/essentials/part-1-overview-concepts
-   3. https://redux.js.org/tutorials/essentials/part-2-app-structure
-   4. tool behind the scenes that allows for writing mutating logic https://immerjs.github.io/immer/
+    1. https://redux-toolkit.js.org/
+    2. https://redux.js.org/tutorials/essentials/part-1-overview-concepts
+    3. https://redux.js.org/tutorials/essentials/part-2-app-structure
+    4. tool behind the scenes that allows for writing mutating logic https://immerjs.github.io/immer/
 
 6. tests:
 
-https://redux.js.org/usage/writing-tests
+    1. https://redux.js.org/usage/writing-tests
 
 7. routing:
 
-   1. https://read.reduxbook.com/markdown/part2/09-routing.html
-   2. https://codesandbox.io/s/4ryppz540
-   3. https://jamesknelson.com/even-need-routing-library/
+    1. https://read.reduxbook.com/markdown/part2/09-routing.html
+    2. https://codesandbox.io/s/4ryppz540
+    3. https://jamesknelson.com/even-need-routing-library/
 
 8. accessibility:
 
-https://reactjs.org/docs/accessibility.html
+    1. https://reactjs.org/docs/accessibility.html
 
 9. bootstrap
-   https://react-bootstrap.github.io/getting-started/introduction/
+    1. https://react-bootstrap.github.io/getting-started/introduction/
