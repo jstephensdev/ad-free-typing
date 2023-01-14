@@ -21,7 +21,7 @@ export interface StartTimeState {
 
 const recentStats = localStorage.getItem('recentStats');
 
-const getOrSetStats = recentStats
+const getRecentStats = recentStats
     ? JSON.parse(recentStats)
     : localStorage.setItem('recentStats', JSON.stringify([]));
 
@@ -32,7 +32,7 @@ const initialState: StartTimeState = {
     wpm: '00.00',
     acc: '000.00',
     errorRate: '000.00',
-    recentStats: getOrSetStats ? getOrSetStats : [],
+    recentStats: getRecentStats ? getRecentStats : [],
 };
 
 export const StartTimeSlice = createSlice({
@@ -63,7 +63,7 @@ export const StartTimeSlice = createSlice({
             state.errorRate = initialState.errorRate;
         },
         setRecentStat: (state, action: PayloadAction<TextMode>) => {
-            const currentStatsArr = state.recentStats;
+            const currentStatsArr = state.recentStats.slice(0, 12);
             currentStatsArr.push({
                 mode: action.payload,
                 duration: state.duration,
@@ -82,7 +82,7 @@ export const StartTimeSlice = createSlice({
         },
         removeAllStats: (state) => {
             localStorage.setItem('recentStats', JSON.stringify([]));
-            state.recentStats = initialState.recentStats;
+            state.recentStats = [];
         },
     },
 });
