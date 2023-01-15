@@ -9,7 +9,7 @@ export const Options = (): JSX.Element => {
 
     const radioOptionChange = (textMode: TextMode): void => {
         dispatch(resetStats());
-        dispatch(setText({ mode: textMode, update: 'initialModeText' }));
+        dispatch(setText(textMode));
         dispatch(setUrl('/'));
     };
 

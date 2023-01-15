@@ -4,14 +4,24 @@
 // learn more: https://github.com/testing-library/jest-dom
 import '@testing-library/jest-dom';
 
+export const mockFakerText = jest.fn();
+export const mockFakerWords = jest.fn();
+export const mockFakerAlphaNumeric = jest.fn();
+export const mockFakerNumbers = jest.fn();
+
 jest.mock('./services/faker', () => {
     return {
-        fakerText: jest.fn().mockReturnValue('fakerText'),
-        fakerWords: jest.fn().mockReturnValue('fakerWords'),
-        fakerAlphaNumeric: jest.fn().mockReturnValue('fak3rAlphaNum3ric'),
-        fakerNumbers: jest.fn().mockReturnValue('1234 1234'),
+        fakerText: mockFakerText,
+        fakerWords: mockFakerWords,
+        fakerAlphaNumeric: mockFakerAlphaNumeric,
+        fakerNumbers: mockFakerNumbers,
     };
 });
+
+mockFakerText.mockReturnValue('fakerText');
+mockFakerWords.mockReturnValue('fakerWords');
+mockFakerAlphaNumeric.mockReturnValue('fak3rAlphaNum3ric');
+mockFakerNumbers.mockReturnValue('1234 1234');
 
 export const mockHref = jest.fn();
 export const mockPathname = jest.fn();

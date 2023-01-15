@@ -7,6 +7,7 @@ import reducer, {
     setOutgoingChars,
     setTypedChars,
 } from '../../store/slices/textSlice';
+import { mockFakerNumbers } from '../../setupTests';
 
 let state: TextState;
 let initialState: TextState;
@@ -32,29 +33,15 @@ test('should return the initial state', () => {
 });
 
 test('setText should return the initial state per requested mode, currentChar, incomingChars, ant text', () => {
-    expect(
-        reducer(
-            initialState,
-            setText({ mode: TextMode.numbers, update: 'initialModeText' })
-        )
-    ).toEqual({
+    mockFakerNumbers.mockReturnValue('4321 4321');
+    expect(reducer(initialState, setText(TextMode.numbers))).toEqual({
         ...state,
         mode: 'Numbers',
-        currentChar: '1',
-        incomingChars: '234 1234',
-        text: '1234 1234',
+        currentChar: '4',
+        incomingChars: '321 4321',
+        text: '4321 4321',
     });
 });
-
-// test('setText should return new text per requested mode, currentChar, incomingChars, ant text', () => {
-//     expect(reducer(initialState, setText({mode: TextMode.words, update: 'newText'}))).toEqual({
-//         ...state,
-//         mode: 'Numbers',
-//         currentChar: '1',
-//         incomingChars: '234 1234',
-//         text: '1234 1234',
-//     });
-// });
 
 test('setIncomingChars should return the initial state with mode, currentChar, incomingChars, ant text', () => {
     expect(reducer(initialState, setIncomingChars('test'))).toEqual({

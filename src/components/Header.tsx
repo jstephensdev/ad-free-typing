@@ -9,9 +9,9 @@ export const Header = () => {
     const mode: TextMode = useAppSelector((state) => state.text.mode);
     const pathname = useAppSelector((state) => state.routing.pathname);
 
-    const updateText = (update: string) => {
+    const updateText = () => {
         dispatch(resetStats());
-        dispatch(setText({ mode: mode, update: update }));
+        dispatch(setText(mode));
         dispatch(setUrl('/'));
     };
 
@@ -25,6 +25,7 @@ export const Header = () => {
                     <IonIcon
                         title="View Recent Stats"
                         className="ionIcon"
+                        style={{ height: '1.6rem', width: '1.6rem' }}
                         name="stats-chart"
                         size="large"
                         data-testid="reset"
@@ -49,18 +50,10 @@ export const Header = () => {
                     <IonIcon
                         title="New Text & Stats Reset"
                         className="ionIcon"
-                        name="add-circle-outline"
+                        name="arrow-back-circle-outline"
                         size="large"
-                        onClick={() => updateText('newText')}
+                        onClick={() => updateText()}
                         data-testid="new-text-reset"
-                    />
-                    <IonIcon
-                        title="Current Text & Stats Reset"
-                        className="ionIcon"
-                        name="refresh-circle-outline"
-                        size="large"
-                        onClick={() => updateText('initialModeText')}
-                        data-testid="current-text-reset"
                     />
                     <a
                         href="https://github.com/jstephensdev/ad-free-typing"

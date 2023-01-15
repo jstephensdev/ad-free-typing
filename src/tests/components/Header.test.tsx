@@ -22,17 +22,12 @@ test('renders github icon link', () => {
     expect(heading).toBeInTheDocument();
 });
 
-test('renders get new text refresh outline icon', () => {
+test('renders start over outline icon', () => {
     const heading = screen.getByTestId('new-text-reset');
     expect(heading).toBeInTheDocument();
 });
 
-test('renders reset icon link', () => {
-    const heading = screen.getByTestId('current-text-reset');
-    expect(heading).toBeInTheDocument();
-});
-
-test('renders settings icon link', () => {
+test('renders options icon link', () => {
     const heading = screen.getByTestId('options');
     expect(heading).toBeInTheDocument();
 });

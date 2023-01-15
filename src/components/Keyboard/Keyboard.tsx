@@ -18,6 +18,7 @@ import {
     TextMode,
     setText,
 } from '../../store/slices/textSlice';
+import { setUrl } from '../../store/slices/routingSlice';
 
 export const Keyboard = () => {
     const dispatch = useAppDispatch();
@@ -74,8 +75,9 @@ export const Keyboard = () => {
         }
         if (text.length === outgoingChars.length) {
             dispatch(setRecentStat(mode));
+            dispatch(setUrl('/recentStats'))
             dispatch(resetStats());
-            dispatch(setText({ mode: mode, update: 'roundReset' }));
+            dispatch(setText(mode));
         }
     });
 

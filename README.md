@@ -44,6 +44,7 @@ To avoid viewing ads at my favorite practice typing site https://www.keybr.com/,
 
 1. recent stats not ordering correctly
 2. sometimes a character following the `f` is highlighted along with the `f`, it also displays as moving over as an outgoing char
+3. refreshing on either the options or recent stats pages routing issue 
 
 ## Helpful Resources
 
