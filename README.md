@@ -80,6 +80,9 @@ To avoid viewing ads at my favorite practice typing site https://www.keybr.com/,
     1. https://read.reduxbook.com/markdown/part2/09-routing.html
     2. https://codesandbox.io/s/4ryppz540
     3. https://jamesknelson.com/even-need-routing-library/
+    4. https://developer.mozilla.org/en-US/docs/Web/API/History/pushState
+    5. https://developer.mozilla.org/en-US/docs/Web/API/History_API
+    6. https://developer.mozilla.org/en-US/docs/Web/API/History_API/Working_with_the_History_API
 
 8. accessibility:
 

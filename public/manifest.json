@@ -1,7 +1,6 @@
 {
     "short_name": "Ad Free Typing",
     "name": "Ad Free Typing React App",
-    "icons": [],
     "start_url": ".",
     "display": "standalone",
     "theme_color": "#000000",

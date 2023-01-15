@@ -17,15 +17,15 @@ export const mockHref = jest.fn();
 export const mockPathname = jest.fn();
 
 Object.defineProperty(window, 'location', {
-  value: {
-    get href() {
-        return mockHref();
+    value: {
+        get href() {
+            return mockHref();
+        },
+        get pathname() {
+            return mockPathname();
+        },
     },
-    get pathname() {
-      return mockPathname();
-    },
-  },
 });
 
-mockHref.mockReturnValue('http://localhost/');
+mockHref.mockReturnValue('http://localhost');
 mockPathname.mockReturnValue('/');

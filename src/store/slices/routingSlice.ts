@@ -5,6 +5,11 @@ export interface RoutingState {
     pathname: string;
 }
 
+interface WindowLocation {
+    href: RoutingState['href'];
+    pathname: RoutingState['pathname'];
+}
+
 const initialState: RoutingState = {
     href: typeof window.location !== 'undefined' ? window.location.href : '',
     pathname:
@@ -15,8 +20,8 @@ export const RoutingSlice = createSlice({
     name: 'routing',
     initialState,
     reducers: {
-        setWindowLocation: (state, action: PayloadAction<Location>) => {
-            state.href = action.payload.href;
+        setWindowLocation: (state, action: PayloadAction<WindowLocation>) => {
+            state.href = action.payload.href.replace(/\/.*$/, '');
             state.pathname = action.payload.pathname;
         },
         setUrl: (state, action: PayloadAction<string>) => {
