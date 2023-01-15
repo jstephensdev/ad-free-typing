@@ -21,7 +21,7 @@ export const RoutingSlice = createSlice({
     initialState,
     reducers: {
         setWindowLocation: (state, action: PayloadAction<WindowLocation>) => {
-            state.href = action.payload.href.replace(/\/.*$/, '');
+            state.href = action.payload.href;
             state.pathname = action.payload.pathname;
         },
         setUrl: (state, action: PayloadAction<string>) => {
