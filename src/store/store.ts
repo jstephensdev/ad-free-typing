@@ -36,6 +36,11 @@ export type RootState = ReturnType<typeof store.getState>;
 // Inferred types: stats, text
 export type AppDispatch = typeof store.dispatch;
 
+// Update redux window location on initial page load and if page reload
+store.dispatch(
+    setWindowLocation(JSON.parse(JSON.stringify(window.location)))
+);
+
 // Update Redux if we navigated via browser's back/forward
 window.addEventListener('popstate', () => {
     store.dispatch(
