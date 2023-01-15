@@ -84,6 +84,7 @@ To avoid viewing ads at my favorite practice typing site https://www.keybr.com/,
     4. https://developer.mozilla.org/en-US/docs/Web/API/History/pushState
     5. https://developer.mozilla.org/en-US/docs/Web/API/History_API
     6. https://developer.mozilla.org/en-US/docs/Web/API/History_API/Working_with_the_History_API
+    7. https://create-react-app.dev/docs/deployment/#netlify
 
 8. accessibility:
 
