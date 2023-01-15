@@ -31,6 +31,8 @@ To avoid viewing ads at my favorite practice typing site https://www.keybr.com/,
 7. 4 differet text modes
 8. store and limit to 12 stats in localstorage
 9. clear all stats in localstorage
+10. a better transition experience when a round is complete
+11. client side routing with redux
 
 ## Incomplete Features
 
@@ -38,13 +40,11 @@ To avoid viewing ads at my favorite practice typing site https://www.keybr.com/,
 2. idvidually delete stat round rows
 3. options display improvements
 4. more options, like non lorem ipsum sentences
-5. a better transition experience when a round is complete
 
 ## Bugs: add tests for and fix
 
 1. recent stats not ordering correctly
 2. sometimes a character following the `f` is highlighted along with the `f`, it also displays as moving over as an outgoing char
-3. refreshing on either the options or recent stats pages routing issue
 
 ## Helpful Resources
 

@@ -74,10 +74,10 @@ export const StartTimeSlice = createSlice({
                         ? '000.00'
                         : (100 - Number(state.acc)).toFixed(2),
             });
-            state.recentStats = currentStatsArr.reverse();
+            state.recentStats = currentStatsArr;
             localStorage.setItem(
                 'recentStats',
-                JSON.stringify(state.recentStats.slice(0,12))
+                JSON.stringify(state.recentStats.slice(0, 12))
             );
         },
         removeAllStats: (state) => {
