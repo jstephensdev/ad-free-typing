@@ -64,7 +64,7 @@ export const StartTimeSlice = createSlice({
         },
         setRecentStat: (state, action: PayloadAction<TextMode>) => {
             const currentStatsArr = state.recentStats;
-            currentStatsArr.push({
+            currentStatsArr.unshift({
                 mode: action.payload,
                 duration: state.duration,
                 wpm: state.wpm,

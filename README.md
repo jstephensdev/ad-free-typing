@@ -40,11 +40,13 @@ To avoid viewing ads at my favorite practice typing site https://www.keybr.com/,
 2. idvidually delete stat round rows
 3. options display improvements
 4. more options, like non lorem ipsum sentences
+5. check localstorage size and allow for round storage up to the limit
+6. add date/time to new round entry entries
 
 ## Bugs: add tests for and fix
 
 1. recent stats not ordering correctly
-2. sometimes a character following the `f` is highlighted along with the `f`, it also displays as moving over as an outgoing char
+2. sometimes a character following the `f` is highlighted along with the `f`, it also displays as moving over as an outgoing char (I've only seen this during local development)
 
 ## Helpful Resources
 
