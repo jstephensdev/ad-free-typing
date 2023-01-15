@@ -75,7 +75,7 @@ export const Keyboard = () => {
         }
         if (text.length === outgoingChars.length) {
             dispatch(setRecentStat(mode));
-            dispatch(setUrl('/recentStats'))
+            dispatch(setUrl('/recentStats'));
             dispatch(resetStats());
             dispatch(setText(mode));
         }

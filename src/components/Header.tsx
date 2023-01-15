@@ -48,7 +48,7 @@ export const Header = () => {
                         data-testid="options"
                     />
                     <IonIcon
-                        title="New Text & Stats Reset"
+                        title="New Round"
                         className="ionIcon"
                         name="arrow-back-circle-outline"
                         size="large"

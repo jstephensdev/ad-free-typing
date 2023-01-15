@@ -1,6 +1,12 @@
 import IonIcon from '@reacticons/ionicons';
-import { useAppDispatch } from '../hooks/reduxHooks';
-import { RecentStat, removeAllStats } from '../store/slices/statsSlice';
+import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
+import { setUrl } from '../store/slices/routingSlice';
+import {
+    RecentStat,
+    removeAllStats,
+    resetStats,
+} from '../store/slices/statsSlice';
+import { setText, TextMode } from '../store/slices/textSlice';
 
 interface Props {
     recentStats: RecentStat[];
@@ -8,19 +14,26 @@ interface Props {
 
 export const RecentStats = ({ recentStats }: Props) => {
     const dispatch = useAppDispatch();
+    const mode: TextMode = useAppSelector((state) => state.text.mode);
+
+    const updateText = () => {
+        dispatch(resetStats());
+        dispatch(setText(mode));
+        dispatch(setUrl('/'));
+    };
 
     return (
         <>
             <section>
                 <div>
-                    <h6>Rounds ( 12 Most Recent )</h6>
+                    <h6>Rounds (12 Most Recent)</h6>
                     <IonIcon
-                        title="clear all rounds"
+                        title="Next Round"
                         className="ionIcon"
-                        name="close-circle-outline"
+                        name="arrow-back-circle-outline"
                         size="large"
-                        data-testid="reset"
-                        onClick={() => dispatch(removeAllStats())}
+                        onClick={() => updateText()}
+                        data-testid="new-text-reset"
                     />
                 </div>
                 {recentStats?.length ? (
@@ -47,6 +60,18 @@ export const RecentStats = ({ recentStats }: Props) => {
                     <>
                         <p>Complete a Round</p>
                     </>
+                )}
+                {recentStats?.length ? (
+                    <IonIcon
+                        title="Clear All Rounds"
+                        className="ionIcon"
+                        name="close-circle-outline"
+                        size="large"
+                        data-testid="reset"
+                        onClick={() => dispatch(removeAllStats())}
+                    />
+                ) : (
+                    <></>
                 )}
             </section>
         </>
