@@ -9,6 +9,7 @@ import {
 import { setText, TextMode } from '../store/slices/textSlice';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
+import Row  from 'react-bootstrap/Row';
 
 interface Props {
     recentStats: RecentStat[];
@@ -38,7 +39,7 @@ export const RecentStats = ({ recentStats }: Props) => {
                         data-testid="new-text-reset"
                     />
                 </div>
-                <section className="row col-sm-24">
+                <Row>
                     {recentStats?.length ? (
                         recentStats.map((stat, index) => (
                             <Card
@@ -85,7 +86,7 @@ export const RecentStats = ({ recentStats }: Props) => {
                             <p>Complete a Round</p>
                         </>
                     )}
-                </section>
+                </Row>
                 {recentStats?.length ? (
                     <IonIcon
                         title="Clear All Rounds"

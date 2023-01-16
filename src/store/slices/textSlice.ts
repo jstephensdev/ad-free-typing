@@ -8,10 +8,6 @@ import {
 } from '../../services/faker';
 
 export interface TextState {
-    words: string;
-    numbers: string;
-    sentences: string;
-    alphaNumeric: string;
     mode: TextMode;
     text: string;
     incomingChars: string;
@@ -37,10 +33,6 @@ export const modes: Array<TextMode> = [
 const initialText = fakerWords(5);
 
 const initialState: TextState = {
-    words: initialText,
-    numbers: fakerNumbers(5),
-    sentences: fakerText(),
-    alphaNumeric: fakerAlphaNumeric(5),
     mode: TextMode.words,
     text: initialText,
     incomingChars: initialText.substring(1),

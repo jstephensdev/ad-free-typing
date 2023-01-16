@@ -14,16 +14,12 @@ let initialState: TextState;
 
 beforeEach(() => {
     state = {
-        alphaNumeric: 'fak3rAlphaNum3ric',
         currentChar: 'f',
         incomingChars: 'akerWords',
         mode: TextMode.words,
-        numbers: '1234 1234',
         outgoingChars: '',
-        sentences: 'fakerText',
         text: 'fakerWords',
         typedChars: '',
-        words: 'fakerWords',
     };
     initialState = state;
 });
