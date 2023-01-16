@@ -11,6 +11,7 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
+import { Col } from 'react-bootstrap';
 
 interface Props {
     recentStats: RecentStat[];
@@ -30,6 +31,9 @@ export const RecentStats = ({ recentStats }: Props) => {
         <>
             <section>
                 <Container>
+                    <div>
+                        <h6>Rounds (12 Recent Rounds)</h6>
+                    </div>
                     <div className="ionIcon" onClick={() => updateText()}>
                         <IonIcon
                             title="New Round"
@@ -39,52 +43,54 @@ export const RecentStats = ({ recentStats }: Props) => {
                         />
                         <p>New Round</p>
                     </div>
-                    <div>
-                        <h6>Rounds (12 Most Recent)</h6>
-                    </div>
                     <Row>
                         {recentStats?.length ? (
                             recentStats.map((stat, index) => (
-                                <Card
-                                    key={index}
-                                    style={{ width: '18rem', margin: '1rem' }}
-                                >
-                                    <Card.Header>
-                                        <p>{stat?.timeDateStamp}</p>
-                                    </Card.Header>
-                                    <ListGroup variant="flush">
-                                        <ListGroup.Item>
-                                            <span className="mode">
-                                                {stat?.mode}
-                                            </span>
-                                        </ListGroup.Item>
-                                        <ListGroup.Item>
-                                            <span>Duration:</span>
-                                            <span className="duration">
-                                                {stat?.duration}
-                                            </span>
-                                        </ListGroup.Item>
-                                        <ListGroup.Item>
-                                            <span>WPM:</span>
-                                            <span className="wpm">
-                                                {stat?.wpm}
-                                            </span>
-                                        </ListGroup.Item>
+                                <Col key={index}>
+                                    <Card
+                                        key={index}
+                                        style={{
+                                            width: '18rem',
+                                            margin: '1rem auto',
+                                        }}
+                                    >
+                                        <Card.Header>
+                                            <p>{stat?.timeDateStamp}</p>
+                                        </Card.Header>
+                                        <ListGroup variant="flush">
+                                            <ListGroup.Item>
+                                                <span className="mode">
+                                                    {stat?.mode}
+                                                </span>
+                                            </ListGroup.Item>
+                                            <ListGroup.Item>
+                                                <span>Duration:</span>
+                                                <span className="duration">
+                                                    {stat?.duration}
+                                                </span>
+                                            </ListGroup.Item>
+                                            <ListGroup.Item>
+                                                <span>WPM:</span>
+                                                <span className="wpm">
+                                                    {stat?.wpm}
+                                                </span>
+                                            </ListGroup.Item>
 
-                                        <ListGroup.Item>
-                                            <span>ACC:</span>
-                                            <span className="acc">
-                                                {stat?.acc}%
-                                            </span>
-                                        </ListGroup.Item>
-                                        <ListGroup.Item>
-                                            <span>Error Rate:</span>
-                                            <span className="error-rate">
-                                                {stat?.errorRate}%
-                                            </span>
-                                        </ListGroup.Item>
-                                    </ListGroup>
-                                </Card>
+                                            <ListGroup.Item>
+                                                <span>ACC:</span>
+                                                <span className="acc">
+                                                    {stat?.acc}%
+                                                </span>
+                                            </ListGroup.Item>
+                                            <ListGroup.Item>
+                                                <span>Error Rate:</span>
+                                                <span className="error-rate">
+                                                    {stat?.errorRate}%
+                                                </span>
+                                            </ListGroup.Item>
+                                        </ListGroup>
+                                    </Card>
+                                </Col>
                             ))
                         ) : (
                             <>
