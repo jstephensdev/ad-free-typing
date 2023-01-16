@@ -9,7 +9,7 @@ import {
 import { setText, TextMode } from '../store/slices/textSlice';
 import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
-import Row  from 'react-bootstrap/Row';
+import Row from 'react-bootstrap/Row';
 
 interface Props {
     recentStats: RecentStat[];
@@ -28,16 +28,17 @@ export const RecentStats = ({ recentStats }: Props) => {
     return (
         <>
             <section>
-                <div>
-                    <h6>Rounds (12 Most Recent)</h6>
+                <div className="ionIcon" onClick={() => updateText()}>
                     <IonIcon
-                        title="Next Round"
-                        className="ionIcon"
+                        title="New Round"
                         name="arrow-back-circle-outline"
                         size="large"
-                        onClick={() => updateText()}
                         data-testid="new-text-reset"
                     />
+                    <p>New Round</p>
+                </div>
+                <div>
+                    <h6>Rounds (12 Most Recent)</h6>
                 </div>
                 <Row>
                     {recentStats?.length ? (
@@ -88,14 +89,17 @@ export const RecentStats = ({ recentStats }: Props) => {
                     )}
                 </Row>
                 {recentStats?.length ? (
-                    <IonIcon
-                        title="Clear All Rounds"
-                        className="ionIcon"
-                        name="close-circle-outline"
-                        size="large"
-                        data-testid="reset"
+                    <div
+                        className="clear"
                         onClick={() => dispatch(removeAllStats())}
-                    />
+                    >
+                        <IonIcon
+                            name="close-circle-outline"
+                            size="large"
+                            data-testid="reset"
+                        />
+                        <p>Clear All Rounds</p>
+                    </div>
                 ) : (
                     <></>
                 )}
