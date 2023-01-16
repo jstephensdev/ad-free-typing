@@ -137,11 +137,6 @@ input {
     color: black;
 }
 
-.recentStats {
-    display: flex;
-    flex-direction: row;
-}
-
 .mode {
     text-shadow: 0 0 20px gray;
 }

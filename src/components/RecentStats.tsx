@@ -7,6 +7,8 @@ import {
     resetStats,
 } from '../store/slices/statsSlice';
 import { setText, TextMode } from '../store/slices/textSlice';
+import Card from 'react-bootstrap/Card';
+import ListGroup from 'react-bootstrap/ListGroup';
 
 interface Props {
     recentStats: RecentStat[];
@@ -36,31 +38,54 @@ export const RecentStats = ({ recentStats }: Props) => {
                         data-testid="new-text-reset"
                     />
                 </div>
-                {recentStats?.length ? (
-                    recentStats.map((stat, index) => (
-                        <section
-                            className="recentstats"
-                            style={{ fontSize: '30px' }}
-                            key={index}
-                        >
-                            <span className="mode">{stat.mode}</span>
-                            <span> | Duration: </span>
-                            <span className="duration">{stat.duration}</span>
-                            <span> | WPM: </span>
-                            <span className="wpm">{stat.wpm}</span>
-                            <span> | ACC: </span>
-                            <span className="acc">{stat.acc}%</span>
-                            <span> | Error Rate: </span>
-                            <span className="error-rate">
-                                {stat.errorRate}%
-                            </span>
-                        </section>
-                    ))
-                ) : (
-                    <>
-                        <p>Complete a Round</p>
-                    </>
-                )}
+                <section className="row col-sm-24">
+                    {recentStats?.length ? (
+                        recentStats.map((stat, index) => (
+                            <Card
+                                key={index}
+                                style={{ width: '18rem', margin: '1rem' }}
+                            >
+                                <Card.Header>
+                                    <p>{stat?.timeDateStamp}</p>
+                                </Card.Header>
+                                <ListGroup variant="flush">
+                                    <ListGroup.Item>
+                                        <span className="mode">
+                                            {stat?.mode}
+                                        </span>
+                                    </ListGroup.Item>
+                                    <ListGroup.Item>
+                                        <span>Duration:</span>
+                                        <span className="duration">
+                                            {stat?.duration}
+                                        </span>
+                                    </ListGroup.Item>
+                                    <ListGroup.Item>
+                                        <span>WPM:</span>
+                                        <span className="wpm">{stat?.wpm}</span>
+                                    </ListGroup.Item>
+
+                                    <ListGroup.Item>
+                                        <span>ACC:</span>
+                                        <span className="acc">
+                                            {stat?.acc}%
+                                        </span>
+                                    </ListGroup.Item>
+                                    <ListGroup.Item>
+                                        <span>Error Rate:</span>
+                                        <span className="error-rate">
+                                            {stat?.errorRate}%
+                                        </span>
+                                    </ListGroup.Item>
+                                </ListGroup>
+                            </Card>
+                        ))
+                    ) : (
+                        <>
+                            <p>Complete a Round</p>
+                        </>
+                    )}
+                </section>
                 {recentStats?.length ? (
                     <IonIcon
                         title="Clear All Rounds"

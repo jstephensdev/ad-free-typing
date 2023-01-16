@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { currentTime } from '../../services/currentTime';
 import { TextMode } from './textSlice';
 
 export interface RecentStat {
@@ -7,6 +8,7 @@ export interface RecentStat {
     wpm: string;
     acc: string;
     errorRate: string;
+    timeDateStamp: string;
 }
 
 export interface StartTimeState {
@@ -63,8 +65,13 @@ export const StartTimeSlice = createSlice({
             state.errorRate = initialState.errorRate;
         },
         setRecentStat: (state, action: PayloadAction<TextMode>) => {
+            const date = new Date();
+            const day = date.getDate();
+            const month = date.getMonth() + 1;
+            const year = date.getFullYear();
+
             const currentStatsArr = state.recentStats;
-            currentStatsArr.unshift({
+            currentStatsArr.push({
                 mode: action.payload,
                 duration: state.duration,
                 wpm: state.wpm,
@@ -73,6 +80,14 @@ export const StartTimeSlice = createSlice({
                     state.acc === '000.00'
                         ? '000.00'
                         : (100 - Number(state.acc)).toFixed(2),
+                timeDateStamp:
+                    month +
+                    '/' +
+                    day +
+                    '/' +
+                    year +
+                    ' ' +
+                    new Date(currentTime()).toLocaleTimeString('en-US'),
             });
             state.recentStats = currentStatsArr;
             localStorage.setItem(
