@@ -2,6 +2,7 @@ import { Header } from './components/Header';
 import { Main } from './components/Main';
 import { Options } from './components/Options';
 import { RecentStats } from './components/RecentStats';
+import ErrorBoundary from './components/ErrorBoundary';
 import { useAppSelector } from './hooks/reduxHooks';
 
 export const App = () => {
@@ -21,8 +22,10 @@ export const App = () => {
     }
     return (
         <>
-            <Header />
-            <section className="app">{component}</section>
+            <ErrorBoundary>
+                <Header />
+                <section className="app">{component}</section>
+            </ErrorBoundary>
         </>
     );
 };

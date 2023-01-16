@@ -21,11 +21,9 @@ export interface StartTimeState {
     recentStats: RecentStat[];
 }
 
-const recentStats = localStorage.getItem('recentStats');
-
-const getRecentStats = recentStats
-    ? JSON.parse(recentStats)
-    : localStorage.setItem('recentStats', JSON.stringify([]));
+if (localStorage.getItem('recentStats') === null) {
+    localStorage.setItem('recentStats', JSON.stringify([]));
+}
 
 const initialState: StartTimeState = {
     startTime: 0,
@@ -34,7 +32,7 @@ const initialState: StartTimeState = {
     wpm: '00.00',
     acc: '000.00',
     errorRate: '000.00',
-    recentStats: getRecentStats ? getRecentStats : [],
+    recentStats: JSON.parse(localStorage.getItem('recentStats') ?? ''),
 };
 
 export const StartTimeSlice = createSlice({
@@ -71,7 +69,7 @@ export const StartTimeSlice = createSlice({
             const year = date.getFullYear();
 
             const currentStatsArr = state.recentStats;
-            currentStatsArr.push({
+            currentStatsArr.unshift({
                 mode: action.payload,
                 duration: state.duration,
                 wpm: state.wpm,
@@ -89,10 +87,10 @@ export const StartTimeSlice = createSlice({
                     ' ' +
                     new Date(currentTime()).toLocaleTimeString('en-US'),
             });
-            state.recentStats = currentStatsArr;
+            state.recentStats = currentStatsArr.slice(0, 12);
             localStorage.setItem(
                 'recentStats',
-                JSON.stringify(state.recentStats.slice(0, 12))
+                JSON.stringify(state.recentStats)
             );
         },
         removeAllStats: (state) => {

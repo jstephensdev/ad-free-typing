@@ -11,7 +11,7 @@ import Card from 'react-bootstrap/Card';
 import ListGroup from 'react-bootstrap/ListGroup';
 import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container';
-import { Col } from 'react-bootstrap';
+import { Button, Col } from 'react-bootstrap';
 
 interface Props {
     recentStats: RecentStat[];
@@ -31,22 +31,28 @@ export const RecentStats = ({ recentStats }: Props) => {
         <>
             <section>
                 <Container>
-                    <div>
-                        <h6>Rounds (12 Recent Rounds)</h6>
-                    </div>
-                    <div className="ionIcon" onClick={() => updateText()}>
-                        <IonIcon
-                            title="New Round"
-                            name="arrow-back-circle-outline"
-                            size="large"
-                            data-testid="new-text-reset"
-                        />
-                        <p>New Round</p>
-                    </div>
+                    <h6>Rounds (12 Recent Rounds)</h6>
+                    <Button
+                        style={{
+                            backgroundColor: 'white',
+                            borderColor: 'white',
+                        }}
+                        onClick={() => updateText()}
+                    >
+                        <Container className="ionIcon">
+                            <IonIcon
+                                title="New Round"
+                                name="arrow-back-circle-outline"
+                                size="large"
+                                data-testid="new-text-reset"
+                            />
+                            <p>New Round</p>
+                        </Container>
+                    </Button>
                     <Row>
                         {recentStats?.length ? (
                             recentStats.map((stat, index) => (
-                                <Col key={index}>
+                                <Col key={index} md="auto">
                                     <Card
                                         key={index}
                                         style={{
@@ -99,17 +105,22 @@ export const RecentStats = ({ recentStats }: Props) => {
                         )}
                     </Row>
                     {recentStats?.length ? (
-                        <div
-                            className="clear"
+                        <Button
+                            style={{
+                                backgroundColor: 'white',
+                                borderColor: 'white',
+                            }}
                             onClick={() => dispatch(removeAllStats())}
                         >
-                            <IonIcon
-                                name="close-circle-outline"
-                                size="large"
-                                data-testid="reset"
-                            />
-                            <p>Clear All Rounds</p>
-                        </div>
+                            <Container className="clear">
+                                <IonIcon
+                                    name="close-circle-outline"
+                                    size="large"
+                                    data-testid="reset"
+                                />
+                                <p>Clear All Rounds</p>
+                            </Container>
+                        </Button>
                     ) : (
                         <></>
                     )}
