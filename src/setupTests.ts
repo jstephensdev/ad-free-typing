@@ -37,5 +37,5 @@ Object.defineProperty(window, 'location', {
     },
 });
 
-mockHref.mockReturnValue('http://localhost');
+mockHref.mockReturnValue('http://localhost/');
 mockPathname.mockReturnValue('/');

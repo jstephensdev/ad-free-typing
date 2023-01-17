@@ -15,13 +15,8 @@ export const store = configureStore({
 // Subscribe to routing state and update when it changes.
 store.subscribe(() => {
     const { pathname } = store.getState().routing;
-    const { href } = store.getState().routing;
-    if (window.location.pathname !== pathname) {
-        window.history.pushState(
-            null,
-            '',
-            href.replace(/\/.*$/, '') + pathname
-        );
+    if (window.location.pathname !== pathname) {;
+        window.history.pushState(null, '', pathname);
     }
 });
 
@@ -29,9 +24,6 @@ store.subscribe(() => {
 export type RootState = ReturnType<typeof store.getState>;
 // Inferred types: stats, text
 export type AppDispatch = typeof store.dispatch;
-
-// Update redux window location on initial page load and if page reload, safari fix
-store.dispatch(setWindowLocation(JSON.parse(JSON.stringify(window.location))));
 
 // Update Redux if we navigated via browser's back/forward
 window.addEventListener('popstate', () => {
