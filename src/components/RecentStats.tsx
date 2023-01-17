@@ -75,6 +75,9 @@ export const RecentStats = ({ recentStats }: Props) => {
                                             width: '16rem',
                                             margin: '1rem auto',
                                         }}
+                                        className={
+                                            index === 0 ? 'key-pressed' : ''
+                                        }
                                     >
                                         <Card.Header>
                                             <p>{stat?.timeDateStamp}</p>
