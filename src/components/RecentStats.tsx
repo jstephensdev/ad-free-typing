@@ -30,25 +30,41 @@ export const RecentStats = ({ recentStats }: Props) => {
     return (
         <>
             <section>
-                <Container>
-                    <h6>Rounds (12 Recent Rounds)</h6>
+                <h6>Rounds (12 Recent Rounds)</h6>
+                <Button variant="flush" onClick={() => updateText()}>
+                    <Container className="ionIcon">
+                        <IonIcon
+                            title="New Round"
+                            name="arrow-back-circle-outline"
+                            size="large"
+                            data-testid="new-text-reset"
+                        />
+                        <p>New Round</p>
+                    </Container>
+                </Button>
+                {recentStats?.length ? (
                     <Button
-                        style={{
-                            backgroundColor: 'white',
-                            borderColor: 'white',
-                        }}
-                        onClick={() => updateText()}
+                        variant="flush"
+                        onClick={() => dispatch(removeAllStats())}
                     >
-                        <Container className="ionIcon">
+                        <Container className="clear">
                             <IonIcon
-                                title="New Round"
-                                name="arrow-back-circle-outline"
+                                name="close-circle-outline"
                                 size="large"
-                                data-testid="new-text-reset"
+                                data-testid="reset"
                             />
-                            <p>New Round</p>
+                            <p>Clear All Rounds</p>
                         </Container>
                     </Button>
+                ) : (
+                    <></>
+                )}
+                <Container
+                    style={{
+                        maxHeight: 'calc(100vh - 210px)',
+                        overflowY: 'auto',
+                    }}
+                >
                     <Row>
                         {recentStats?.length ? (
                             recentStats.map((stat, index) => (
@@ -104,26 +120,6 @@ export const RecentStats = ({ recentStats }: Props) => {
                             </>
                         )}
                     </Row>
-                    {recentStats?.length ? (
-                        <Button
-                            style={{
-                                backgroundColor: 'white',
-                                borderColor: 'white',
-                            }}
-                            onClick={() => dispatch(removeAllStats())}
-                        >
-                            <Container className="clear">
-                                <IonIcon
-                                    name="close-circle-outline"
-                                    size="large"
-                                    data-testid="reset"
-                                />
-                                <p>Clear All Rounds</p>
-                            </Container>
-                        </Button>
-                    ) : (
-                        <></>
-                    )}
                 </Container>
             </section>
         </>
