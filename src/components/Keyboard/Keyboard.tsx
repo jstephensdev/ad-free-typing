@@ -5,6 +5,7 @@ import { currentTime } from '../../services/currentTime';
 import {
     resetStats,
     setAcc,
+    setDuration,
     setRecentStat,
     setStartTime,
     setWordCount,
@@ -55,6 +56,12 @@ export const Keyboard = () => {
                 const durationInMinutes = (currentTime() - startTime) / 60000.0;
                 dispatch(
                     setWpm(((wordCount + 1) / durationInMinutes).toFixed(2))
+                );
+                const duration = new Date(currentTime() - startTime);
+                dispatch(
+                    setDuration(
+                        duration.toLocaleTimeString('en-US').slice(2, 7)
+                    )
                 );
             }
         }

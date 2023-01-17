@@ -65,14 +65,14 @@ export const RecentStats = ({ recentStats }: Props) => {
                         overflowY: 'auto',
                     }}
                 >
-                    <Row>
+                    <Row style={{ marginLeft: '0rem' }}>
                         {recentStats?.length ? (
                             recentStats.map((stat, index) => (
                                 <Col key={index} md="auto">
                                     <Card
                                         key={index}
                                         style={{
-                                            width: '18rem',
+                                            width: '16rem',
                                             margin: '1rem auto',
                                         }}
                                     >
@@ -97,7 +97,6 @@ export const RecentStats = ({ recentStats }: Props) => {
                                                     {stat?.wpm}
                                                 </span>
                                             </ListGroup.Item>
-
                                             <ListGroup.Item>
                                                 <span>ACC:</span>
                                                 <span className="acc">

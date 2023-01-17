@@ -34,6 +34,7 @@ To avoid viewing ads at my favorite practice typing site https://www.keybr.com/,
 10. a better transition experience when a round is complete
 11. client side routing with redux
 12. add date and time to rounds
+13. show or hide stats
 
 ## Incomplete Features
 
@@ -45,8 +46,8 @@ To avoid viewing ads at my favorite practice typing site https://www.keybr.com/,
 
 ## Bugs
 
-1. recent stats not ordering correctly
-2. sometimes a character following the `f` is highlighted along with the `f`, it also displays as moving over as an outgoing char (I've only seen this during local development)
+1. sometimes a character following the `f` is highlighted along with the `f`, it also displays as moving over as an outgoing char (I've only seen this during local development)
+2. timer takes a second to catch up, after it is hidden
 
 ## Helpful Resources
 

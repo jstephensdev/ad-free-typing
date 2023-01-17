@@ -153,3 +153,9 @@ input {
 .clear:hover {
     color: red;
 }
+
+/* makes it so the progress bar stays the same size when 
+the current stats are closed todo: find better way to do this  */
+.space {
+    width: 43.49rem;
+}
