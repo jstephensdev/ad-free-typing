@@ -25,7 +25,7 @@ export const RecentStats = ({ recentStats }: Props) => {
 
     return (
         <>
-            <section>
+            <Container>
                 <h6>Rounds (12 Recent Rounds)</h6>
                 <Button variant="flush" onClick={() => updateText()}>
                     <Container className="ionIcon">
@@ -59,6 +59,7 @@ export const RecentStats = ({ recentStats }: Props) => {
                     style={{
                         maxHeight: 'calc(100vh - 210px)',
                         overflowY: 'auto',
+                        overflowX: 'hidden',
                     }}
                 >
                     <Row style={{ marginLeft: '0rem' }}>
@@ -66,9 +67,8 @@ export const RecentStats = ({ recentStats }: Props) => {
                             recentStats.map((stat, index) => (
                                 <Col key={index} md="auto">
                                     <Card
-                                        key={index}
                                         style={{
-                                            width: '16rem',
+                                            width: '100%',
                                             margin: '1rem auto',
                                         }}
                                         className={
@@ -119,7 +119,7 @@ export const RecentStats = ({ recentStats }: Props) => {
                         )}
                     </Row>
                 </Container>
-            </section>
+            </Container>
         </>
     );
 };
