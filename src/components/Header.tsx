@@ -1,5 +1,5 @@
 import IonIcon from '@reacticons/ionicons';
-import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
+import { useAppDispatch, useAppSelector } from '../hooks/useReduxHooks';
 import { resetStats } from '../store/slices/statsSlice';
 import { setText, TextMode } from '../store/slices/textSlice';
 import { setUrl } from '../store/slices/routingSlice';

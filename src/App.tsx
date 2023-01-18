@@ -3,7 +3,7 @@ import { Main } from './components/Main';
 import { Options } from './components/Options';
 import { RecentStats } from './components/RecentStats';
 import ErrorBoundary from './components/ErrorBoundary';
-import { useAppSelector } from './hooks/reduxHooks';
+import { useAppSelector } from './hooks/useReduxHooks';
 
 export const App = () => {
     const pathname = useAppSelector((state) => state.routing.pathname);

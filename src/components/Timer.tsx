@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
+import { useAppDispatch, useAppSelector } from '../hooks/useReduxHooks';
 import { currentTime } from '../services/currentTime';
 
 export const Timer = () => {

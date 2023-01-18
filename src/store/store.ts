@@ -15,7 +15,7 @@ export const store = configureStore({
 // Subscribe to routing state and update when it changes.
 store.subscribe(() => {
     const { pathname } = store.getState().routing;
-    if (window.location.pathname !== pathname) {;
+    if (window.location.pathname !== pathname) {
         window.history.pushState(null, '', pathname);
     }
 });

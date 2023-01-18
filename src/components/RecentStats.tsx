@@ -1,17 +1,13 @@
 import IonIcon from '@reacticons/ionicons';
-import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
-import { setUrl } from '../store/slices/routingSlice';
+import { useAppDispatch, useAppSelector } from '../hooks/useReduxHooks';
 import {
     RecentStat,
     removeAllStats,
     resetStats,
 } from '../store/slices/statsSlice';
+import { Button, Container, Row, Col, ListGroup, Card } from 'react-bootstrap';
 import { setText, TextMode } from '../store/slices/textSlice';
-import Card from 'react-bootstrap/Card';
-import ListGroup from 'react-bootstrap/ListGroup';
-import Row from 'react-bootstrap/Row';
-import Container from 'react-bootstrap/Container';
-import { Button, Col } from 'react-bootstrap';
+import { setUrl } from '../store/slices/routingSlice';
 
 interface Props {
     recentStats: RecentStat[];

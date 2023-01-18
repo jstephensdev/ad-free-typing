@@ -1,7 +1,7 @@
 import IonIcon from '@reacticons/ionicons';
 import { useState } from 'react';
 import ProgressBar from 'react-bootstrap/ProgressBar';
-import { useAppSelector } from '../hooks/reduxHooks';
+import { useAppSelector } from '../hooks/useReduxHooks';
 import { Timer } from './Timer';
 
 export const Stats = () => {

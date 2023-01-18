@@ -1,4 +1,4 @@
-import { useAppDispatch, useAppSelector } from '../hooks/reduxHooks';
+import { useAppDispatch, useAppSelector } from '../hooks/useReduxHooks';
 import { resetStats } from '../store/slices/statsSlice';
 import { setText, TextMode, modes } from '../store/slices/textSlice';
 import { setUrl } from '../store/slices/routingSlice';

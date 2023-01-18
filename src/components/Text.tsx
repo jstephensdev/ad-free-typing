@@ -1,4 +1,4 @@
-import { useAppSelector } from '../hooks/reduxHooks';
+import { useAppSelector } from '../hooks/useReduxHooks';
 
 export const Text = () => {
     const incomingChars = useAppSelector((state) => state.text.incomingChars);

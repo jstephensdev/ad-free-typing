@@ -1,5 +1,5 @@
 import { KeyboardRows, key } from './KeyboardRows';
-import { useAppDispatch, useAppSelector } from '../../hooks/reduxHooks';
+import { useAppDispatch, useAppSelector } from '../../hooks/useReduxHooks';
 import { useKeyDetection } from '../../hooks/useKeyDetection';
 import { currentTime } from '../../services/currentTime';
 import {
