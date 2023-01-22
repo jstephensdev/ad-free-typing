@@ -57,7 +57,6 @@ export const Stats = () => {
                         onClick={() => setShow(!show)}
                     />
                 </div>
-
                 <ProgressBar
                     variant="success"
                     now={(outgoingChars.length / text.length) * 100}

@@ -5,6 +5,8 @@
     align-items: center;
 }
 
+/* Header & RecentStats */
+
 .app-header {
     display: flex;
     flex-direction: row;
@@ -24,6 +26,25 @@
     font-size: 30px;
     font-weight: bold;
 }
+
+.title:hover {
+    color: black;
+}
+
+.ionIcon {
+    background: none;
+    border: none;
+    padding: 0;
+    color: gray;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.ionIcon:hover {
+    color: black;
+}
+
+/* Stats & RecentStats */
 
 .stats {
     font-weight: bold;
@@ -46,6 +67,31 @@
     text-shadow: 0 0 20px red;
 }
 
+.clear {
+    background: none;
+    border: none;
+    padding: 0;
+    color: lightcoral;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.clear:hover {
+    color: red;
+}
+
+.mode {
+    text-shadow: 0 0 20px gray;
+}
+
+/* makes it so the progress bar stays close to the same size when 
+the current stats are closed todo: find better way to do this  */
+.space {
+    width: 43.49rem;
+}
+
+/* Text */
+
 .text-section {
     padding: 10px;
     margin-bottom: 10px;
@@ -60,6 +106,8 @@
 .character-out {
     color: silver;
 }
+
+/* Keyboard */
 
 .key-default {
     display: flex;
@@ -108,6 +156,8 @@
     margin: 5px;
 }
 
+/* Options */
+
 /* radio option size */
 input {
     width: 25px;
@@ -118,44 +168,4 @@ input {
     display: flex;
     flex-direction: column;
     padding: 10px;
-}
-
-.ionIcon {
-    background: none;
-    border: none;
-    padding: 0;
-    color: gray;
-    cursor: pointer;
-    margin: 5px;
-}
-
-.ionIcon:hover {
-    color: black;
-}
-
-.title:hover {
-    color: black;
-}
-
-.mode {
-    text-shadow: 0 0 20px gray;
-}
-
-.clear {
-    background: none;
-    border: none;
-    padding: 0;
-    color: lightcoral;
-    cursor: pointer;
-    margin: 5px;
-}
-
-.clear:hover {
-    color: red;
-}
-
-/* makes it so the progress bar stays the same size when 
-the current stats are closed todo: find better way to do this  */
-.space {
-    width: 43.49rem;
 }

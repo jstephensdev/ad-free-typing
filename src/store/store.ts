@@ -11,8 +11,7 @@ export const store = configureStore({
     },
 });
 
-// Update URL in the browser when app state updates in Redux.
-// Subscribe to routing state and update when it changes.
+// Update URL in the browser when routing state updates in Redux.
 store.subscribe(() => {
     const { pathname } = store.getState().routing;
     if (window.location.pathname !== pathname) {
@@ -22,7 +21,7 @@ store.subscribe(() => {
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>;
-// Inferred types: stats, text
+// Inferred types: routing, stats, text
 export type AppDispatch = typeof store.dispatch;
 
 // Update Redux if we navigated via browser's back/forward
