@@ -21,7 +21,7 @@ import {
 } from '../../store/slices/textSlice';
 import { setUrl } from '../../store/slices/routingSlice';
 
-export const Keyboard = () => {
+export const Keyboard = (): JSX.Element => {
     const dispatch = useAppDispatch();
     const keyRows: Array<Array<key>> = KeyboardRows;
     const startTime = useAppSelector((state) => state.stats.startTime);

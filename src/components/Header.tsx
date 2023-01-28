@@ -4,12 +4,12 @@ import { resetStats } from '../store/slices/statsSlice';
 import { setText, TextMode } from '../store/slices/textSlice';
 import { setUrl } from '../store/slices/routingSlice';
 
-export const Header = () => {
+export const Header = (): JSX.Element => {
     const dispatch = useAppDispatch();
     const mode: TextMode = useAppSelector((state) => state.text.mode);
     const pathname = useAppSelector((state) => state.routing.pathname);
 
-    const updateText = () => {
+    const updateText = (): void => {
         dispatch(resetStats());
         dispatch(setText(mode));
         dispatch(setUrl('/'));

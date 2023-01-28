@@ -10,22 +10,22 @@ const keysToRegister: string[] = [
     'Backspace',
 ];
 
-export const useKeyDetection = (callback: any) => {
+export const useKeyDetection = (callback: (key: string) => void): string => {
     const [keyPress, setKeyPress] = useState('');
 
     useEffect(() => {
-        const downHandler = ({ key }: any) => {
+        const downHandler = (e: KeyboardEvent): void => {
             if (
-                keyPress !== key ||
-                key.length === 1 ||
-                keysToRegister.includes(key)
+                keyPress !== e.key ||
+                e.key.length === 1 ||
+                keysToRegister.includes(e.key)
             ) {
-                setKeyPress(key);
-                callback && callback(key);
+                setKeyPress(e.key);
+                callback && callback(e.key);
             }
         };
 
-        const upHandler = () => {
+        const upHandler = (): void => {
             setKeyPress('');
         };
         window.addEventListener('keydown', downHandler);

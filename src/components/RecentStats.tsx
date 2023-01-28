@@ -13,7 +13,7 @@ interface Props {
     recentStats: RecentStat[];
 }
 
-export const RecentStats = ({ recentStats }: Props) => {
+export const RecentStats = ({ recentStats }: Props): JSX.Element => {
     const dispatch = useAppDispatch();
     const mode: TextMode = useAppSelector((state) => state.text.mode);
 

@@ -4,7 +4,7 @@ import ProgressBar from 'react-bootstrap/ProgressBar';
 import { useAppSelector } from '../hooks/useReduxHooks';
 import { Timer } from './Timer';
 
-export const Stats = () => {
+export const Stats = (): JSX.Element => {
     const wpm = useAppSelector((state) => state.stats.wpm);
     const acc = useAppSelector((state) => state.stats.acc);
     const text = useAppSelector((state) => state.text.text);

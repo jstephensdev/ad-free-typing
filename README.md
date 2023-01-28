@@ -4,43 +4,39 @@ To avoid viewing ads at my favorite practice typing site https://www.keybr.com/,
 
 ## Technology Used
 
-1. TypeScript
-2. React
-3. Redux with Redux-ToolKit
-4. Faker for text generation
-5. IonIcons for icons in header
-6. React Bootstrap for progress bar
-7. localstorage
+1. TypeScript & React
+    1. https://create-react-app.dev/docs/adding-typescript/
+    2. npx create-react-app my-app --template typescript
+2. Redux with Redux-ToolKit
+3. Faker for text generation
+4. IonIcons for icons in header
+5. React Bootstrap for progress bar
+6. localstorage
 
 ## Local Startup Guide
 
 1. fork project
-
 2. npm i
-
 3. npm start
 
 ## Completed Features
 
-1. keys light up when key pressed matchs keyboard key
-2. keyboard display
-3. stats calculated and displaying
-4. stats reset to starting state
-5. text back to initial mode state
-6. text generation
-7. 4 differet text modes
-8. store and limit to 12 stats in localstorage
-9. clear all stats in localstorage
-10. a better transition experience when a round is complete
-11. client side routing with redux
-12. add date and time to rounds
-13. show or hide stats
+1. Keyboard plus keys light up when key pressed matchs keyboard key
+2. Duraction, wpm, acc, and error rate calculated and displaying
+3. New Round icon button resets stats and gets new text for whichever mode is set
+4. Text generation with faker
+5. 4 differet text modes
+6. Store and limit to 12 stats in localstorage
+7. Clear all stats in localstorage
+8. client side routing with redux
+9. add date and time to rounds
+10. show or hide stats while typing
 
 ## Incomplete Features
 
 1. docker file plus start guide
 2. delete one stat round at a time
-3. options display improvements
+3. options component display improvements
 4. more options, like non lorem ipsum sentences
 5. check localstorage size and allow for round storage up to the limit
 
@@ -95,4 +91,8 @@ To avoid viewing ads at my favorite practice typing site https://www.keybr.com/,
     1. https://reactjs.org/docs/accessibility.html
 
 9. bootstrap
+
     1. https://react-bootstrap.github.io/getting-started/introduction/
+
+10. TypeScript & React
+    1. https://blog.logrocket.com/how-use-typescript-react-tutorial-examples/

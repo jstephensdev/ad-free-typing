@@ -1,6 +1,6 @@
 import { faker } from '@faker-js/faker';
 
-export const fakerText = () => faker.lorem.paragraph();
+export const fakerText = (): string => faker.lorem.paragraph();
 
 export const fakerWords = (x: number): string => {
     const words: Array<string> = [];

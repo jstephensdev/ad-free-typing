@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../hooks/useReduxHooks';
 import { currentTime } from '../services/currentTime';
 
-export const Timer = () => {
+export const Timer = (): JSX.Element => {
     const dispatch = useAppDispatch();
     const startTime = useAppSelector((state) => state.stats.startTime);
     const [duration, setDuration] = useState('00.00');
