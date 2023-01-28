@@ -28,7 +28,7 @@ export const Header = () => {
                         style={{ height: '1.6rem', width: '1.6rem' }}
                         name="stats-chart"
                         size="large"
-                        data-testid="reset"
+                        data-testid="view-recent-stats"
                         onClick={() =>
                             pathname === '/recentStats'
                                 ? dispatch(setUrl('/'))
@@ -53,7 +53,7 @@ export const Header = () => {
                         name="arrow-back-circle-outline"
                         size="large"
                         onClick={() => updateText()}
-                        data-testid="new-text-reset"
+                        data-testid="new-round"
                     />
                     <a
                         href="https://github.com/jstephensdev/ad-free-typing"

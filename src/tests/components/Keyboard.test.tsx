@@ -19,8 +19,7 @@ beforeEach(() => {
     );
 });
 
-test('renders ad free typing heading', () => {
+test('renders keyboard q key', () => {
     const qKey = screen.getByText(/q/i);
     expect(qKey).toBeInTheDocument();
 });
-

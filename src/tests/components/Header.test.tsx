@@ -23,7 +23,7 @@ test('renders github icon link', () => {
 });
 
 test('renders start over outline icon', () => {
-    const heading = screen.getByTestId('new-text-reset');
+    const heading = screen.getByTestId('new-round');
     expect(heading).toBeInTheDocument();
 });
 
