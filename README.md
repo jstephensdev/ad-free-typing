@@ -93,6 +93,7 @@ To avoid viewing ads at my favorite practice typing site https://www.keybr.com/,
 9. bootstrap
 
     1. https://react-bootstrap.github.io/getting-started/introduction/
+    2. https://create-react-app.dev/docs/adding-bootstrap
 
 10. TypeScript & React
     1. https://blog.logrocket.com/how-use-typescript-react-tutorial-examples/

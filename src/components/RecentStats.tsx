@@ -25,8 +25,8 @@ export const RecentStats = ({ recentStats }: Props): JSX.Element => {
 
     return (
         <>
+            <h6>Rounds (12 Recent Rounds)</h6>
             <Container>
-                <h6>Rounds (12 Recent Rounds)</h6>
                 <Button variant="flush" onClick={() => updateText()}>
                     <Container className="ionIcon">
                         <IonIcon
@@ -55,70 +55,62 @@ export const RecentStats = ({ recentStats }: Props): JSX.Element => {
                 ) : (
                     <></>
                 )}
-                <Container
-                    style={{
-                        maxHeight: 'calc(100vh - 210px)',
-                        overflowY: 'auto',
-                        overflowX: 'hidden',
-                    }}
-                >
-                    <Row style={{ marginLeft: '0rem' }}>
-                        {recentStats?.length ? (
-                            recentStats.map((stat, index) => (
-                                <Col key={index} md="auto">
-                                    <Card
-                                        style={{
-                                            width: '100%',
-                                            margin: '1rem auto',
-                                        }}
-                                        className={
-                                            index === 0 ? 'key-pressed' : ''
-                                        }
-                                    >
-                                        <Card.Header>
-                                            <p>{stat?.timeDateStamp}</p>
-                                        </Card.Header>
-                                        <ListGroup variant="flush">
-                                            <ListGroup.Item>
-                                                <span className="mode">
-                                                    {stat?.mode}
-                                                </span>
-                                            </ListGroup.Item>
-                                            <ListGroup.Item>
-                                                <span>Duration:</span>
-                                                <span className="duration">
-                                                    {stat?.duration}
-                                                </span>
-                                            </ListGroup.Item>
-                                            <ListGroup.Item>
-                                                <span>WPM:</span>
-                                                <span className="wpm">
-                                                    {stat?.wpm}
-                                                </span>
-                                            </ListGroup.Item>
-                                            <ListGroup.Item>
-                                                <span>ACC:</span>
-                                                <span className="acc">
-                                                    {stat?.acc}%
-                                                </span>
-                                            </ListGroup.Item>
-                                            <ListGroup.Item>
-                                                <span>Error Rate:</span>
-                                                <span className="error-rate">
-                                                    {stat?.errorRate}%
-                                                </span>
-                                            </ListGroup.Item>
-                                        </ListGroup>
-                                    </Card>
-                                </Col>
-                            ))
-                        ) : (
-                            <>
-                                <p>Complete a Round</p>
-                            </>
-                        )}
-                    </Row>
-                </Container>
+            </Container>
+            <Container>
+                <Row style={{ marginLeft: '0rem' }}>
+                    {recentStats?.length ? (
+                        recentStats.map((stat, index) => (
+                            <Col key={index} md="auto">
+                                <Card
+                                    style={{
+                                        width: '100%',
+                                        margin: '1rem auto',
+                                    }}
+                                    className={index === 0 ? 'key-pressed' : ''}
+                                >
+                                    <Card.Header>
+                                        <p>{stat?.timeDateStamp}</p>
+                                    </Card.Header>
+                                    <ListGroup variant="flush">
+                                        <ListGroup.Item>
+                                            <span className="mode">
+                                                {stat?.mode}
+                                            </span>
+                                        </ListGroup.Item>
+                                        <ListGroup.Item>
+                                            <span>Duration:</span>
+                                            <span className="duration">
+                                                {stat?.duration}
+                                            </span>
+                                        </ListGroup.Item>
+                                        <ListGroup.Item>
+                                            <span>WPM:</span>
+                                            <span className="wpm">
+                                                {stat?.wpm}
+                                            </span>
+                                        </ListGroup.Item>
+                                        <ListGroup.Item>
+                                            <span>ACC:</span>
+                                            <span className="acc">
+                                                {stat?.acc}%
+                                            </span>
+                                        </ListGroup.Item>
+                                        <ListGroup.Item>
+                                            <span>Error Rate:</span>
+                                            <span className="error-rate">
+                                                {stat?.errorRate}%
+                                            </span>
+                                        </ListGroup.Item>
+                                    </ListGroup>
+                                </Card>
+                            </Col>
+                        ))
+                    ) : (
+                        <>
+                            <p>Complete a Round</p>
+                        </>
+                    )}
+                </Row>
             </Container>
         </>
     );
