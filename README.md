@@ -19,6 +19,12 @@ To avoid viewing ads at my favorite practice typing site https://www.keybr.com/,
 2. npm i
 3. npm start
 
+## Docker Startup Guide
+
+1. docker build .
+2. docker image list, copy image id
+3. docker run --rm -p 3000:3000 image id
+
 ## Completed Features
 
 1. Keyboard plus keys light up when key pressed matchs keyboard key
@@ -31,14 +37,15 @@ To avoid viewing ads at my favorite practice typing site https://www.keybr.com/,
 8. client side routing with redux
 9. add date and time to rounds
 10. show or hide stats while typing
+11. docker file plus start guide
 
 ## Incomplete Features
 
-1. docker file plus start guide
-2. delete one stat round at a time
-3. options component display improvements
-4. more options, like non lorem ipsum sentences
-5. check localstorage size and allow for round storage up to the limit
+1. delete one stat round at a time
+2. options component display improvements
+3. more options, like non lorem ipsum sentences
+4. check localstorage size and allow for round storage up to the limit
+5. settings that stats are closed while typing or to not navigate to recent stats after completing a round, will save to localstorage
 
 ## Bugs
 
@@ -96,4 +103,9 @@ To avoid viewing ads at my favorite practice typing site https://www.keybr.com/,
     2. https://create-react-app.dev/docs/adding-bootstrap
 
 10. TypeScript & React
+
     1. https://blog.logrocket.com/how-use-typescript-react-tutorial-examples/
+
+11. Docker
+    1. https://hub.docker.com/search?q=
+    2. https://github.com/docker/awesome-compose/blob/master/react-nginx/Dockerfile
