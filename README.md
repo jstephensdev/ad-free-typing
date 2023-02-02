@@ -21,9 +21,13 @@ To avoid viewing ads at my favorite practice typing site https://www.keybr.com/,
 
 ## Docker Startup Guide
 
-1. docker build .
-2. docker image list, copy image id
-3. docker run --rm -p 3000:3000 image id
+1. docker build . --no-cache -t adfreetyping
+2. docker run --rm -p 3000:3000 adfreetyping
+
+### helpful docker commands
+
+1. docker image list
+2. docker ps
 
 ## Completed Features
 
