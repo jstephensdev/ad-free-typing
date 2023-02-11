@@ -31,7 +31,7 @@ To avoid viewing ads at my favorite practice typing site https://www.keybr.com/,
 
 ## Completed Features
 
-1. Keyboard plus keys light up when key pressed matchs keyboard key
+1. Keyboard plus keys light up when key pressed matches keyboard key
 2. Duraction, wpm, acc, and error rate calculated and displaying
 3. New Round icon button resets stats and gets new text for whichever mode is set
 4. Text generation with faker
@@ -55,6 +55,7 @@ To avoid viewing ads at my favorite practice typing site https://www.keybr.com/,
 
 1. sometimes a character following the `f` is highlighted along with the `f`, it also displays as moving over as an outgoing char (I've only seen this during local development)
 2. timer takes a second to catch up, after it is hidden
+3. caps lock not staying lit until off or is lit even when off
 
 ## Helpful Resources
 
@@ -113,3 +114,4 @@ To avoid viewing ads at my favorite practice typing site https://www.keybr.com/,
 11. Docker
     1. https://hub.docker.com/search?q=
     2. https://github.com/docker/awesome-compose/blob/master/react-nginx/Dockerfile
+    3. https://www.docker.com/blog/how-to-use-the-official-nginx-docker-image/
