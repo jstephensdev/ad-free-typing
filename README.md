@@ -1,6 +1,6 @@
 # Ad Free Typing
 
-To avoid viewing ads at my favorite practice typing site https://www.keybr.com/, I created this ad free practice typing site [https://wonderful-crostata-77f500.netlify.app/](https://adfreetyping.netlify.app/). It is a work in progress with a list of features completed, and features I am working on or plan to add below. Also, a known bugs list
+To avoid viewing ads at my favorite practice typing site https://www.keybr.com/, I created this ad free practice typing site https://adfreetyping.netlify.app/. It is a work in progress with a list of features completed, and features I am working on or plan to add below. Also, a known bugs list
 
 ## Technology Used
 
