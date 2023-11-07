@@ -43,7 +43,7 @@ export const Stats = (): JSX.Element => {
           <IonIcon
             title={show ? 'Hide Current Stats' : 'Show Current Stats'}
             className="ionIcon"
-            name={show ? 'remove' : 'add'}
+            name={show ? 'remove-circle' : 'add-circle'}
             size="large"
             data-testid="reset"
             onClick={() => setShow(!show)}
