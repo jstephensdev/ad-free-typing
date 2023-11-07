@@ -138,7 +138,7 @@ the current stats are closed todo: find better way to do this  */
 }
 
 .medium-key {
-    display: flex;
+    display: grid;
     flex-direction: column;
     width: 20%;
 }
