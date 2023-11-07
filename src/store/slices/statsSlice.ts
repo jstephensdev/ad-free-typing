@@ -11,7 +11,7 @@ export interface RecentStat {
     timeDateStamp: string;
 }
 
-export interface StartTimeState {
+export interface StatState {
     startTime: number;
     duration: string;
     wordCount: number;
@@ -25,7 +25,7 @@ if (localStorage.getItem('recentStats') === null) {
     localStorage.setItem('recentStats', JSON.stringify([]));
 }
 
-const initialState: StartTimeState = {
+const initialState: StatState = {
     startTime: 0,
     duration: '00.00',
     wordCount: 0,
