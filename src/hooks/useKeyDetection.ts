@@ -15,8 +15,11 @@ export const useKeyDetection = (callback: (key: string) => void): string => {
 
   useEffect(() => {
     const downHandler = (e: KeyboardEvent): void => {
-      // prevents other key press until capslock is off
+      if (keysToRegister[5] === e.key) {
+        e.preventDefault();
+      }
       if (keysToRegister[0] === e.key || keysToRegister[0] === keyPress) {
+        // prevents other key press until capslock is off
         setKeyPress(keysToRegister[0]);
         return;
       }
