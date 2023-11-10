@@ -123,7 +123,6 @@ the current stats are closed todo: find better way to do this  */
   border-radius: 5px;
   color: white;
   background: rgb(0, 0, 0, 0.7);
-  text-shadow: 0 0 10px #ffc600;
   margin-right: 5px;
   font-size: 15px;
 }

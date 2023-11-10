@@ -8,6 +8,7 @@ const specialKeys: string[] = [
   'Alt',
   'Tab',
   'Backspace',
+  'Enter',
 ];
 
 export const useKeyDetection = (callback: (key: string) => void): string => {
