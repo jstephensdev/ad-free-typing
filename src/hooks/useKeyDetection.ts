@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const keysToRegister: string[] = [
+const specialKeys: string[] = [
   'CapsLock',
   'Shift',
   'Control',
@@ -15,18 +15,18 @@ export const useKeyDetection = (callback: (key: string) => void): string => {
 
   useEffect(() => {
     const downHandler = (e: KeyboardEvent): void => {
-      if (keysToRegister[5] === e.key) {
+      if (specialKeys[5] === e.key) {
         e.preventDefault();
       }
-      if (keysToRegister[0] === e.key || keysToRegister[0] === keyPress) {
+      if (specialKeys[0] === e.key || specialKeys[0] === keyPress) {
         // prevents other key press until capslock is off
-        setKeyPress(keysToRegister[0]);
+        setKeyPress(specialKeys[0]);
         return;
       }
       if (
         keyPress !== e.key ||
         e.key.length === 1 ||
-        keysToRegister.includes(e.key)
+        specialKeys.includes(e.key)
       ) {
         setKeyPress(e.key);
         callback && callback(e.key);
@@ -37,13 +37,13 @@ export const useKeyDetection = (callback: (key: string) => void): string => {
       // prevents capslock from appearing off when selecting shift or tab key when capslock
       // is on
       if (
-        keysToRegister[0] === keyPress &&
-        (keysToRegister[1] === e.key || keysToRegister[5] === e.key)
+        specialKeys[0] === keyPress &&
+        (specialKeys[1] === e.key || specialKeys[5] === e.key)
       ) {
         return;
       }
-      // deselect keysToRegister when condition above is not true
-      if (keysToRegister.includes(e.key)) {
+      // deselect specialKeys when condition above is not true
+      if (specialKeys.includes(e.key)) {
         setKeyPress('');
       }
     };
