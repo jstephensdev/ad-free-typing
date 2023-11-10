@@ -34,8 +34,12 @@ export const useKeyDetection = (callback: (key: string) => void): string => {
     };
 
     const upHandler = (e: KeyboardEvent): void => {
-      // prevents capslock from appearing off if shift key is selected
-      if (keysToRegister[0] === keyPress && keysToRegister[1] === e.key) {
+      // prevents capslock from appearing off when selecting shift or tab key when capslock
+      // is on
+      if (
+        keysToRegister[0] === keyPress &&
+        (keysToRegister[1] === e.key || keysToRegister[5] === e.key)
+      ) {
         return;
       }
       // deselect keysToRegister when condition above is not true
