@@ -39,7 +39,9 @@ export const useKeyDetection = (callback: (key: string) => void): string => {
       // is on
       if (
         specialKeys[0] === keyPress &&
-        (specialKeys[1] === e.key || specialKeys[5] === e.key)
+        (specialKeys[1] === e.key ||
+          specialKeys[5] === e.key ||
+          specialKeys[7] === e.key)
       ) {
         return;
       }
