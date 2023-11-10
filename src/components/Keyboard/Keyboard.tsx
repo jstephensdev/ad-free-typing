@@ -20,6 +20,8 @@ import {
   setText,
 } from '../../store/slices/textSlice';
 import { setUrl } from '../../store/slices/routingSlice';
+import { useState } from 'react';
+import IonIcon from '@reacticons/ionicons';
 
 export const Keyboard = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -32,6 +34,7 @@ export const Keyboard = (): JSX.Element => {
   const typedChars = useAppSelector((state) => state.text.typedChars);
   const wordCount = useAppSelector((state) => state.stats.wordCount);
   const mode: TextMode = useAppSelector((state) => state.text.mode);
+  const [show, setShow] = useState(true);
 
   const keyPressed = useKeyDetection((key: string) => {
     let updatedTypedChars = typedChars + key;
@@ -84,34 +87,48 @@ export const Keyboard = (): JSX.Element => {
 
   return (
     <>
-      <div className="keyboard">
-        {keyRows.map((row: Array<key>, index) => (
-          <div className="keyboard-row" key={index}>
-            {row.map((key: key) => (
-              <div
-                className={
-                  keyPressed === key.name ||
-                  keyPressed === key?.key ||
-                  (Array.isArray(key.name) && keyPressed === key.name[0]) ||
-                  (Array.isArray(key.name) && keyPressed === key.name[1])
-                    ? key.class + ' key-pressed'
-                    : key.class
-                }
-                key={`${key.id} + ${key.name}`}
-              >
-                {Array.isArray(key.name) ? (
-                  <>
-                    <span>{key.name[0]}</span>
-                    <span>{key.name[1]}</span>
-                  </>
-                ) : (
-                  key.name
-                )}
+      <IonIcon
+        title={show ? 'Hide keyboard' : 'Show keyboard'}
+        className="ionIcon"
+        name={show ? 'remove-circle' : 'add-circle'}
+        size="large"
+        data-testid="reset"
+        onClick={() => setShow(!show)}
+      />
+      {show ? (
+        <section>
+          <div className="keyboard">
+            {keyRows.map((row: Array<key>, index) => (
+              <div className="keyboard-row" key={index}>
+                {row.map((key: key) => (
+                  <div
+                    className={
+                      keyPressed === key.name ||
+                      keyPressed === key?.key ||
+                      (Array.isArray(key.name) && keyPressed === key.name[0]) ||
+                      (Array.isArray(key.name) && keyPressed === key.name[1])
+                        ? key.class + ' key-pressed'
+                        : key.class
+                    }
+                    key={`${key.id} + ${key.name}`}
+                  >
+                    {Array.isArray(key.name) ? (
+                      <>
+                        <span>{key.name[0]}</span>
+                        <span>{key.name[1]}</span>
+                      </>
+                    ) : (
+                      key.name
+                    )}
+                  </div>
+                ))}
               </div>
             ))}
           </div>
-        ))}
-      </div>
+        </section>
+      ) : (
+        ''
+      )}
     </>
   );
 };
