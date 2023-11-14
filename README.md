@@ -5,8 +5,8 @@ To avoid viewing ads at my favorite practice typing site https://www.keybr.com/,
 ## Technology Used
 
 1. TypeScript & React
-    1. https://create-react-app.dev/docs/adding-typescript/
-    2. npx create-react-app my-app --template typescript
+   1. https://create-react-app.dev/docs/adding-typescript/
+   2. npx create-react-app my-app --template typescript
 2. Redux with Redux-ToolKit
 3. Faker for text generation
 4. IonIcons for icons in header
@@ -54,62 +54,61 @@ To avoid viewing ads at my favorite practice typing site https://www.keybr.com/,
 5. settings that stats are closed while typing or to not navigate to recent stats after completing a round, will save to localstorage
 6. improve stats display, may change to a searchable/filterable table display
 7. db connection, either mysql or postgresql 
+8. search ability
 
 ## Bugs
 
-1. sometimes a character following the `f` is highlighted along with the `f`, it also displays as moving over as an outgoing char (I've only seen this during local development)
-2. timer takes a second to catch up, after it is hidden
-3. caps lock not staying lit until off or is lit even when off
+1. timer takes a second to catch up, after it is hidden
 
 ## Helpful Resources
 
 1. key press detection hook
 
-    1. https://betterprogramming.pub/create-a-typing-game-with-react-hooks-usekeypress-and-faker-28bbc7919820
+   1. https://betterprogramming.pub/create-a-typing-game-with-react-hooks-usekeypress-and-faker-28bbc7919820
 
 2. timer:
 
-    1. https://upmostly.com/tutorials/setinterval-in-react-components-using-hooks
+   1. https://upmostly.com/tutorials/setinterval-in-react-components-using-hooks
 
 3. text generation:
 
-    1. https://github.com/faker-js/faker
-    2. https://fakerjs.dev/api/
+   1. https://github.com/faker-js/faker
+   2. https://fakerjs.dev/api/
 
 4. icons:
 
-    1. https://www.npmjs.com/package/@reacticons/ionicons
+   1. https://www.npmjs.com/package/@reacticons/ionicons
 
 5. state managment:
 
-    1. https://redux-toolkit.js.org/
-    2. https://redux.js.org/tutorials/essentials/part-1-overview-concepts
-    3. https://redux.js.org/tutorials/essentials/part-2-app-structure
-    4. tool behind the scenes that allows for writing mutating logic https://immerjs.github.io/immer/
+   1. https://redux-toolkit.js.org/
+   2. https://redux.js.org/tutorials/essentials/part-1-overview-concepts
+   3. https://redux.js.org/tutorials/essentials/part-2-app-structure
+   4. tool behind the scenes that allows for writing mutating logic https://immerjs.github.io/immer/
 
 6. tests:
 
-    1. https://redux.js.org/usage/writing-tests
-    2. https://marek-rozmus.medium.com/mocking-window-object-d316050ae7a5
+   1. https://redux.js.org/usage/writing-tests
+   2. https://marek-rozmus.medium.com/mocking-window-object-d316050ae7a5
 
 7. routing:
 
-    1. https://read.reduxbook.com/markdown/part2/09-routing.html
-    2. https://codesandbox.io/s/4ryppz540
-    3. https://jamesknelson.com/even-need-routing-library/
-    4. https://developer.mozilla.org/en-US/docs/Web/API/History/pushState
-    5. https://developer.mozilla.org/en-US/docs/Web/API/History_API
-    6. https://developer.mozilla.org/en-US/docs/Web/API/History_API/Working_with_the_History_API
-    7. https://create-react-app.dev/docs/deployment/#netlify
+   1. https://read.reduxbook.com/markdown/part2/09-routing.html
+   2. https://codesandbox.io/s/4ryppz540
+   3. https://jamesknelson.com/even-need-routing-library/
+   4. https://developer.mozilla.org/en-US/docs/Web/API/History/pushState
+   5. https://developer.mozilla.org/en-US/docs/Web/API/History_API
+   6. https://developer.mozilla.org/en-US/docs/Web/API/History_API/Working_with_the_History_API
+   7. https://create-react-app.dev/docs/deployment/#netlify
 
 8. accessibility:
 
-    1. https://reactjs.org/docs/accessibility.html
+   1. https://reactjs.org/docs/accessibility.html
 
 9. bootstrap
 
-    1. https://react-bootstrap.github.io/getting-started/introduction/
-    2. https://create-react-app.dev/docs/adding-bootstrap
+   1. https://react-bootstrap.github.io/getting-started/introduction/
+   2. https://create-react-app.dev/docs/adding-bootstrap
 
 10. TypeScript & React
 
