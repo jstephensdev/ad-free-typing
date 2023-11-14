@@ -6,14 +6,14 @@ import { RecentStats } from '../../components/RecentStats';
 
 const fakeRecentStats = [];
 beforeEach(() => {
-    render(
-        <Provider store={store}>
-            <RecentStats recentStats={fakeRecentStats} />
-        </Provider>
-    );
+  render(
+    <Provider store={store}>
+      <RecentStats recentStats={fakeRecentStats} />
+    </Provider>
+  );
 });
 
 test('renders recentStats', () => {
-    const title = screen.getByText(/Rounds \(12 Recent Rounds\)/i);
-    expect(title).toBeInTheDocument();
+  const newRoundIcon = screen.getByText(/New Round/i);
+  expect(newRoundIcon).toBeInTheDocument();
 });
