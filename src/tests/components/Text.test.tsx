@@ -4,25 +4,31 @@ import { store } from '../../store/store';
 import React from 'react';
 import { Text } from '../../components/Text';
 
-beforeEach(() => {
-    render(
-        <Provider store={store}>
-            <Text />
-        </Provider>
-    );
+const setup = () => {
+  render(
+    <Provider store={store}>
+      <Text />
+    </Provider>
+  );
+};
+
+setup();
+
+afterEach(() => {
+  setup();
 });
 
 test('renders current char', () => {
-    const currentChar = screen.getByLabelText('f');
-    expect(currentChar).toBeInTheDocument();
+  const currentChar = screen.getByLabelText('f');
+  expect(currentChar).toBeInTheDocument();
 });
 
 test('renders outgoing char', () => {
-    const outgoingChars = screen.getByLabelText('akerWords');
-    expect(outgoingChars).toBeInTheDocument();
+  const outgoingChars = screen.getByLabelText('akerWords');
+  expect(outgoingChars).toBeInTheDocument();
 });
 
 test('renders incoming char', () => {
-    const incomingChars = screen.getByLabelText('');
-    expect(incomingChars).toBeInTheDocument();
+  const incomingChars = screen.getByLabelText('');
+  expect(incomingChars).toBeInTheDocument();
 });

@@ -5,12 +5,18 @@ import React from 'react';
 import { RecentStats } from '../../components/RecentStats';
 
 const fakeRecentStats = [];
-beforeEach(() => {
+const setup = () => {
   render(
     <Provider store={store}>
       <RecentStats recentStats={fakeRecentStats} />
     </Provider>
   );
+};
+
+setup();
+
+afterEach(() => {
+  setup();
 });
 
 test('renders recentStats', () => {
