@@ -50,9 +50,8 @@ To avoid viewing ads at my favorite practice typing site https://www.keybr.com/,
 3. more options, like non lorem ipsum sentences
 4. check localstorage size and allow for round storage up to the limit
    --> Browsers can store up to 5 MiB of local storage, and 5 MiB of session storage per origin. Once this limit is reached, browsers throw a QuotaExceededError exception. -https://developer.mozilla.org/en-US/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria#how_to_check_the_available_space
-5. improve stats display, may change to a searchable/filterable table display
-6. db connection, either mysql or postgresql
-7. search ability
+5. db connection, either mysql or postgresql
+6. search ability
 
 ## Bugs
 
