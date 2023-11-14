@@ -51,6 +51,11 @@
   font-size: 20px;
 }
 
+.statsContainer {
+  display: grid;
+  grid-template-columns: auto auto auto;
+}
+
 .duration {
   text-shadow: 0 0 20px #6fbbd4;
 }

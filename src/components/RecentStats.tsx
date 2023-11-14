@@ -5,7 +5,7 @@ import {
   removeAllStats,
   resetStats,
 } from '../store/slices/statsSlice';
-import { Button, Container, Row, ListGroup, Card } from 'react-bootstrap';
+import { Button, ListGroup, Card } from 'react-bootstrap';
 import { setText, TextMode } from '../store/slices/textSlice';
 import { setUrl } from '../store/slices/routingSlice';
 
@@ -25,10 +25,9 @@ export const RecentStats = ({ recentStats }: Props): JSX.Element => {
 
   return (
     <>
-      <Container>
-        <h6>Rounds</h6>
+      <div className="statsContainer">
         <Button variant="flush" onClick={() => updateText()}>
-          <Container className="ionIcon">
+          <div className="ionIcon">
             <IonIcon
               title="New Round"
               name="arrow-back-circle-outline"
@@ -36,68 +35,68 @@ export const RecentStats = ({ recentStats }: Props): JSX.Element => {
               data-testid="new-text-reset"
             />
             <p>New Round</p>
-          </Container>
+          </div>
         </Button>
         {recentStats?.length ? (
           <Button variant="flush" onClick={() => dispatch(removeAllStats())}>
-            <Container className="clear">
+            <div className="clear">
               <IonIcon
                 name="close-circle-outline"
                 size="large"
                 data-testid="reset"
               />
               <p>Clear All Rounds</p>
-            </Container>
+            </div>
           </Button>
         ) : (
           <></>
         )}
-      </Container>
-      <Container>
-        <Row>
-          {recentStats?.length ? (
-            recentStats.map((stat, index) => (
-              <Card
-                key={index}
-                style={{
-                  width: '18rem',
-                  margin: '1rem auto',
-                }}
-                className={index === 0 ? 'most-recent-stat' : ''}
-              >
-                <Card.Header>
-                  <p>{stat?.timeDateStamp}</p>
-                </Card.Header>
-                <ListGroup variant="flush">
-                  <ListGroup.Item>
-                    <span className="mode">{stat?.mode}</span>
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    <span>Duration:</span>
-                    <span className="duration">{stat?.duration}</span>
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    <span>WPM:</span>
-                    <span className="wpm">{stat?.wpm}</span>
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    <span>ACC:</span>
-                    <span className="acc">{stat?.acc}%</span>
-                  </ListGroup.Item>
-                  <ListGroup.Item>
-                    <span>Error Rate:</span>
-                    <span className="error-rate">{stat?.errorRate}%</span>
-                  </ListGroup.Item>
-                </ListGroup>
-              </Card>
-            ))
-          ) : (
-            <>
-              <p>Complete a Round</p>
-            </>
-          )}
-        </Row>
-      </Container>
+      </div>
+
+      <div className="statsContainer" style={{ marginLeft: '1rem' }}>
+        {recentStats?.length ? (
+          recentStats.map((stat, index) => (
+            <Card
+              key={index}
+              style={{
+                width: '18rem',
+                margin: '1rem 1rem auto auto',
+                float: 'left',
+              }}
+              className={index === 0 ? 'most-recent-stat' : ''}
+            >
+              <Card.Header>
+                <p>{stat?.timeDateStamp}</p>
+              </Card.Header>
+              <ListGroup variant="flush">
+                <ListGroup.Item>
+                  <span className="mode">{stat?.mode}</span>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <span>Duration:</span>
+                  <span className="duration">{stat?.duration}</span>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <span>WPM:</span>
+                  <span className="wpm">{stat?.wpm}</span>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <span>ACC:</span>
+                  <span className="acc">{stat?.acc}%</span>
+                </ListGroup.Item>
+                <ListGroup.Item>
+                  <span>Error Rate:</span>
+                  <span className="error-rate">{stat?.errorRate}%</span>
+                </ListGroup.Item>
+              </ListGroup>
+            </Card>
+          ))
+        ) : (
+          <>
+            <p>Complete a Round</p>
+          </>
+        )}
+      </div>
     </>
   );
 };

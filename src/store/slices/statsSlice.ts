@@ -69,6 +69,7 @@ export const StartTimeSlice = createSlice({
       const year = date.getFullYear();
 
       const currentStatsArr = state.recentStats;
+      // to place most recent stat first
       currentStatsArr.unshift({
         mode: action.payload,
         duration: state.duration,
