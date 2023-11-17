@@ -179,7 +179,6 @@ input {
 }
 
 .options {
-  display: flex;
-  justify-content: left;
-  font-size: 20px;
+  display: grid;
+  grid-template-columns: render(6, 1fr);
 }
