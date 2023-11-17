@@ -5,7 +5,8 @@ import {
     fakerWords,
     fakerAlphaNumeric,
     fakerNumbers,
-} from '../../services/faker';
+    phrases
+} from '../../services/text';
 
 export interface TextState {
     mode: TextMode;
@@ -19,21 +20,23 @@ export interface TextState {
 export enum TextMode {
     words = 'Words',
     numbers = 'Numbers',
-    sentences = 'Lorem Ipsum Sentences',
+    loremSentences = 'Lorem Ipsum Sentences',
     alphaNumeric = 'AlphaNumeric',
+    phrases = 'Phrases'
 }
 
 export const modes: Array<TextMode> = [
     TextMode.words,
     TextMode.numbers,
-    TextMode.sentences,
+    TextMode.loremSentences,
     TextMode.alphaNumeric,
+    TextMode.phrases
 ];
 
-const initialText = fakerWords(5);
+const initialText = phrases();
 
 const initialState: TextState = {
-    mode: TextMode.words,
+    mode: TextMode.phrases,
     text: initialText,
     incomingChars: initialText.substring(1),
     outgoingChars: '',
@@ -41,16 +44,22 @@ const initialState: TextState = {
     currentChar: initialText.charAt(0),
 };
 
+if (localStorage.getItem('modeOption') === null) {
+  localStorage.setItem('modeOption', JSON.stringify([]));
+}
+
 export const newTextByMode = (mode: TextMode): string => {
     let text = '';
     if (mode === TextMode.words) {
         text = fakerWords(5);
     } else if (mode === TextMode.numbers) {
         text = fakerNumbers(5);
-    } else if (mode === TextMode.sentences) {
+    } else if (mode === TextMode.loremSentences) {
         text = fakerText();
     } else if (mode === TextMode.alphaNumeric) {
         text = fakerAlphaNumeric(5);
+    } else if (mode === TextMode.phrases) {
+        text = phrases();
     }
     return text;
 };

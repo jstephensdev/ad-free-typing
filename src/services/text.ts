@@ -25,3 +25,12 @@ export const fakerAlphaNumeric = (x: number): string => {
     }
     return alphaNumericStrings.join(' ');
 };
+
+export const phrases = (): string => {
+    const phraseStrings: Array<string> = [];
+     for (let i = 0; i < 2; i++) {
+        phraseStrings.push(faker.hacker.phrase());
+    }
+  return phraseStrings.join(' ');
+};
+
