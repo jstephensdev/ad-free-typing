@@ -44,7 +44,7 @@
   color: black;
 }
 
-/* Stats & RecentStats */
+/* RecentStats & ProgressBar */
 
 .stats {
   font-weight: bold;
@@ -180,6 +180,6 @@ input {
 
 .options {
   display: flex;
-  flex-direction: column;
-  padding: 10px;
+  justify-content: left;
+  font-size: 20px;
 }

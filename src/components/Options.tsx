@@ -17,10 +17,11 @@ export const Options = (): JSX.Element => {
         return modes.map((modeOption: TextMode) => (
             <label htmlFor={modeOption} key={modeOption}>
                 <input
+                    style={{ margin: "20px",}}
                     key={modeOption}
                     data-testid={modeOption}
                     aria-label={modeOption}
-                    type="radio"
+                    type="checkbox"
                     checked={mode === modeOption}
                     onChange={() => radioOptionChange(modeOption)}
                 />
@@ -32,10 +33,8 @@ export const Options = (): JSX.Element => {
     return (
         <>
             <section>
-                <section className="text-section">
-                    <section className="options">
-                        {renderRadioOption(modes)}
-                    </section>
+                <section className="options">
+                    {renderRadioOption(modes)}
                 </section>
             </section>
         </>
