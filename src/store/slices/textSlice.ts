@@ -22,7 +22,8 @@ export enum TextMode {
     numbers = 'Numbers',
     loremSentences = 'Lorem Ipsum Sentences',
     alphaNumeric = 'AlphaNumeric',
-    phrases = 'Phrases'
+    phrases = 'Phrases',
+    easyPhrases = 'Easy Phrases'
 }
 
 export const modes: Array<TextMode> = [
@@ -30,11 +31,11 @@ export const modes: Array<TextMode> = [
     TextMode.numbers,
     TextMode.loremSentences,
     TextMode.alphaNumeric,
-    TextMode.phrases
+    TextMode.phrases,
+    TextMode.easyPhrases
 ];
 
 const initialText = phrases();
-
 const initialState: TextState = {
     mode: TextMode.phrases,
     text: initialText,
@@ -43,10 +44,6 @@ const initialState: TextState = {
     typedChars: '',
     currentChar: initialText.charAt(0),
 };
-
-if (localStorage.getItem('modeOption') === null) {
-  localStorage.setItem('modeOption', JSON.stringify([]));
-}
 
 export const newTextByMode = (mode: TextMode): string => {
     let text = '';
@@ -60,6 +57,8 @@ export const newTextByMode = (mode: TextMode): string => {
         text = fakerAlphaNumeric(5);
     } else if (mode === TextMode.phrases) {
         text = phrases();
+    } else if (mode === TextMode.easyPhrases) {
+        text = phrases("easy");
     }
     return text;
 };
