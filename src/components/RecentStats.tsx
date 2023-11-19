@@ -118,7 +118,9 @@ export const RecentStats = ({ recentStats }: Props): JSX.Element => {
               <Dropdown.Item onClick={() => filterBy.sortWpmHighToLow()}>WPM(Highest to lowest)</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-        </>) : ""}
+        </>) : (
+          <div>Complete a round</div>
+        )}
       </div>
       <div>
       
