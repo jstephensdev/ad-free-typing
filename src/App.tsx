@@ -9,6 +9,7 @@ export const App = () => {
     const pathname = useAppSelector((state) => state.routing.pathname);
 
     const recentStats = useAppSelector((state) => state.stats.recentStats);
+
     let component;
 
     if (pathname === '/') {
