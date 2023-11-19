@@ -7,7 +7,6 @@ import React from 'react';
 jest.mock('../../hooks/useKeyDetection', () => ({
   useKeyDetection: () => ({
     downHandler: jest.fn(),
-    upHandler: jest.fn(),
   }),
 }));
 

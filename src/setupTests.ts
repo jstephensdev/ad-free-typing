@@ -8,13 +8,17 @@ export const mockFakerText = jest.fn();
 export const mockFakerWords = jest.fn();
 export const mockFakerAlphaNumeric = jest.fn();
 export const mockFakerNumbers = jest.fn();
+export const mockFakerPhrases = jest.fn();
+export const mockFakerEasyPhrases = jest.fn();
 
-jest.mock('./services/faker', () => {
+jest.mock('./services/text', () => {
     return {
         fakerText: mockFakerText,
         fakerWords: mockFakerWords,
         fakerAlphaNumeric: mockFakerAlphaNumeric,
         fakerNumbers: mockFakerNumbers,
+        fakerPhrases: mockFakerPhrases,
+        fakerEasyPhrases: mockFakerEasyPhrases
     };
 });
 
@@ -22,6 +26,8 @@ mockFakerText.mockReturnValue('fakerText');
 mockFakerWords.mockReturnValue('fakerWords');
 mockFakerAlphaNumeric.mockReturnValue('fak3rAlphaNum3ric');
 mockFakerNumbers.mockReturnValue('1234 1234');
+mockFakerPhrases.mockReturnValue('Text, test!');
+mockFakerEasyPhrases.mockReturnValue('test test test');
 
 export const mockHref = jest.fn();
 export const mockPathname = jest.fn();

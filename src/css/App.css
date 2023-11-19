@@ -179,6 +179,6 @@ input {
 }
 
 .options {
-  display: grid;
-  grid-template-columns: render(6, 1fr);
+  display: flex;
+  justify-content: center;
 }

@@ -35,9 +35,9 @@ export const modes: Array<TextMode> = [
     TextMode.easyPhrases
 ];
 
-const initialText = phrases();
+const initialText = fakerWords(5);
 const initialState: TextState = {
-    mode: TextMode.phrases,
+    mode: TextMode.words,
     text: initialText,
     incomingChars: initialText.substring(1),
     outgoingChars: '',
