@@ -36,18 +36,6 @@ export const Header = (): JSX.Element => {
                         }
                     />
                     <IonIcon
-                        title="Options"
-                        className="ionIcon"
-                        name="options-outline"
-                        size="large"
-                        onClick={() =>
-                            pathname === '/options'
-                                ? dispatch(setUrl('/'))
-                                : dispatch(setUrl('/options'))
-                        }
-                        data-testid="options"
-                    />
-                    <IonIcon
                         title="New Round"
                         className="ionIcon"
                         name="arrow-back-circle-outline"

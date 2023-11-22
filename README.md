@@ -42,16 +42,13 @@ To avoid viewing ads at my favorite practice typing site https://www.keybr.com/,
 9. add date and time to rounds
 10. show or hide stats while typing
 11. docker file plus start guide
+12. can sort by lowest to highest or highest to lowest for accuracy and wpm
 
 ## Incomplete Features
 
-1. delete one stat round at a time
-2. options component display improvements
-3. more options, like non lorem ipsum sentences
-4. check localstorage size and allow for round storage up to the limit
+1. check localstorage size and allow for round storage up to the limit
    --> Browsers can store up to 5 MiB of local storage, and 5 MiB of session storage per origin. Once this limit is reached, browsers throw a QuotaExceededError exception. -https://developer.mozilla.org/en-US/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria#how_to_check_the_available_space
-5. db connection, either mysql or postgresql
-6. search ability
+2. db connection, either mysql or postgresql
 
 ## Bugs
 

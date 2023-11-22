@@ -30,8 +30,3 @@ test('renders start over outline icon', () => {
   const heading = screen.getByTestId('new-round');
   expect(heading).toBeInTheDocument();
 });
-
-test('renders options icon link', () => {
-  const heading = screen.getByTestId('options');
-  expect(heading).toBeInTheDocument();
-});
