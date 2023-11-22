@@ -174,11 +174,10 @@ the current stats are closed todo: find better way to do this  */
 
 /* radio option size */
 input {
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
 }
 
-.options {
-  display: flex;
-  justify-content: center;
+input[type="radio"] {
+  vertical-align: baseline;
 }
