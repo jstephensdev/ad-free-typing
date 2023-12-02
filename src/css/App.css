@@ -174,10 +174,10 @@ the current stats are closed todo: find better way to do this  */
 
 /* radio option size */
 input {
-  width: 20px;
-  height: 20px;
+  width: 16px;
+  height: 16px;
 }
 
-input[type="radio"] {
+input[type='radio'] {
   vertical-align: baseline;
 }

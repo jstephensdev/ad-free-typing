@@ -3,7 +3,7 @@ import { useAppDispatch, useAppSelector } from '../hooks/useReduxHooks';
 import {
   RecentStat,
   removeAllStats,
-  resetStats
+  resetStats,
 } from '../store/slices/statsSlice';
 import { Button, ListGroup, Card, Dropdown } from 'react-bootstrap';
 import { setText, TextMode } from '../store/slices/textSlice';
@@ -17,7 +17,10 @@ interface Props {
 export const RecentStats = ({ recentStats }: Props): JSX.Element => {
   const dispatch = useAppDispatch();
   const mode: TextMode = useAppSelector((state) => state.text.mode);
-  const [filteredRecentStats, setFilteredRecentStats ] = useState<RecentStat[]>([]);
+  const [filteredRecentStats, setFilteredRecentStats] = useState<RecentStat[]>(
+    []
+  );
+  const [activeItem, setActiveItem] = useState('');
 
   const updateText = () => {
     dispatch(resetStats());
@@ -26,58 +29,79 @@ export const RecentStats = ({ recentStats }: Props): JSX.Element => {
   };
 
   const filterBy = {
-      sortAccLowToHigh: () => {
-        setFilteredRecentStats([...recentStats].sort((a: RecentStat, b: RecentStat) => Number(a.acc) - Number(b.acc)));
-      },
-      sortAccHighToLow: () => {
-        setFilteredRecentStats([...recentStats].sort((a: RecentStat, b: RecentStat) => Number(b.acc) - Number(a.acc)));
-      },
-      sortWpmLowToHigh: () => {
-        setFilteredRecentStats([...recentStats].sort((a: RecentStat, b: RecentStat) => Number(a.wpm) - Number(b.wpm)));
-      },
-      sortWpmHighToLow: () => {
-        setFilteredRecentStats([...recentStats].sort((a: RecentStat, b: RecentStat) => Number(b.wpm) - Number(a.wpm)));
-      }
-  }
+    sortAccLowToHigh: () => {
+      setFilteredRecentStats(
+        [...recentStats].sort(
+          (a: RecentStat, b: RecentStat) => Number(a.acc) - Number(b.acc)
+        )
+      );
+      setActiveItem('AccLowToHigh');
+    },
+    sortAccHighToLow: () => {
+      setFilteredRecentStats(
+        [...recentStats].sort(
+          (a: RecentStat, b: RecentStat) => Number(b.acc) - Number(a.acc)
+        )
+      );
+      setActiveItem('AccHighToLow');
+    },
+    sortWpmLowToHigh: () => {
+      setFilteredRecentStats(
+        [...recentStats].sort(
+          (a: RecentStat, b: RecentStat) => Number(a.wpm) - Number(b.wpm)
+        )
+      );
+      setActiveItem('WpmLowToHigh');
+    },
+    sortWpmHighToLow: () => {
+      setFilteredRecentStats(
+        [...recentStats].sort(
+          (a: RecentStat, b: RecentStat) => Number(b.wpm) - Number(a.wpm)
+        )
+      );
+      setActiveItem('WpmHighToLow');
+    },
+  };
 
   const renderStats = (arr: RecentStat[]) => {
     return arr.map((stat, index) => (
-            <Card
-              key={index}
-              style={{
-                width: '18rem',
-                margin: '1rem 1rem auto auto',
-                float: 'left',
-              }}
-              className={index === 0 ? 'most-recent-stat' : ''}
-            >
-              <Card.Header>
-                <p>{stat?.timeDateStamp}</p>
-              </Card.Header>
-              <ListGroup variant="flush">
-                <ListGroup.Item>
-                  <span className="mode">{stat?.mode}</span>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <span>Duration:</span>
-                  <span className="duration">{stat?.duration}</span>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <span>WPM:</span>
-                  <span className="wpm">{stat?.wpm}</span>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <span>ACC:</span>
-                  <span className="acc">{stat?.acc}%</span>
-                </ListGroup.Item>
-                <ListGroup.Item>
-                  <span>Error Rate:</span>
-                  <span className="error-rate">{stat?.errorRate}%</span>
-                </ListGroup.Item>
-              </ListGroup>
-            </Card>
-          ))
-  }
+      <Card
+        key={index}
+        style={{
+          width: '18rem',
+          margin: '1rem 1rem auto auto',
+          float: 'left',
+        }}
+        className={index === 0 ? 'most-recent-stat' : ''}
+      >
+        <Card.Header>
+          <p>{stat?.timeDateStamp}</p>
+        </Card.Header>
+        <ListGroup variant="flush">
+          <ListGroup.Item>
+            <span>Option: </span>
+            <span className="mode">{stat?.mode}</span>
+          </ListGroup.Item>
+          <ListGroup.Item>
+            <span>Duration: </span>
+            <span className="duration">{stat?.duration}</span>
+          </ListGroup.Item>
+          <ListGroup.Item>
+            <span>WPM: </span>
+            <span className="wpm">{stat?.wpm}</span>
+          </ListGroup.Item>
+          <ListGroup.Item>
+            <span>ACC: </span>
+            <span className="acc">{stat?.acc}%</span>
+          </ListGroup.Item>
+          <ListGroup.Item>
+            <span>Error Rate: </span>
+            <span className="error-rate">{stat?.errorRate}%</span>
+          </ListGroup.Item>
+        </ListGroup>
+      </Card>
+    ));
+  };
 
   return (
     <>
@@ -95,39 +119,68 @@ export const RecentStats = ({ recentStats }: Props): JSX.Element => {
         </Button>
         {recentStats?.length ? (
           <>
-          <Button variant="dropdown" onClick={() => { if(window.confirm("Clear all Stats")) {
-            dispatch(removeAllStats())
-          }}}>
-            <div className="clear">
-              <IonIcon
-                name="close-circle-outline"
-                size="large"
-                data-testid="reset"
-              />
-              <p>Clear All Rounds</p>
-            </div>
-          </Button>
-           <Dropdown>
-            <Dropdown.Toggle variant="secondary" id="dropdown-basic" style={{margin: '20px'}}>
-              Sort By
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-              <Dropdown.Item onClick={() => filterBy.sortAccLowToHigh()}>Accurracy (Lowest to Hightest)</Dropdown.Item>
-              <Dropdown.Item onClick={() => filterBy.sortAccHighToLow()}>Accurracy(Highest to lowest)</Dropdown.Item>
-              <Dropdown.Item onClick={() => filterBy.sortWpmLowToHigh()}>WPM(Lowest to Highest)</Dropdown.Item>
-              <Dropdown.Item onClick={() => filterBy.sortWpmHighToLow()}>WPM(Highest to lowest)</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-        </>) : (
+            <Button
+              variant="dropdown"
+              onClick={() => {
+                if (window.confirm('Clear all Stats')) {
+                  dispatch(removeAllStats());
+                }
+              }}
+            >
+              <div className="clear">
+                <IonIcon
+                  name="close-circle-outline"
+                  size="large"
+                  data-testid="reset"
+                />
+                <p>Clear All Rounds</p>
+              </div>
+            </Button>
+            <Dropdown>
+              <Dropdown.Toggle
+                variant="secondary"
+                id="dropdown-basic"
+                style={{ margin: '20px' }}
+              >
+                Sort By
+              </Dropdown.Toggle>
+              <Dropdown.Menu>
+                <Dropdown.Item
+                  onClick={() => filterBy.sortAccLowToHigh()}
+                  className={activeItem === 'AccLowToHigh' ? 'active' : ''}
+                >
+                  Accurracy (Lowest to Hightest)
+                </Dropdown.Item>
+                <Dropdown.Item
+                  onClick={() => filterBy.sortAccHighToLow()}
+                  className={activeItem === 'AccHighToLow' ? 'active' : ''}
+                >
+                  Accurracy(Highest to lowest)
+                </Dropdown.Item>
+                <Dropdown.Item
+                  onClick={() => filterBy.sortWpmLowToHigh()}
+                  className={activeItem === 'WpmLowToHigh' ? 'active' : ''}
+                >
+                  WPM(Lowest to Highest)
+                </Dropdown.Item>
+                <Dropdown.Item
+                  onClick={() => filterBy.sortWpmHighToLow()}
+                  className={activeItem === 'WpmHighToLow' ? 'active' : ''}
+                >
+                  WPM(Highest to lowest)
+                </Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+          </>
+        ) : (
           <div>Complete a round</div>
         )}
       </div>
-      <div>
-      
-       </div>
+      <div></div>
       <div className="statsContainer" style={{ marginLeft: '1rem' }}>
-       
-        {filteredRecentStats?.length ? renderStats(filteredRecentStats) : renderStats(recentStats)}
+        {filteredRecentStats?.length
+          ? renderStats(filteredRecentStats)
+          : renderStats(recentStats)}
       </div>
     </>
   );

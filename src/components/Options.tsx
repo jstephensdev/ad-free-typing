@@ -16,16 +16,18 @@ export const Options = (): JSX.Element => {
   const renderRadioOption = (modes: TextMode[]): JSX.Element[] => {
     return modes.map((modeOption: TextMode) => (
       <label htmlFor={modeOption} key={modeOption}>
-        <input
-          style={{ margin: '15px'}}
-          key={modeOption}
-          data-testid={modeOption}
-          aria-label={modeOption}
-          type="radio"
-          checked={mode === modeOption}
-          onChange={() => radioOptionChange(modeOption)}
-        />
-        {modeOption}
+        <div style={{ display: 'flex', alignItems: 'center', padding: '5px' }}>
+          <input
+            style={{ margin: '10px' }}
+            key={modeOption}
+            data-testid={modeOption}
+            aria-label={modeOption}
+            type="checkbox"
+            checked={mode === modeOption}
+            onChange={() => radioOptionChange(modeOption)}
+          />
+          <span>{modeOption}</span>
+        </div>
       </label>
     ));
   };
