@@ -8,7 +8,7 @@ import {
 import { Button, ListGroup, Card, Dropdown } from 'react-bootstrap';
 import { setText, TextMode } from '../store/slices/textSlice';
 import { setUrl } from '../store/slices/routingSlice';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 interface Props {
   recentStats: RecentStat[];
@@ -17,10 +17,21 @@ interface Props {
 export const RecentStats = ({ recentStats }: Props): JSX.Element => {
   const dispatch = useAppDispatch();
   const mode: TextMode = useAppSelector((state) => state.text.mode);
-  const [filteredRecentStats, setFilteredRecentStats] = useState<RecentStat[]>(
-    []
-  );
+  const [stats, setStats] = useState<RecentStat[]>([]);
+  useEffect(() => {
+    setStats(recentStats);
+  }, [recentStats]);
   const [activeItem, setActiveItem] = useState('');
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const itemsPerPage = 6;
+  const startIndex = (currentPage - 1) * itemsPerPage;
+  const endIndex = startIndex + itemsPerPage;
+  const currentItems = stats.slice(startIndex, endIndex);
+  const totalPages = Math.ceil(stats.length / itemsPerPage);
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+  };
 
   const updateText = () => {
     dispatch(resetStats());
@@ -30,7 +41,7 @@ export const RecentStats = ({ recentStats }: Props): JSX.Element => {
 
   const filterBy = {
     sortAccLowToHigh: () => {
-      setFilteredRecentStats(
+      setStats(
         [...recentStats].sort(
           (a: RecentStat, b: RecentStat) => Number(a.acc) - Number(b.acc)
         )
@@ -38,7 +49,7 @@ export const RecentStats = ({ recentStats }: Props): JSX.Element => {
       setActiveItem('AccLowToHigh');
     },
     sortAccHighToLow: () => {
-      setFilteredRecentStats(
+      setStats(
         [...recentStats].sort(
           (a: RecentStat, b: RecentStat) => Number(b.acc) - Number(a.acc)
         )
@@ -46,7 +57,7 @@ export const RecentStats = ({ recentStats }: Props): JSX.Element => {
       setActiveItem('AccHighToLow');
     },
     sortWpmLowToHigh: () => {
-      setFilteredRecentStats(
+      setStats(
         [...recentStats].sort(
           (a: RecentStat, b: RecentStat) => Number(a.wpm) - Number(b.wpm)
         )
@@ -54,17 +65,21 @@ export const RecentStats = ({ recentStats }: Props): JSX.Element => {
       setActiveItem('WpmLowToHigh');
     },
     sortWpmHighToLow: () => {
-      setFilteredRecentStats(
+      setStats(
         [...recentStats].sort(
           (a: RecentStat, b: RecentStat) => Number(b.wpm) - Number(a.wpm)
         )
       );
       setActiveItem('WpmHighToLow');
     },
+    sortDefault: () => {
+      setStats(recentStats);
+      setActiveItem('default');
+    },
   };
 
-  const renderStats = (arr: RecentStat[]) => {
-    return arr.map((stat, index) => (
+  const renderStats = () => {
+    return currentItems.map((stat, index) => (
       <Card
         key={index}
         style={{
@@ -117,10 +132,10 @@ export const RecentStats = ({ recentStats }: Props): JSX.Element => {
             <p>New Round</p>
           </div>
         </Button>
-        {recentStats?.length ? (
+        {stats?.length ? (
           <>
             <Button
-              variant="dropdown"
+              variant="flush"
               onClick={() => {
                 if (window.confirm('Clear all Stats')) {
                   dispatch(removeAllStats());
@@ -145,6 +160,12 @@ export const RecentStats = ({ recentStats }: Props): JSX.Element => {
                 Sort By
               </Dropdown.Toggle>
               <Dropdown.Menu>
+                <Dropdown.Item
+                  onClick={() => filterBy.sortDefault()}
+                  className={activeItem === 'default' ? 'active' : ''}
+                >
+                  Recent to Least Recent
+                </Dropdown.Item>
                 <Dropdown.Item
                   onClick={() => filterBy.sortAccLowToHigh()}
                   className={activeItem === 'AccLowToHigh' ? 'active' : ''}
@@ -176,11 +197,26 @@ export const RecentStats = ({ recentStats }: Props): JSX.Element => {
           <div>Complete a round</div>
         )}
       </div>
-      <div></div>
       <div className="statsContainer" style={{ marginLeft: '1rem' }}>
-        {filteredRecentStats?.length
-          ? renderStats(filteredRecentStats)
-          : renderStats(recentStats)}
+        {renderStats()}
+      </div>
+      <div style={{ marginBottom: '35px', marginTop: '10px' }}>
+        <span style={{ marginRight: '10px' }}>
+          Page {currentPage} of {totalPages}
+        </span>
+        <button
+          style={{ marginRight: '10px' }}
+          onClick={() => handlePageChange(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          Previous
+        </button>
+        <button
+          onClick={() => handlePageChange(currentPage + 1)}
+          disabled={currentPage === totalPages}
+        >
+          Next
+        </button>
       </div>
     </>
   );

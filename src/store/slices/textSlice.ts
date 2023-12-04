@@ -21,7 +21,7 @@ export enum TextMode {
     words = 'Words',
     numbers = 'Numbers',
     loremSentences = 'Lorem Ipsum Sentences',
-    alphaNumeric = 'AlphaNumeric',
+    alphaNumeric = 'Alphanumeric',
     phrases = 'Phrases',
     easyPhrases = 'Easy Phrases'
 }

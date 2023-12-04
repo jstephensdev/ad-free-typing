@@ -22,7 +22,7 @@ test('renders options', () => {
   const words = screen.getByText(/Words/i);
   const numbers = screen.getByText(/Numbers/i);
   const sentences = screen.getByText(/Lorem Ipsum Sentences/i);
-  const alphaNumeric = screen.getByText(/AlphaNumeric/i);
+  const alphaNumeric = screen.getByText(/Alphanumeric/i);
   expect(words).toBeInTheDocument();
   expect(numbers).toBeInTheDocument();
   expect(sentences).toBeInTheDocument();
