@@ -21,9 +21,9 @@ export const RecentStats = ({ recentStats }: Props): JSX.Element => {
   useEffect(() => {
     setStats(recentStats);
   }, [recentStats]);
-  const [activeItem, setActiveItem] = useState('');
+  const [activeItem, setActiveItem] = useState('default');
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const itemsPerPage = 6;
+  const itemsPerPage = 9;
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentItems = stats.slice(startIndex, endIndex);
@@ -87,7 +87,7 @@ export const RecentStats = ({ recentStats }: Props): JSX.Element => {
           margin: '1rem 1rem auto auto',
           float: 'left',
         }}
-        className={index === 0 ? 'most-recent-stat' : ''}
+        className={index === 0 && currentPage === 1 ? 'most-recent-stat' : ''}
       >
         <Card.Header>
           <p>{stat?.timeDateStamp}</p>
@@ -120,8 +120,8 @@ export const RecentStats = ({ recentStats }: Props): JSX.Element => {
 
   return (
     <>
-      <div className="statsContainer">
-        <Button variant="flush" onClick={() => updateText()}>
+      <div className="statFunctions">
+      <Button  variant="flush" onClick={() => updateText()}>
           <div className="ionIcon">
             <IonIcon
               title="New Round"
@@ -134,23 +134,6 @@ export const RecentStats = ({ recentStats }: Props): JSX.Element => {
         </Button>
         {stats?.length ? (
           <>
-            <Button
-              variant="flush"
-              onClick={() => {
-                if (window.confirm('Clear all Stats')) {
-                  dispatch(removeAllStats());
-                }
-              }}
-            >
-              <div className="clear">
-                <IonIcon
-                  name="close-circle-outline"
-                  size="large"
-                  data-testid="reset"
-                />
-                <p>Clear All Rounds</p>
-              </div>
-            </Button>
             <Dropdown>
               <Dropdown.Toggle
                 variant="secondary"
@@ -192,15 +175,32 @@ export const RecentStats = ({ recentStats }: Props): JSX.Element => {
                 </Dropdown.Item>
               </Dropdown.Menu>
             </Dropdown>
+            <Button
+              variant="flush"
+              onClick={() => {
+                if (window.confirm('Clear all Stats')) {
+                  dispatch(removeAllStats());
+                }
+              }}
+            >
+              <div className="clear">
+                <IonIcon
+                  name="close-circle-outline"
+                  size="large"
+                  data-testid="reset"
+                />
+                <p>Clear All Rounds</p>
+              </div>
+            </Button>
           </>
         ) : (
-          <div>Complete a round</div>
+          ''
         )}
       </div>
-      <div className="statsContainer" style={{ marginLeft: '1rem' }}>
-        {renderStats()}
+      <div className="statsContainer">
+        {stats?.length ? renderStats() : <div>Complete a round</div>}
       </div>
-      <div style={{ marginBottom: '35px', marginTop: '10px' }}>
+      <div className="statsContainer">
         <span style={{ marginRight: '10px' }}>
           Page {currentPage} of {totalPages}
         </span>
