@@ -16,6 +16,10 @@ export const useKeyDetection = (callback: (key: string) => void): string => {
 
   useEffect(() => {
     const downHandler = (e: KeyboardEvent): void => {
+      // disabling space scroll
+      if (e.key === ' '){
+        e.preventDefault();
+      }
       if (
         keyPress !== e.key ||
         e.key.length === 1 ||

@@ -77,10 +77,7 @@ export const Keyboard = (): JSX.Element => {
         )
       );
     }
-    // outgoingChars.length - 1 so that the space keypress before
-    // starting word does NOT cause the screen to scroll when routing
-    // to RecentStats
-    if (text.length === outgoingChars.length - 1) {
+    if (text.length === outgoingChars.length) {
       dispatch(setRecentStat(mode));
       dispatch(setUrl('/recentStats'));
       dispatch(resetStats());
