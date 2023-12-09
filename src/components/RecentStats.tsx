@@ -23,6 +23,7 @@ export const RecentStats = ({ recentStats }: Props): JSX.Element => {
   }, [recentStats]);
   const [activeItem, setActiveItem] = useState('default');
   const [currentPage, setCurrentPage] = useState<number>(1);
+  // const [itemsPerPage, setItemsPerPage ] = useState<number>(9);
   const itemsPerPage = 9;
   const startIndex = (currentPage - 1) * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
@@ -121,7 +122,7 @@ export const RecentStats = ({ recentStats }: Props): JSX.Element => {
   return (
     <>
       <div className="statFunctions">
-      <Button  variant="flush" onClick={() => updateText()}>
+        <Button variant="flush" onClick={() => updateText()}>
           <div className="ionIcon">
             <IonIcon
               title="New Round"
@@ -200,24 +201,34 @@ export const RecentStats = ({ recentStats }: Props): JSX.Element => {
       <div className="statsContainer">
         {stats?.length ? renderStats() : <div>Complete a round</div>}
       </div>
-      <div className="statsContainer">
-        <span style={{ marginRight: '10px' }}>
-          Page {currentPage} of {totalPages}
-        </span>
-        <button
-          style={{ marginRight: '10px' }}
-          onClick={() => handlePageChange(currentPage - 1)}
-          disabled={currentPage === 1}
-        >
-          Previous
-        </button>
-        <button
-          onClick={() => handlePageChange(currentPage + 1)}
-          disabled={currentPage === totalPages}
-        >
-          Next
-        </button>
-      </div>
+      {stats?.length ? (
+        <div className="pagination">
+          {/* <span>
+            <select>
+              <option value="9">9 per page</option>
+              <option value="18">18 per page</option>
+            </select>
+          </span> */}
+          <span style={{ marginRight: '10px' }}>
+            Page {currentPage} of {totalPages}
+          </span>
+          <button
+            style={{ marginRight: '10px' }}
+            onClick={() => handlePageChange(currentPage - 1)}
+            disabled={currentPage === 1}
+          >
+            Previous
+          </button>
+          <button
+            onClick={() => handlePageChange(currentPage + 1)}
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
+        </div>
+      ) : (
+        ''
+      )}
     </>
   );
 };

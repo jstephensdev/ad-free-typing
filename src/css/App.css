@@ -46,6 +46,11 @@
 
 /* RecentStats & ProgressBar */
 
+.pagination {
+  margin-bottom: 30px;
+  margin-top: 10px;
+}
+
 .stats {
   font-weight: bold;
   font-size: 20px;
