@@ -1,6 +1,6 @@
 # Ad Free Typing
 
-To avoid viewing ads at my favorite practice typing site https://www.keybr.com/, I created this ad free practice typing site https://adfreetyping.netlify.app/. It is a work in progress with a list of features completed, and features I am working on or plan to add below. Also, a known bugs list
+This, https://adfreetyping.netlify.app/, is a typing practice app based on my favorite practice typing site https://www.keybr.com/.
 
 ## Technology Used
 
@@ -9,17 +9,17 @@ To avoid viewing ads at my favorite practice typing site https://www.keybr.com/,
    2. npx create-react-app my-app --template typescript
 2. Redux with Redux-ToolKit
 3. Faker for text generation
-4. IonIcons for icons in header
-5. React Bootstrap for progress bar
+4. IonIcons for icons
+5. React Bootstrap for progress bar and dropdown
 6. localstorage
 
-## Local Startup Guide
+## Running Locally
 
 1. fork project
 2. npm i
 3. npm start
 
-## Docker Startup Guide
+### Docker Startup Guide
 
 1. docker build . --no-cache -t adfreetyping
 2. docker run --rm -p 3000:3000 adfreetyping
@@ -35,26 +35,24 @@ To avoid viewing ads at my favorite practice typing site https://www.keybr.com/,
 2. Duraction, wpm, acc, and error rate calculated and displaying
 3. New Round icon button resets stats and gets new text for whichever mode is set
 4. Text generation with faker
-5. 4 differet text modes
+5. 6 differet text modes
 6. Store and limit to 12 stats in localstorage
 7. Clear all stats in localstorage
 8. client side routing with redux
 9. add date and time to rounds
 10. show or hide stats while typing
 11. docker file plus start guide
-12. can sort by lowest to highest or highest to lowest for accuracy and wpm
+12. can sort by lowest to highest or highest to lowest for accuracy and wpm, and most recent to least recent
 
 ## Incomplete Features
 
-1. check localstorage size and allow for round storage up to the limit
-   --> Browsers can store up to 5 MiB of local storage, and 5 MiB of session storage per origin. Once this limit is reached, browsers throw a QuotaExceededError exception. -https://developer.mozilla.org/en-US/docs/Web/API/Storage_API/Storage_quotas_and_eviction_criteria#how_to_check_the_available_space
-2. db connection, either mysql or postgresql
+1. db connection, either mysql or postgresql
 
 ## Bugs
 
 1. timer takes a second to catch up, after it is hidden
 
-## Helpful Resources
+## Resources
 
 1. key press detection hook
 

@@ -35,16 +35,6 @@ export const modes: Array<TextMode> = [
     TextMode.easyPhrases
 ];
 
-const initialText = fakerWords(5);
-const initialState: TextState = {
-    mode: TextMode.words,
-    text: initialText,
-    incomingChars: initialText.substring(1),
-    outgoingChars: '',
-    typedChars: '',
-    currentChar: initialText.charAt(0),
-};
-
 export const newTextByMode = (mode: TextMode): string => {
     let text = '';
     if (mode === TextMode.words) {
@@ -63,12 +53,24 @@ export const newTextByMode = (mode: TextMode): string => {
     return text;
 };
 
+const initialText = newTextByMode(localStorage.getItem('textOption') as TextMode ?? TextMode.words);
+
+const initialState: TextState = {
+    mode: localStorage.getItem('textOption') as TextMode ?? TextMode.words,
+    text: initialText,
+    incomingChars: initialText.substring(1),
+    outgoingChars: '',
+    typedChars: '',
+    currentChar: initialText.charAt(0),
+};
+
 export const TextSlice = createSlice({
     name: 'text',
     initialState,
     reducers: {
         setText: (state, action: PayloadAction<TextMode>) => {
             const textToSet = newTextByMode(action.payload);
+            localStorage.setItem('textOption', action.payload);
             state.mode = action.payload;
             state.text = textToSet;
             state.incomingChars = textToSet.substring(1);

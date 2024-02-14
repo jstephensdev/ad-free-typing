@@ -13,7 +13,7 @@ export const Options = (): JSX.Element => {
     dispatch(setUrl('/'));
   };
 
-  const renderRadioOption = (modes: TextMode[]): JSX.Element[] => {
+  const renderRadioOptions = (modes: TextMode[]): JSX.Element[] => {
     return modes.map((modeOption: TextMode) => (
       <label htmlFor={modeOption} key={modeOption}>
         <div style={{ display: 'flex', alignItems: 'center', padding: '5px' }}>
@@ -33,10 +33,8 @@ export const Options = (): JSX.Element => {
   };
 
   return (
-    <>
-      <section>
-        <section>{renderRadioOption(modes)}</section>
-      </section>
-    </>
+    <section>
+      <section>{renderRadioOptions(modes)}</section>
+    </section>
   );
 };
