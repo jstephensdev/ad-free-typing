@@ -8,7 +8,7 @@ const specialKeys: string[] = [
   'Alt',
   'Tab',
   'Backspace',
-  'Enter',
+  'Enter'
 ];
 
 export const useKeyDetection = (callback: (key: string) => void): string => {
@@ -17,14 +17,10 @@ export const useKeyDetection = (callback: (key: string) => void): string => {
   useEffect(() => {
     const downHandler = (e: KeyboardEvent): void => {
       // disabling space scroll
-      if (e.key === ' '){
+      if (e.key === ' ') {
         e.preventDefault();
       }
-      if (
-        keyPress !== e.key ||
-        e.key.length === 1 ||
-        specialKeys.includes(e.key)
-      ) {
+      if (keyPress !== e.key || e.key.length === 1 || specialKeys.includes(e.key)) {
         setKeyPress(e.key);
         callback && callback(e.key);
       }

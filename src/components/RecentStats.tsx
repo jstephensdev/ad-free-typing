@@ -1,10 +1,6 @@
 import IonIcon from '@reacticons/ionicons';
 import { useAppDispatch, useAppSelector } from '../hooks/useReduxHooks';
-import {
-  RecentStat,
-  removeAllStats,
-  resetStats,
-} from '../store/slices/statsSlice';
+import { RecentStat, removeAllStats, resetStats } from '../store/slices/statsSlice';
 import { Button, ListGroup, Card, Dropdown } from 'react-bootstrap';
 import { setText, TextMode } from '../store/slices/textSlice';
 import { setUrl } from '../store/slices/routingSlice';
@@ -42,40 +38,32 @@ export const RecentStats = ({ recentStats }: Props): JSX.Element => {
   const filterBy = {
     sortAccLowToHigh: () => {
       setStats(
-        [...recentStats].sort(
-          (a: RecentStat, b: RecentStat) => Number(a.acc) - Number(b.acc)
-        )
+        [...recentStats].sort((a: RecentStat, b: RecentStat) => Number(a.acc) - Number(b.acc))
       );
       setActiveItem('AccLowToHigh');
     },
     sortAccHighToLow: () => {
       setStats(
-        [...recentStats].sort(
-          (a: RecentStat, b: RecentStat) => Number(b.acc) - Number(a.acc)
-        )
+        [...recentStats].sort((a: RecentStat, b: RecentStat) => Number(b.acc) - Number(a.acc))
       );
       setActiveItem('AccHighToLow');
     },
     sortWpmLowToHigh: () => {
       setStats(
-        [...recentStats].sort(
-          (a: RecentStat, b: RecentStat) => Number(a.wpm) - Number(b.wpm)
-        )
+        [...recentStats].sort((a: RecentStat, b: RecentStat) => Number(a.wpm) - Number(b.wpm))
       );
       setActiveItem('WpmLowToHigh');
     },
     sortWpmHighToLow: () => {
       setStats(
-        [...recentStats].sort(
-          (a: RecentStat, b: RecentStat) => Number(b.wpm) - Number(a.wpm)
-        )
+        [...recentStats].sort((a: RecentStat, b: RecentStat) => Number(b.wpm) - Number(a.wpm))
       );
       setActiveItem('WpmHighToLow');
     },
     sortDefault: () => {
       setStats(recentStats);
       setActiveItem('default');
-    },
+    }
   };
 
   const renderStats = () => {
@@ -85,7 +73,7 @@ export const RecentStats = ({ recentStats }: Props): JSX.Element => {
         style={{
           width: '18rem',
           margin: '1rem 1rem auto auto',
-          float: 'left',
+          float: 'left'
         }}
         className={index === 0 && currentPage === 1 ? 'most-recent-stat' : ''}
       >
@@ -132,14 +120,10 @@ export const RecentStats = ({ recentStats }: Props): JSX.Element => {
             <p>New Round</p>
           </div>
         </Button>
-        {stats?.length  > 1 ? (
+        {stats?.length > 1 ? (
           <>
             <Dropdown>
-              <Dropdown.Toggle
-                variant="secondary"
-                id="dropdown-basic"
-                style={{ margin: '20px' }}
-              >
+              <Dropdown.Toggle variant="secondary" id="dropdown-basic" style={{ margin: '20px' }}>
                 Sort By
               </Dropdown.Toggle>
               <Dropdown.Menu>
@@ -184,11 +168,7 @@ export const RecentStats = ({ recentStats }: Props): JSX.Element => {
               }}
             >
               <div className="clear">
-                <IonIcon
-                  name="close-circle-outline"
-                  size="large"
-                  data-testid="reset"
-                />
+                <IonIcon name="close-circle-outline" size="large" data-testid="reset" />
                 <p>Clear All Rounds</p>
               </div>
             </Button>

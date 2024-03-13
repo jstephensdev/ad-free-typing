@@ -32,17 +32,15 @@ This, https://adfreetyping.netlify.app/, is a typing practice app based on my fa
 ## Completed Features
 
 1. Keyboard plus keys light up when key pressed matches keyboard key
-2. Duraction, wpm, acc, and error rate calculated and displaying
-3. New Round icon button resets stats and gets new text for whichever mode is set
-4. Text generation with faker
-5. 6 differet text modes
-6. Store and limit to 12 stats in localstorage
-7. Clear all stats in localstorage
-8. client side routing with redux
-9. add date and time to rounds
-10. show or hide stats while typing
-11. docker file plus start guide
-12. can sort by lowest to highest or highest to lowest for accuracy and wpm, and most recent to least recent
+2. Calculating and displaying duraction, wpm, acc, and error rate
+3. Text generation with faker
+4. 6 differet text modes
+5. Store stats in localstorage
+6. Clear all stats in localstorage
+7. client side routing with redux
+8. add date and time to rounds
+9.  docker file plus start guide
+10. ability to sort stats
 
 ## Incomplete Features
 

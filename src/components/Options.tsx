@@ -2,6 +2,7 @@ import { useAppDispatch, useAppSelector } from '../hooks/useReduxHooks';
 import { resetStats } from '../store/slices/statsSlice';
 import { setText, TextMode, modes } from '../store/slices/textSlice';
 import { setUrl } from '../store/slices/routingSlice';
+import { Dropdown } from 'react-bootstrap';
 
 export const Options = (): JSX.Element => {
   const dispatch = useAppDispatch();
@@ -15,26 +16,20 @@ export const Options = (): JSX.Element => {
 
   const renderRadioOptions = (modes: TextMode[]): JSX.Element[] => {
     return modes.map((modeOption: TextMode) => (
-      <label htmlFor={modeOption} key={modeOption}>
-        <div style={{ display: 'flex', alignItems: 'center', padding: '5px' }}>
-          <input
-            style={{ margin: '10px' }}
-            key={modeOption}
-            data-testid={modeOption}
-            aria-label={modeOption}
-            type="checkbox"
-            checked={mode === modeOption}
-            onChange={() => radioOptionChange(modeOption)}
-          />
-          <span>{modeOption}</span>
-        </div>
-      </label>
+      <Dropdown.Item key={modeOption} onClick={() => radioOptionChange(modeOption)}>
+        {modeOption}
+      </Dropdown.Item>
     ));
   };
 
   return (
-    <section>
-      <section>{renderRadioOptions(modes)}</section>
-    </section>
+   <div style={{border: '1px solid black', borderRadius: '25px'}}>
+     <Dropdown role="menuitemcheckbox">
+      <Dropdown.Toggle variant="none" id="dropdown-basic" style={{ border: '0px' }}>
+        {mode}
+      </Dropdown.Toggle>
+      <Dropdown.Menu>{renderRadioOptions(modes)}</Dropdown.Menu>
+    </Dropdown>
+   </div>
   );
 };
